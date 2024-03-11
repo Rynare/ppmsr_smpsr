@@ -7,25 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="" type="image/x-icon">
     <title>{{ $pageTitle }}</title>
-    @include('components.styleAndScript.htmlStart')
-    @yield('html-head-bottom')
+    <style>
+        :root {
+            ---root-color-red: #760712;
+            ---root-color-brown: #e0cc8d;
+        }
+    </style>
+    @yield('html-start')
 </head>
 
-<body class="">
-    <header>
-        @include('components.header.header')
-    </header>
-    <main class="">
-        <aside class="">
-            @yield('aside-left')
-        </aside>
-        <div id="content" class="">
-            @yield('content')
-        </div>
-    </main>
-    <footer></footer>
-    @include('components.styleAndScript.htmlEnd')
-    @yield('html-body-bottom')
+<body>
+    @yield('custom')
+    @yield('header')
+    @yield('content')
+    @yield('footer')
+    @yield('html-end')
 </body>
 
 </html>

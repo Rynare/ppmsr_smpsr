@@ -18,10 +18,7 @@ class AuthController extends Controller
     public function signin()
     {
         return view('pages.auth.signin.signin')->with([
-            'pageTitle' => 'Masuk',
-            'htmlStart' => [
-                'swal' => true
-            ]
+            'pageTitle' => 'Masuk'
         ]);
     }
 

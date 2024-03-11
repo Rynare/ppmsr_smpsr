@@ -9,8 +9,8 @@ class SantriController extends Controller
 {
     public function create()
     {
-        return view('pages.users.daftar.daftar')->with('htmlStart', [
-            'bs-icons' => true
+        return view('pages.users.daftar.daftar')->with([
+            'pageTitle' => 'Form Pendaftaran'
         ]);
     }
 

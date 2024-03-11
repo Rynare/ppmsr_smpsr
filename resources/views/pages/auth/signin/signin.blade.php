@@ -1,4 +1,7 @@
 @extends('pages.auth.auth')
+@section('htmlStart')
+    @include('components.bootstrap.bs-basic')
+@endsection
 @section('content')
     <style>
         body {

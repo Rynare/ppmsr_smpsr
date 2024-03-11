@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SantriController;
 use App\Http\Controllers\StorageController;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,7 @@ Route::post('/daftar', [SantriController::class, 'store'])->name('santri-daftar.
 
 Route::get('/', function () {
     if ((auth()->user()->role ?? false) == 'admin' || (auth()->user()->isRoot ?? false) == true || (auth()->user()->isRoot ?? false) == 1) {
-        return redirect()->route('dashboard');
+        return redirect()->route('admin.dashboard');
     } else {
         return redirect()->route('signin');
     }
@@ -35,6 +36,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard')->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/signout', [AuthController::class, 'signout'])->name('signout');
 });
