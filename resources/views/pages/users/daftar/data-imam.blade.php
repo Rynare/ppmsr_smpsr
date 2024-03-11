@@ -1,4 +1,4 @@
-<div data-section="data-imam" class="row gx-0 d-none ">
+<div data-section="data-imam" class="row gx-0" id="form-data-imam">
     <div class="form-group mb-3 col-8 ">
         <label for="nama_imam_kelompok" class="required">Nama imam kelompok:</label>
         <input type="text"

@@ -6,44 +6,12 @@
     document.addEventListener('DOMContentLoaded', () => {
         runFormKeyEvent()
         runFormEvent()
-        runNavClickEvent()
         loadFormData()
-        document.querySelector(`[data-section-target=${getActiveIdFromUrl()}]`).click()
+
         setInterval(() => {
             saveFormData()
-        }, 5000);
+        }, 1000);
     })
-</script>
-
-<!-- Nav click event -->
-<script>
-    function runNavClickEvent() {
-        const nav = document.querySelector('header ul.nav')
-
-        nav.addEventListener('click', (event) => {
-            const allActiveNav = document.querySelectorAll('header ul.nav .active')
-            const currentClickedNav = event.target
-            if (currentClickedNav.classList.contains('nav-link')) {
-                allActiveNav.forEach(element => {
-                    element.classList.remove('active')
-                    document.querySelector(
-                        `[data-section=${element.getAttribute('data-section-target')}]`).classList
-                        .add('d-none')
-                });
-                currentClickedNav.classList.add('active')
-                document.querySelector(
-                    `[data-section=${currentClickedNav.getAttribute('data-section-target')}]`).classList
-                    .remove('d-none')
-            }
-            window.scrollTo(0, 0)
-        })
-    }
-
-    function getActiveIdFromUrl() {
-        let hash = window.location.hash;
-        let activeId = hash.substring(1);
-        return activeId;
-    }
 </script>
 
 <!-- Auto save Form -->
@@ -67,20 +35,33 @@
 
             switch (formInputTagName) {
                 case 'input':
+                    if (formInput.getAttribute('type') == 'file') {
+                        break;
+                    }
                     if (formInput.getAttribute('type') == 'radio') {
                         const radioBtn = document.querySelector(`form #${formData[key]}`);
                         if (radioBtn) {
                             radioBtn.checked = 1
                         }
                     }
-                    if (formInput.getAttribute('type') == 'file') {
-                        break;
-                    }
                 case 'select':
                     formInput.value = formData[key];
                     break;
                 default:
                     break;
+            }
+            if (key.includes('penghasilan')) {
+                const elementCurrency = document.querySelector(formInput.getAttribute('data-input-fake-ref'))
+
+                const { status, msg, result } = currencyFormatterAndChecker(`${formData[key]}`)
+                if (status) {
+                    elementCurrency.value = result
+                    elementCurrency.setCustomValidity('')
+                    bsValidityToogle(elementCurrency, 'is-valid')
+                } else {
+                    elementCurrency.setCustomValidity(msg)
+                    bsValidityToogle(elementCurrency, 'is-invalid')
+                }
             }
         }
     }
@@ -110,8 +91,29 @@
                 const elementType = element.getAttribute('type')
                 const elementDataInputType = element.getAttribute('data-input')
                 const isRequired = element.hasAttribute('required')
+                const minLength = element.getAttribute('minlength') || null
+                const maxLength = element.getAttribute('maxlength') || null
 
                 if (['input'].includes(elementTag)) {
+
+                    if ((element.value == '' && isRequired)) {
+                        element.setCustomValidity('Harap diisi!')
+                        bsValidityToogle(element, 'is-invalid')
+                        return
+                    }
+
+                    if (minLength !== null && element.value.length < minLength) {
+                        element.setCustomValidity(`Tidak boleh kurang dari ${minLength} karakter!`)
+                        bsValidityToogle(element, 'is-invalid')
+                        return
+                    }
+
+                    if (maxLength !== null && element.value.length > maxLength) {
+                        element.setCustomValidity(`Tidak boleh melebihi ${maxLength} karakter!`)
+                        bsValidityToogle(element, 'is-invalid')
+                        return
+                    }
+
                     if (elementDataInputType == 'phone-number') {
                         const phoneNumber = element.value
                         const { status, msg } = phoneNumberCheck(phoneNumber)
@@ -143,13 +145,9 @@
                         }
                         return
                     }
-                    if (element.value == '' && isRequired) {
-                        element.setCustomValidity('Harap diisi!')
-                        bsValidityToogle(element, 'is-invalid')
-                    } else {
-                        element.setCustomValidity('')
-                        bsValidityToogle(element, 'is-valid')
-                    }
+
+                    element.setCustomValidity('')
+                    bsValidityToogle(element, 'is-valid')
                     return
                 }
             })
@@ -171,8 +169,8 @@
             return { status: false, msg: 'Input minimal 10 karakter!' }
         }
 
-        if (cleanInput.length >= 12) {
-            return { status: false, msg: "Input maksimal 12 karakter!" }
+        if (cleanInput.length >= 13) {
+            return { status: false, msg: "Input maksimal 13 karakter!" }
         }
         return { status: true };
     }
@@ -234,14 +232,12 @@
     function jumlahSaudaraToggle(element) {
         const sibling = element.parentElement.parentElement.querySelector(element.getAttribute('ry-target'))
         if (element.value >= 1) {
-            sibling.disabled = false
             element.setCustomValidity('')
             if (element.value > 20) {
                 element.value = 20
             }
         } else {
             element.value = ''
-            sibling.disabled = true
         }
 
         if (element.value == 0 || element.value == '') {

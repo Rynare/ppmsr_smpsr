@@ -1,4 +1,4 @@
-<div data-section="data-khusus" class="row gx-0 d-none ">
+<div data-section="data-khusus" class="row gx-0" id="form-data-khusus">
     <div class="form-group mb-3 col-8 ">
         <label for="asal_kelompok_sambung" class="required">Asal kelompok sambung:</label>
         <input type="text"

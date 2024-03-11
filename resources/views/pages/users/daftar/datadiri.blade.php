@@ -1,4 +1,4 @@
-<div data-section="datadiri" class="row gx-0">
+<div data-section="datadiri" class="row gx-0" id="form-datadiri">
     <div class="form-group mb-3 col-7 me-4">
         <label for="nama_santri" class="required">Nama:</label>
         <input type="text"
@@ -33,8 +33,8 @@
         <div class="form-group me-2 col-4 ">
             <label for="jumlah_saudara" class="required mb-2 ">Jumlah Saudara:</label>
             <input type="number" class="form-control ps-1" id="jumlah_saudara" name="jumlah_saudara" required
-                aria-describedby="jumlah_saudara-help" max="20" onkeydown="jumlahSaudaraCheck(this)"
-                onkeyup="jumlahSaudaraCheck(this)" onchange="jumlahSaudaraCheck(this)" ry-target="#anak_ke">
+                aria-describedby="jumlah_saudara-help" max="20" onkeydown="jumlahSaudaraToggle(this)"
+                onkeyup="jumlahSaudaraToggle(this)" onchange="jumlahSaudaraToggle(this)" ry-target="#anak_ke">
             <small id="jumlah_saudara-help" class="text-muted">Dihitung beserta kamu
                 juga</small>
         </div>
@@ -43,7 +43,7 @@
         <div class="form-group col-3">
             <label for="anak_ke" class="required mb-2 ">Anak Ke-:</label>
             <input type="number" class="form-control ps-1" id="anak_ke" name="anak_ke" required max="20"
-                onkeyup="anak_keCheck(this)" onkeydown="anak_keCheck(this)" onchange="anak_keCheck(this)" disabled
+                onkeyup="anak_keToggle(this)" onkeydown="anak_keToggle(this)" onchange="anak_keToggle(this)"
                 ry-from="#jumlah_saudara">
         </div>
     </div>
@@ -164,6 +164,7 @@
         <label for="kode_pos" class="required">Kode POS:</label>
         <input type="number"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="kode_pos" name="kode_pos" rows="3" required placeholder="Kode POS">
+            id="kode_pos" name="kode_pos" rows="3" required placeholder="Kode POS" minlength="5"
+            maxlength="5">
     </div>
 </div>

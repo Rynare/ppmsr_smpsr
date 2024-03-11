@@ -1,4 +1,4 @@
-<div data-section="data-orangtua" class="row gx-0 d-none ">
+<div data-section="data-orangtua" class="row gx-0" id="form-data-orangtua">
     <div class="form-group mb-3 col-8 ">
         <label for="nama_ayah" class="required">Nama Ayah:</label>
         <input type="text"
@@ -52,8 +52,8 @@
         <label for="penghasilan_ayah" class="required mb-2 ">Penghasilan Ayah per Bulan:</label>
         <div class="input-group">
             <span class="input-group-text">Rp.</span>
-            <input type="text" class="form-control ps-1 focus-ring-none" data-input='currency' id="penghasilan_ayah"
-                data-input-real-target="[name=penghasilan_ayah]">
+            <input type="text" class="form-control ps-1 focus-ring-none z-1" data-input='currency'
+                id="penghasilan_ayah" data-input-real-target="[name=penghasilan_ayah]">
             <input type="number" class="form-control" name="penghasilan_ayah" data-input-fake-ref="#penghasilan_ayah"
                 required hidden max="99999999999">
             <button class="btn btn-danger" id='reset-penghasilan-ayah' onclick="resetPenghasilan(this)" type="button"
@@ -104,7 +104,7 @@
         <div class="input-group">
             <span class="input-group-text border-0 rounded-0 bg-transparent border-bottom border-2 ">+62</span>
             <input type="number"
-                class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
+                class="form-control ps-1 bg-transparent z-1  border-0 border-bottom border-2 rounded-0 focus-ring-none "
                 id="no_hp_ibu" name="no_hp_ibu" required aria-describedby="no.hp-help" placeholder="8########"
                 data-input="phone-number">
         </div>
@@ -137,7 +137,7 @@
         <label for="penghasilan_ibu" class="required mb-2 ">Penghasilan Ibu per Bulan:</label>
         <div class="input-group">
             <span class="input-group-text">Rp.</span>
-            <input type="text" class="form-control ps-1 focus-ring-none" data-input='currency'
+            <input type="text" class="form-control ps-1 z-1  focus-ring-none" data-input='currency'
                 id="penghasilan_ibu" data-input-real-target="[name=penghasilan_ibu]">
             <input type="number" class="form-control" name="penghasilan_ibu" data-input-fake-ref="#penghasilan_ibu"
                 required hidden max="99999999999">

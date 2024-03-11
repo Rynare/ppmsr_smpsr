@@ -1,4 +1,4 @@
-<div data-section="dokumen" class="row gx-0 d-none">
+<div data-section="dokumen" class="row gx-0" id="form-dokumen">
     <div class="form-group mb-3 ">
         <label for="kartu_keluarga" class="required">Kartu Keluarga:</label>
         <div class="input-group">

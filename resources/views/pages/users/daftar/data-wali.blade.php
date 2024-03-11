@@ -1,4 +1,4 @@
-<div data-section="data-wali" class="row gx-0 d-none ">
+<div data-section="data-wali" class="row gx-0" id="form-data-wali">
     <div class="form-group mb-3 col-8 ">
         <label for="nama_wali" class="required">Nama wali:</label>
         <input type="text"
