@@ -109,6 +109,8 @@
                 const elementTag = element.tagName.toLowerCase()
                 const elementType = element.getAttribute('type')
                 const elementDataInputType = element.getAttribute('data-input')
+                const isRequired = element.hasAttribute('required')
+
                 if (['input'].includes(elementTag)) {
                     if (elementDataInputType == 'phone-number') {
                         const phoneNumber = element.value
@@ -120,6 +122,7 @@
                             element.setCustomValidity(msg)
                             bsValidityToogle(element, 'is-invalid')
                         }
+                        return
                     }
                     if (elementDataInputType == 'currency') {
                         const realValueContainer = document.querySelector(element.getAttribute('data-input-real-target'))
@@ -140,6 +143,14 @@
                         }
                         return
                     }
+                    if (element.value == '' && isRequired) {
+                        element.setCustomValidity('Harap diisi!')
+                        bsValidityToogle(element, 'is-invalid')
+                    } else {
+                        element.setCustomValidity('')
+                        bsValidityToogle(element, 'is-valid')
+                    }
+                    return
                 }
             })
         });

@@ -11,7 +11,7 @@
 @endsection
 @section('custom')
     <div id="content" class="mx-auto">
-        <header class="px-4 py-2 position-sticky top-0 bg-white z-3 shadow-sm ">
+        <header class="px-4 py-2 position-sticky top-0 bg-white z-3 shadow-sm " style="z-index: 10000;">
             <h1 class="text-center ">Pendaftaran Santri</h1>
             <ul class="nav nav-underline">
                 <li class="nav-item">
