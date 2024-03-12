@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/daftar', [SantriController::class, 'create'])->name('santri-daftar');
 Route::post('/daftar', [SantriController::class, 'store'])->name('santri-daftar.store');
+Route::get('/selesai-daftar', [SantriController::class, 'done'])->name('santri-daftar.done');
 
 Route::get('/', function () {
     if ((auth()->user()->role ?? false) == 'admin' || (auth()->user()->isRoot ?? false) == true || (auth()->user()->isRoot ?? false) == 1) {

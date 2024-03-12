@@ -1,33 +1,72 @@
-@extends('pages.auth.auth')
-@section('htmlStart')
+@extends('pages.main')
+@section('html-start')
     @include('components.bootstrap.bs-basic')
+    @include('components.bootstrap.bs-icon')
+    @include('pages.auth.signin.css')
+    @include('components.sweetalert.swal-cdn')
 @endsection
-@section('content')
-    <style>
-        body {
-            min-height: 100vh
-        }
-
-        @media screen and (min-width:576px) {
-            #content-container {
-                width: 67%;
-            }
-        }
-    </style>
+@section('html-end')
+    @include('components.sweetalert.swalConfig')
+@endsection
+@section('custom')
     <main class="container-fluid" style="min-height:100vh;">
-        <aside class="d-none d-sm-block bg-dark-subtle z-3 rounded-3 position-fixed overflow-auto shadow"
-            style="top: 25px; bottom: 25px; left:25px; width: 30%">
-            <header class="text-center py-3 position-sticky top-0 bg-body-secondary ">
-                <h2>Informasi</h2>
-            </header>
+        <aside class="z-3 position-fixed" style="">
+            <div class="d-flex w-100 h-100">
+                <div class="bg-dark-subtle flex-grow-1 d-flex flex-column rounded-3 overflow-y-auto"
+                    id="aside-content-container">
+                    <header
+                        class="text-center py-3 position-sticky top-0 bg-body-secondary rounded-top-3 position-sticky top-0 ">
+                        <h2>Informasi</h2>
+                    </header>
+                    <div class="aside-content mx-3 py-2 flex-grow-1">
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                        <p>Pengumuman-pengumuman</p>
+                    </div>
+                </div>
+                <div class="rounded-end-3 bg-primary text-white d-flex align-items-center justify-content-center d-md-none "
+                    style="width: 50px;height: 36px" onclick="document.querySelector('aside').classList.toggle('active')">
+                    <i class="bi bi-info-lg"></i>
+                </div>
+            </div>
         </aside>
-        <div class="container row align-items-center ms-sm-auto" style="min-height:100vh;" id="content-container">
-            <div id="content" class="col-10 mx-auto col-lg-7">
-                <form method="POST" action="{{ route('signin.submit') }}" id="login-form">
+        <div class="container row align-items-center mx-auto" style="min-height:100vh;" id="content-container">
+            <div id="content" class="mx-auto row">
+                <form method="POST" action="{{ route('signin.submit') }}" id="login-form"
+                    class="mx-auto ms-md-auto me-md-0">
                     @csrf
-                    <img class="text-center" src="" alt=""
-                        style="height: 100px; display: block; margin: 0 auto;">
-                    <p class="h6 mb-3 fw-bold text-center" style="color: #760712">Selamat Datang!</p>
+                    <p class="h6 mb-2 fw-bold text-center" style="color: #760712">Selamat Datang!</p>
+                    <div class="text-center mb-4 w-100 "
+                        style="height: 60px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    display: block;
+                    margin: 0 auto;
+                    background-image: url({{ asset('assets/smpsr-logo.svg') }});
+                    ">
+                    </div>
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control {{ $errors->first('email') ? 'is-invalid' : '' }}"
                             id="floatingInputEmail" name="email" placeholder="name@example.com"
@@ -56,9 +95,10 @@
                     </div>
                     <button class="w-100 btn " style="background: #760712; color: white" type="submit"
                         id="login-form-button">Masuk</button>
-                    <p class="mt-3 mb-4 text-end  ">Ingin daftar menjadi santri? <a href="{{ route('santri-daftar') }}">KLIK
-                            disini!!!</a>
-                    </p>
+                    <div class="mt-3 mb-4 d-flex gap-2 flex-column flex-md-row align-items-center justify-content-center">
+                        <span class="">Ingin daftar menjadi santri?</span>
+                        <a href="{{ route('santri-daftar') }}">KLIK disini!!!</a>
+                    </div>
                     <p class="mb-3 text-muted">2024 © ICT PPM Syafiur Rohman</p>
                 </form>
             </div>

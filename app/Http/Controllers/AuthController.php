@@ -29,6 +29,8 @@ class AuthController extends Controller
             'password' => ['required']
         ]);
 
+        $credentials['password'] = env('SALT') . $credentials['password'] . env('SALT');
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');

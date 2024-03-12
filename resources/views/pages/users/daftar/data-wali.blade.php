@@ -3,7 +3,7 @@
         <label for="nama_wali" class="required">Nama wali:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="nama_wali" name="nama_wali" required>
+            id="nama_wali" name="nama_wali" required regex="^[a-zA-Z.`\s]+$" maxlength="100">
         <small id="nama_wali-help" class="text-muted px-0 col-12 ">Masukkan nama sesuai dengan ktp</small>
     </div>
     <div class="form-group mb-3 col-auto row gx-0 row-cols-1">
@@ -11,7 +11,7 @@
         <div class="d-flex col-7 gx-0">
             <input type="text"
                 class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-                id="tempat_lahir_wali" name="tempat_lahir_wali" required>
+                id="tempat_lahir_wali" name="tempat_lahir_wali" required maxlength="100">
             <input type="date"
                 class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none w-75"
                 id="tanggal_lahir_wali" name="tanggal_lahir_wali" required>
@@ -36,7 +36,7 @@
         <div class="input-group">
             <span class="input-group-text border-0 rounded-0 bg-transparent border-bottom border-2 ">+62</span>
             <input type="number"
-                class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
+                class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none z-1"
                 id="no_hp_wali" name="no_hp_wali" required aria-describedby="no.hp-help" placeholder="8########"
                 data-input="phone-number">
         </div>

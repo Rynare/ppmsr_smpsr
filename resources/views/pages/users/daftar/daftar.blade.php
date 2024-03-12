@@ -11,11 +11,11 @@
 @endsection
 @section('custom')
     <div id="content" class="mx-auto">
+        <h1 class="text-center">Pendaftaran Santri</h1>
         <header class="px-4 py-2 position-sticky top-0 bg-white z-3 shadow-sm " style="z-index: 10000;" id="navbar-scrollspy">
-            <h1 class="text-center ">Pendaftaran Santri</h1>
-            <ul class="nav nav-underline">
+            <ul class="nav nav-underline row-gap-0 align-items-center justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link text-danger active" aria-current="page" data-section-target="datadiri"
+                    <a class="nav-link text-danger" aria-current="page" data-section-target="datadiri"
                         href="#form-datadiri">Data Diri</a>
                 </li>
                 <li class="nav-item">
