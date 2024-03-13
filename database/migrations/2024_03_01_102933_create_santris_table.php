@@ -33,7 +33,7 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->integer('jumlah_hafalan')->length(2);
             $table->string('keahlian')->length(255);
-            $table->enum('pendidikan', ['d3,d4,s1']);
+            $table->enum('pendidikan', ['d3', 'd4', 's1']);
             $table->string('prestasi');
             $table->string('riwayat_penyakit');
             $table->enum('status_mubaligh', ['sudah', 'belum']);

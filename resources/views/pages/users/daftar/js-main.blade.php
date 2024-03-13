@@ -56,8 +56,11 @@
 
             switch (formInputTagName) {
                 case 'input':
+                    if (key == '_token') {
+                        continue;
+                    }
                     if (formInput.getAttribute('type') == 'file') {
-                        break;
+                        continue;
                     }
                     if (formInput.getAttribute('type') == 'radio') {
                         const radioBtn = document.querySelector(`form #${formData[key]}`);

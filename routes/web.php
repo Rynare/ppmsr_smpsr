@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataAdminController;
+use App\Http\Controllers\DataSantriController;
 use App\Http\Controllers\SantriController;
 use App\Http\Controllers\StorageController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +40,11 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/signout', [AuthController::class, 'signout'])->name('signout');
+
+    Route::middleware('role:admin')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('/data-admin', [DataAdminController::class, 'index'])->name('admin.data-admin');
+        Route::get('/data-santri', [DataSantriController::class, 'index'])->name('admin.data-santri');
+    });
 });

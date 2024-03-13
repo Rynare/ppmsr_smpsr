@@ -3,6 +3,7 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="{{ asset('assets2/css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    @include('components.bootstrap.bs-icon')
 @endsection
 @section('html-end')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
@@ -49,25 +50,43 @@
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Menu</div>
-                        <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Dashboard
-                        </a>
-                    </div>
-                    <div class="nav">
-                        <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Data Admin
-                        </a>
-                    </div>
-                    <div class="nav">
-                        <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Data Santri
-                        </a>
-                    </div>
+                    @php
+                        $navs = [
+                            [
+                                'heading' => 'Menu',
+                                'name' => 'Dashboard',
+                                'request' => 'dashboard*',
+                                'icon' => 'bi bi-speedometer',
+                                'route' => route('admin.dashboard'),
+                            ],
+                            [
+                                'name' => 'Data Admin',
+                                'request' => 'data-admin*',
+                                'icon' => 'bi bi-shield-check',
+                                'route' => route('admin.data-admin'),
+                            ],
+                            [
+                                'name' => 'Data Santri',
+                                'request' => 'data-santri*',
+                                'icon' => 'bi bi-person-lines-fill',
+                                'route' => route('admin.data-santri'),
+                            ],
+                        ];
+                    @endphp
+                    @foreach ($navs as $nav)
+                        <div class="nav">
+                            @if (isset($nav['heading']))
+                                <div class="sb-sidenav-menu-heading">{{ $nav['heading'] }}</div>
+                            @endif
+                            <a class="nav-link {{ Request::is($nav['request']) ? 'active' : '' }}"
+                                href="{{ $nav['route'] }}">
+                                <div class="sb-nav-link-icon d-flex align-items-center justify-content-center p-0 m-0">
+                                    <i class="{{ $nav['icon'] ?? '' }}" style="font-size: 18px;"></i>
+                                </div>
+                                <div class="ms-2">{{ ucfirst($nav['name']) }}</div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
 
                 <div class="sb-sidenav-footer">

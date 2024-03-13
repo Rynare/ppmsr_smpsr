@@ -43,7 +43,8 @@
         <main class="row row-cols-lg-1 gx-0 px-4 my-3 ">
             <form action="{{ route('santri-daftar.store') }}" method="post" class="row gx-0" data-bs-spy="scroll"
                 data-bs-target="#navbar-scrollspy" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
-                tabindex="0">
+                tabindex="0" enctype="multipart/form-data">
+                @csrf
                 @include('pages.users.daftar.datadiri')
                 @include('pages.users.daftar.data-orangtua')
                 @include('pages.users.daftar.data-khusus')

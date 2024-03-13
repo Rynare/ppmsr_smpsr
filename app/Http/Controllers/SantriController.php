@@ -6,11 +6,16 @@ use App\Models\Santri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class SantriController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->hasCookie('id_santri')) {
+            return redirect()->route('santri-daftar.done');
+        }
+
         return view('pages.users.daftar.daftar')->with([
             'pageTitle' => 'Form Pendaftaran'
         ]);
@@ -29,7 +34,7 @@ class SantriController extends Controller
             }],
             'jumlah_saudara' => 'required|integer|min:1|max:20',
             'no_hp_santri' => 'required|digits_between:10,12',
-            'email_santri' => 'required|email|unique:nama_tabel|unique:email_santri|max:255',
+            'email_santri' => 'required|email|unique:santris|max:255',
             'alamat_santri' => 'required|string',
             'tempat_lahir_santri' => 'required|string|max:100',
             'tanggal_lahir_santri' => 'required|date',
@@ -127,7 +132,7 @@ class SantriController extends Controller
         // Upload Kartu Keluarga
         if ($request->hasFile('kartu_keluarga')) {
             $kartu_keluarga = $request->file('kartu_keluarga');
-            $kartu_keluarga_name = time() . '_' . $kartu_keluarga->getClientOriginalName();
+            $kartu_keluarga_name = $this->generateUniqueFileName($kartu_keluarga);
             $kartu_keluarga->move(public_path('storage/santri/'), $kartu_keluarga_name);
         } else {
             $kartu_keluarga_name = null;
@@ -136,7 +141,7 @@ class SantriController extends Controller
         // Upload KTP
         if ($request->hasFile('ktp')) {
             $ktp = $request->file('ktp');
-            $ktp_name = time() . '_' . $ktp->getClientOriginalName();
+            $ktp_name = $this->generateUniqueFileName($ktp);
             $ktp->move(public_path('storage/santri/'), $ktp_name);
         } else {
             $ktp_name = null;
@@ -145,7 +150,7 @@ class SantriController extends Controller
         // Upload Pas Foto
         if ($request->hasFile('pas_foto')) {
             $pas_foto = $request->file('pas_foto');
-            $pas_foto_name = time() . '_' . $pas_foto->getClientOriginalName();
+            $pas_foto_name = $this->generateUniqueFileName($pas_foto);
             $pas_foto->move(public_path('storage/santri'), $pas_foto_name);
         } else {
             $pas_foto_name = null;
@@ -154,31 +159,44 @@ class SantriController extends Controller
         // Upload Surat Sambung
         if ($request->hasFile('surat_sambung')) {
             $surat_sambung = $request->file('surat_sambung');
-            $surat_sambung_name = time() . '_' . $surat_sambung->getClientOriginalName();
+            $surat_sambung_name = $this->generateUniqueFileName($surat_sambung);
             $surat_sambung->move(public_path('storage/santri'), $surat_sambung_name);
         } else {
             $surat_sambung_name = null;
         }
 
-        $request['kartu_keluarga'] = $kartu_keluarga_name;
-        $request['ktp'] = $ktp_name;
-        $request['pas_foto'] = $pas_foto_name;
-        $request['no_hp_santri'] = 62 . $request->no_hp_santri;
-        $request['no_hp_ayah'] = 62 . $request->no_hp_ayah;
-        $request['no_hp_ibu'] = 62 . $request->no_hp_ibu;
-        $request['no_hp_wali'] = 62 . $request->no_hp_wali;
-        $request['no_hp_imam'] = 62 . $request->no_hp_imam;
+        $datas = $request->all();
 
-        $santri = new Santri($request->all());
-        $santri->save();
+        $datas['kartu_keluarga'] = $kartu_keluarga_name;
+        $datas['ktp'] = $ktp_name;
+        $datas['pas_foto'] = $pas_foto_name;
+        $datas['surat_sambung'] = $surat_sambung_name;
+        $datas['no_hp_santri'] = 62 . $request->no_hp_santri;
+        $datas['no_hp_ayah'] = 62 . $request->no_hp_ayah;
+        $datas['no_hp_ibu'] = 62 . $request->no_hp_ibu;
+        $datas['no_hp_wali'] = 62 . $request->no_hp_wali;
+        $datas['no_hp_imam'] = 62 . $request->no_hp_imam;
+
+        $santri = Santri::create($datas);
 
         $santri_id = $santri->id;
 
-        Cookie::make('id_santri', $santri_id);
+        // menit x jam x hari = 1 minggu
+        $time = 60 * 24 * 7;
+
+        $cookie = Cookie::make('id_santri', $santri_id, $time);
 
         // Redirect dengan pesan sukses
         return redirect()->route('santri-daftar.done')
-            ->with('success', 'Santri berhasil ditambahkan.');
+            ->with('success', 'Santri berhasil ditambahkan.')->withCookie($cookie);
+    }
+    private function generateUniqueFileName($file)
+    {
+        $originalName = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        $filename = pathinfo($originalName, PATHINFO_FILENAME);
+        $filename = Str::slug($filename) . '_' . uniqid() . '.' . $extension;
+        return $filename;
     }
 
     public function done(Request $request)
