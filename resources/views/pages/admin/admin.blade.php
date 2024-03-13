@@ -60,10 +60,10 @@
                                 'route' => route('admin.dashboard'),
                             ],
                             [
-                                'name' => 'Data Admin',
-                                'request' => 'data-admin*',
+                                'name' => 'Akun Terdaftar',
+                                'request' => 'account*',
                                 'icon' => 'bi bi-shield-check',
-                                'route' => route('admin.data-admin'),
+                                'route' => route('admin.account'),
                             ],
                             [
                                 'name' => 'Data Santri',

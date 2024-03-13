@@ -11,6 +11,7 @@ class Gelombang extends Model
 
     protected $fillable = [
         "nama_gelombang",
-        'angkatan'
+        'angkatan',
+        'deleted'
     ];
 }

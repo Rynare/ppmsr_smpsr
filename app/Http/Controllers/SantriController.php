@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gelombang;
 use App\Models\Santri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -12,13 +13,33 @@ class SantriController extends Controller
 {
     public function create(Request $request)
     {
-        if ($request->hasCookie('id_santri')) {
-            return redirect()->route('santri-daftar.done');
+        $gelombang = Gelombang::all()->where('deleted', 0)->first();
+        if (!$gelombang) {
+            return redirect()->back()->withErrors([
+                'swal' => ['title' => 'Pendaftaran ditutup!', 'icon' => 'error']
+            ]);
         }
 
-        return view('pages.users.daftar.daftar')->with([
-            'pageTitle' => 'Form Pendaftaran'
-        ]);
+
+        if ($request->hasCookie('id_santri')) {
+            $id_santri = $request->cookie('id_santri');
+            $santri = Santri::find($id_santri);
+            if (!$santri) {
+                $cookie = Cookie::forget('id_santri');
+                return response()->view('pages.users.daftar.daftar', [
+                    'pageTitle' => 'Form Pendaftaran'
+                ])->withCookie($cookie);;
+            }
+            return view('pages.users.daftar.done')->with([
+                'pageTitle' => 'Selesai',
+                'nama_santri' => $santri->nama_santri,
+                'email_santri' => $santri->email_santri,
+            ]);
+        } else {
+            return view('pages.users.daftar.daftar')->with([
+                'pageTitle' => 'Form Pendaftaran'
+            ]);
+        }
     }
 
     public function store(Request $request)
@@ -126,7 +147,7 @@ class SantriController extends Controller
 
         // Check jika validasi gagal
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
+            return redirect()->back();
         }
 
         // Upload Kartu Keluarga
@@ -167,6 +188,9 @@ class SantriController extends Controller
 
         $datas = $request->all();
 
+        $angkatan = Gelombang::all()->where('deleted', 0)->first();
+        $tahun_angkatan = $angkatan->angkatan;
+
         $datas['kartu_keluarga'] = $kartu_keluarga_name;
         $datas['ktp'] = $ktp_name;
         $datas['pas_foto'] = $pas_foto_name;
@@ -176,6 +200,7 @@ class SantriController extends Controller
         $datas['no_hp_ibu'] = 62 . $request->no_hp_ibu;
         $datas['no_hp_wali'] = 62 . $request->no_hp_wali;
         $datas['no_hp_imam'] = 62 . $request->no_hp_imam;
+        $datas['angkatan'] = $tahun_angkatan;
 
         $santri = Santri::create($datas);
 
@@ -187,8 +212,7 @@ class SantriController extends Controller
         $cookie = Cookie::make('id_santri', $santri_id, $time);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('santri-daftar.done')
-            ->with('success', 'Santri berhasil ditambahkan.')->withCookie($cookie);
+        return redirect()->back()->withCookie($cookie);
     }
     private function generateUniqueFileName($file)
     {
@@ -197,16 +221,5 @@ class SantriController extends Controller
         $filename = pathinfo($originalName, PATHINFO_FILENAME);
         $filename = Str::slug($filename) . '_' . uniqid() . '.' . $extension;
         return $filename;
-    }
-
-    public function done(Request $request)
-    {
-        $id_santri = $request->cookie('id_santri');
-        $santri = Santri::find($id_santri);
-        return view('pages.users.daftar.done')->with([
-            'pageTitle' => 'Selesai',
-            'nama_santri' => $santri->nama_santri,
-            'email_santri' => $santri->email_santri,
-        ]);
     }
 }

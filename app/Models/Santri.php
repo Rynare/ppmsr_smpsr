@@ -74,5 +74,7 @@ class Santri extends Model
         'ktp',
         'pas_foto',
         'surat_sambung',
+        'angkatan',
+        'status_registrasi',
     ];
 }

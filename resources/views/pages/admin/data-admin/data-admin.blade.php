@@ -3,14 +3,14 @@
 @section('admin-content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Data Admin</h1>
+            <h1 class="mt-4">Akun Terdaftar</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Data Admin</li>
+                <li class="breadcrumb-item active">Akun Terdaftar</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Daftar Admin: {{ $jumlah_admin }}
+                    Jumlah Admin: {{ $jumlah_admin }}
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">

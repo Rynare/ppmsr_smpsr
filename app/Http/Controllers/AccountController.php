@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class DataAdminController extends Controller
+class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class DataAdminController extends Controller
         $accs_santri = User::all()->where('role', 'santri');
 
         return view('pages.admin.data-admin.data-admin')->with([
-            'pageTitle' => 'Data Admin',
+            'pageTitle' => 'Daftar Akun',
             'accs' => $accs,
             'jumlah_admin' => $accs_admin->count(),
             'jumlah_Santri' => $accs_santri->count(),

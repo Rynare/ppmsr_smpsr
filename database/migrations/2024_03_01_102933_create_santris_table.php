@@ -86,6 +86,7 @@ return new class extends Migration
             $table->string('ktp');
             $table->string('surat_sambung');
             $table->string('pas_foto');
+            $table->string('angkatan');
             $table->enum('status_registrasi', ['pending', 'diterima', 'ditolak'])->default('pending');
 
             $table->timestamps();

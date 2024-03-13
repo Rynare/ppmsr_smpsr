@@ -1,13 +1,12 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DataAdminController;
 use App\Http\Controllers\DataSantriController;
+use App\Http\Controllers\GelombangController;
 use App\Http\Controllers\SantriController;
-use App\Http\Controllers\StorageController;
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +21,6 @@ use App\Models\User;
 
 Route::get('/daftar', [SantriController::class, 'create'])->name('santri-daftar');
 Route::post('/daftar', [SantriController::class, 'store'])->name('santri-daftar.store');
-Route::get('/selesai-daftar', [SantriController::class, 'done'])->name('santri-daftar.done');
 
 Route::get('/', function () {
     if ((auth()->user()->role ?? false) == 'admin' || (auth()->user()->isRoot ?? false) == true || (auth()->user()->isRoot ?? false) == 1) {
@@ -44,7 +42,8 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('role:admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-        Route::get('/data-admin', [DataAdminController::class, 'index'])->name('admin.data-admin');
+        Route::post('/dashboard/buka-gelombang', [GelombangController::class, 'store'])->name('admin.buka-gelombang');
+        Route::get('/account', [AccountController::class, 'index'])->name('admin.account');
         Route::get('/data-santri', [DataSantriController::class, 'index'])->name('admin.data-santri');
     });
 });

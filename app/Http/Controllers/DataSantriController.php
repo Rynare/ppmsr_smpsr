@@ -12,7 +12,9 @@ class DataSantriController extends Controller
      */
     public function index()
     {
-        //
+        return view("pages.admin.data-santri.data-santri")->with([
+            'pageTitle' => 'Data Santri'
+        ]);
     }
 
     /**
@@ -45,5 +47,9 @@ class DataSantriController extends Controller
     public function destroy(Santri $santri)
     {
         //
+    }
+
+    public function search($angkatan)
+    {
     }
 }
