@@ -43,7 +43,7 @@ class PengumumanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pengumuman $pengumuman)
+    public function update(Request $request)
     {
         $this->validate($request, [
             'judul' => 'required',
@@ -52,8 +52,10 @@ class PengumumanController extends Controller
         ], [
             'required' => ':attribute tidak boleh kosong.'
         ]);
+        $pengumuman = Pengumuman::find($request->id);
 
         $pengumuman->update($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -61,6 +63,7 @@ class PengumumanController extends Controller
      */
     public function destroy(Pengumuman $pengumuman)
     {
-        //
+        $pengumuman->delete();
+        return redirect()->back();
     }
 }

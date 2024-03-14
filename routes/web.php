@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/dashboard/buat-pengumuman', [PengumumanController::class, 'store'])->name('admin.buat-pengumuman');
         Route::post('/dashboard/ubah-pengumuman', [PengumumanController::class, 'update'])->name('admin.ubah-pengumuman');
-        Route::post('/dashboard/delete-pengumuman', [PengumumanController::class, 'destroy'])->name('admin.hapus-pengumuman');
+        Route::get('/dashboard/delete-pengumuman/{pengumuman}', [PengumumanController::class, 'destroy'])->name('admin.hapus-pengumuman');
 
         Route::get('/account', [AccountController::class, 'index'])->name('admin.account');
         Route::get('/data-santri', [DataSantriController::class, 'index'])->name('admin.data-santri');

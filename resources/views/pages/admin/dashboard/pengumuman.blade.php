@@ -25,7 +25,9 @@
                                         <th>Name</th>
                                         <th>Isi</th>
                                         <th>Link</th>
-                                        <th>Action</th>
+                                        <th>
+                                            <div class="text-center w-100">Action</div>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -33,21 +35,28 @@
                                         <th>Name</th>
                                         <th>Isi</th>
                                         <th>Link</th>
-                                        <th>Action</th>
+                                        <th>
+                                            <div class="text-center w-100">Action</div>
+                                        </th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     @foreach ($pengumumans as $pengumuman)
-                                        <tr>
-                                            <td>{{ $pengumuman->judul }}</td>
-                                            <td>{{ $pengumuman->isi }}</td>
-                                            <td>{{ $pengumuman->link }}</td>
-                                            <td>
-                                                <button class="btn-warning btn">Ubah</button>
-                                                <a href="{{ route('admin.hapus-pengumuman', ['id' => $pengumuman->id]) }}"
-                                                    class="btn btn-danger">Hapus</a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>{{ $pengumuman->judul }}</td>
+                                        <td>{{ $pengumuman->isi }}</td>
+                                        <td>{{ $pengumuman->link }}</td>
+                                        <td>
+                                            <div class="d-flex align-items-center justify-content-center  gap-2 w-100">
+                                                <button class="flex-grow-1 btn-sm btn-warning btn"
+                                                    data-bs-toggle="modal" data-bs-target="#update-pengumuman"
+                                                    data-json="{{ json_encode($pengumuman) }}"
+                                                    onclick="setupModalFormInput(this)">Ubah</button>
+                                                <a href="{{ route('admin.hapus-pengumuman', ['pengumuman' => $pengumuman->id]) }}"
+                                                    class="btn flex-grow-1 btn-sm btn-danger">Hapus</a>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -70,4 +79,15 @@
             new simpleDatatables.DataTable(datatablesPengumuman);
         }
     });
+
+    function setupModalFormInput(element) {
+        const modal = document.querySelector(element.getAttribute('data-bs-target'));
+        const form = modal.querySelector('form')
+        const data = JSON.parse(element.getAttribute('data-json'))
+        const inputField = form.querySelectorAll('[name]:not([name=_token])')
+
+        inputField.forEach(element => {
+            element.value = data[element.name]
+        });
+    }
 </script>
