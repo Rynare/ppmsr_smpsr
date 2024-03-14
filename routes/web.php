@@ -45,6 +45,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
         Route::post('/dashboard/buka-gelombang', [GelombangController::class, 'store'])->name('admin.buka-gelombang');
         Route::get('/dashboard/tutup-gelombang/{gelombang}', [GelombangController::class, 'close'])->name('admin.tutup-gelombang');
+        Route::get('/dashboard/terima-santri/{id}', [GelombangController::class, 'close'])->name('admin.terima-santri');
+        Route::get('/dashboard/tolak-santri/{id}', [GelombangController::class, 'close'])->name('admin.tolak-santri');
 
         Route::post('/dashboard/buat-pengumuman', [PengumumanController::class, 'store'])->name('admin.buat-pengumuman');
         Route::post('/dashboard/ubah-pengumuman', [PengumumanController::class, 'update'])->name('admin.ubah-pengumuman');

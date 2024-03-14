@@ -202,7 +202,7 @@ class SantriController extends Controller
         $datas['no_hp_wali'] = 62 . $request->no_hp_wali;
         $datas['no_hp_imam'] = 62 . $request->no_hp_imam;
         $datas['angkatan'] = $tahun_angkatan;
-        $datas['gelombang'] = $tahun_angkatan;
+        $datas['gelombang'] = $nama_gelombang;
 
         $santri = Santri::create($datas);
 

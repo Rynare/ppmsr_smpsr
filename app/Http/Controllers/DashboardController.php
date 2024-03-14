@@ -17,7 +17,9 @@ class DashboardController extends Controller
         if ($gelombang) {
             $nama_gelombang = $gelombang->nama_gelombang;
             $id_gelombang = $gelombang->id;
-            $santri = Santri::all()->where('gelombang', $nama_gelombang);
+            $santri = Santri::where('status_registrasi', 'pending')
+                ->orderBy('created_at', 'asc') // Urutkan dari yang terlama
+                ->get();;
             $jumlah_santri = $santri->count();
         }
 
@@ -27,7 +29,8 @@ class DashboardController extends Controller
             'nama_gelombang' => $nama_gelombang ?? 'Tidak ada gelombang terbuka',
             'id_gelombang' => $id_gelombang ?? false,
             'jumlah_terdaftar' => $jumlah_santri ?? 0,
-            'santri' => $santri ?? null,
+            'santris' => $santri ?? null,
+            'jumlah_pending' => ($santri ?? false) ? $santri->count() : 0,
         ]);
     }
 }

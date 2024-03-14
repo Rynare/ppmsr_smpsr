@@ -20,13 +20,15 @@
                     </header>
                     <div class="aside-content mx-3 py-2 flex-grow-1" id="pengumuman-container">
                         @foreach ($pengumumans as $pengumuman)
-                            <div class="card">
+                            <div class="card mb-2 ">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $pengumuman->judul }}</h5>
                                     <p class="card-text">{{ $pengumuman->isi }}</p>
-                                    <div class="w-100 d-flex justify-content-end "><a target="_blank"
-                                            href="{{ $pengumuman->link }}" class="btn btn-outline-success btn-sm">Unduh
-                                            Dokumen</a></div>
+                                    @if ($pengumuman->link)
+                                        <div class="w-100 d-flex justify-content-end "><a target="_blank"
+                                                href="{{ $pengumuman->link }}" class="btn btn-outline-success btn-sm">Unduh
+                                                Dokumen</a></div>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach

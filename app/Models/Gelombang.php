@@ -13,6 +13,7 @@ class Gelombang extends Model
     protected $fillable = [
         "nama_gelombang",
         'angkatan',
-        'closed'
+        'closed',
+        'closed_at'
     ];
 }

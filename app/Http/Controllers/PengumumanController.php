@@ -23,7 +23,6 @@ class PengumumanController extends Controller
         $this->validate($request, [
             'judul' => 'required',
             'isi' => 'required',
-            'link' => 'required'
         ], [
             'required' => ':attribute tidak boleh kosong.'
         ]);
@@ -48,7 +47,6 @@ class PengumumanController extends Controller
         $this->validate($request, [
             'judul' => 'required',
             'isi' => 'required',
-            'link' => 'required'
         ], [
             'required' => ':attribute tidak boleh kosong.'
         ]);

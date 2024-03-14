@@ -1,13 +1,13 @@
 <div class="accordion my-3" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseOne">
                 Pengumuman
             </button>
         </h2>
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
             <div class="accordion-body">
                 <div class="">
                     <div class="px-2 rounded-2 border-black  border-1 ">
@@ -42,21 +42,22 @@
                                 </tfoot>
                                 <tbody>
                                     @foreach ($pengumumans as $pengumuman)
-                                    <tr>
-                                        <td>{{ $pengumuman->judul }}</td>
-                                        <td>{{ $pengumuman->isi }}</td>
-                                        <td>{{ $pengumuman->link }}</td>
-                                        <td>
-                                            <div class="d-flex align-items-center justify-content-center  gap-2 w-100">
-                                                <button class="flex-grow-1 btn-sm btn-warning btn"
-                                                    data-bs-toggle="modal" data-bs-target="#update-pengumuman"
-                                                    data-json="{{ json_encode($pengumuman) }}"
-                                                    onclick="setupModalFormInput(this)">Ubah</button>
-                                                <a href="{{ route('admin.hapus-pengumuman', ['pengumuman' => $pengumuman->id]) }}"
-                                                    class="btn flex-grow-1 btn-sm btn-danger">Hapus</a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{ $pengumuman->judul }}</td>
+                                            <td>{{ $pengumuman->isi }}</td>
+                                            <td>{{ $pengumuman->link }}</td>
+                                            <td>
+                                                <div
+                                                    class="d-flex align-items-center justify-content-center  gap-2 w-100">
+                                                    <button class="flex-grow-1 btn-sm btn-warning btn"
+                                                        data-bs-toggle="modal" data-bs-target="#update-pengumuman"
+                                                        data-json="{{ json_encode($pengumuman) }}"
+                                                        onclick="setupModalFormInput(this)">Ubah</button>
+                                                    <a href="{{ route('admin.hapus-pengumuman', ['pengumuman' => $pengumuman->id]) }}"
+                                                        class="btn flex-grow-1 btn-sm btn-danger">Hapus</a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

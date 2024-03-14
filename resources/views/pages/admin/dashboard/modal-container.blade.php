@@ -9,7 +9,7 @@
             <form action="{{ route('admin.buka-gelombang') }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <p class="text-danger text-center ">Membuat gelombang baru akan menghapus gelombang yang lama.</p>
+                    <p class="text-danger text-center ">Membuat gelombang baru akan menutup gelombang yang lama.</p>
                     <div class="mb-3">
                         <label for="nama_gelombang" class="form-label">Nama gelombang:</label>
                         <input required type="text" class="form-control" id="nama_gelombang"
@@ -54,10 +54,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="link" class="form-label">Link:</label>
-                        <input type="link" class="form-control" id="link" placeholder="" required
-                            name="link">
-                        <div class="form-text text-danger " id="basic-addon4">Isikan dengan link dokumen yang bisa di
-                            download.</div>
+                        <input type="link" class="form-control" id="link" placeholder="" name="link">
+                        <div class="form-text text-danger " id="basic-addon4">https://......</div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -95,8 +93,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="link" class="form-label">Link:</label>
-                        <input type="link" class="form-control" id="link" placeholder="" required
-                            name="link">
+                        <input type="link" class="form-control" id="link" placeholder="" name="link">
                         <div class="form-text text-danger " id="basic-addon4">Isikan dengan link dokumen yang bisa di
                             download.</div>
                     </div>
@@ -111,3 +108,4 @@
         </div>
     </div>
 </div>
+@include('pages.admin.dashboard.santri-data-modal')

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_gelombang');
             $table->year('angkatan');
             $table->boolean('closed')->default(false);
+            $table->dateTime('closed_at')->nullable();
             $table->timestamps();
         });
     }

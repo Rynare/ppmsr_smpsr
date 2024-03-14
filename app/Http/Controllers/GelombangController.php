@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gelombang;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class GelombangController extends Controller
@@ -41,7 +42,7 @@ class GelombangController extends Controller
         try {
             Gelombang::create($request->all());
             if ($gelombang_aktif) {
-                $gelombang_aktif->update(['closed' => 1]);
+                $gelombang_aktif->update(['closed' => 1, 'closed_at' => Carbon::now()]);
             }
         } catch (\Throwable $th) {
             return redirect()->back();
@@ -62,7 +63,7 @@ class GelombangController extends Controller
      */
     public function close(Gelombang $gelombang)
     {
-        $gelombang->update(['closed' => 1]);
+        $gelombang->update(['closed' => 1, 'closed_at' => Carbon::now()]);
         return redirect()->back();
     }
 
