@@ -18,32 +18,18 @@
                         class="text-center py-3 position-sticky top-0 bg-body-secondary rounded-top-3 position-sticky top-0 ">
                         <h2>Informasi</h2>
                     </header>
-                    <div class="aside-content mx-3 py-2 flex-grow-1">
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
-                        <p>Pengumuman-pengumuman</p>
+                    <div class="aside-content mx-3 py-2 flex-grow-1" id="pengumuman-container">
+                        @foreach ($pengumumans as $pengumuman)
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $pengumuman->judul }}</h5>
+                                    <p class="card-text">{{ $pengumuman->isi }}</p>
+                                    <div class="w-100 d-flex justify-content-end "><a target="_blank"
+                                            href="{{ $pengumuman->link }}" class="btn btn-outline-success btn-sm">Unduh
+                                            Dokumen</a></div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="rounded-end-3 bg-primary text-white d-flex align-items-center justify-content-center d-md-none "

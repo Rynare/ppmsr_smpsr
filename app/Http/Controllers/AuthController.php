@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengumuman;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +18,10 @@ class AuthController extends Controller
     }
     public function signin()
     {
+        $pengumumans = Pengumuman::all();
         return view('pages.auth.signin.signin')->with([
-            'pageTitle' => 'Masuk'
+            'pageTitle' => 'Masuk',
+            'pengumumans' => $pengumumans,
         ]);
     }
 

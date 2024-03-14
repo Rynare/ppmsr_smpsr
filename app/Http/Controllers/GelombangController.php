@@ -12,7 +12,13 @@ class GelombangController extends Controller
      */
     public function index()
     {
-        //
+        return view(
+            'pages.admin.riwayat-gelombang.riwayat-gelombang',
+            [
+                'pageTitle' => "Riwayat gelombang",
+                "gelombangs" => Gelombang::all(),
+            ]
+        );
     }
 
     /**
@@ -29,8 +35,18 @@ class GelombangController extends Controller
             "integer" => ":attribute harus berisi angka",
         ]);
 
-        Gelombang::create($request->all());
-        return back()->with("success", "");
+        $gelombang_aktif = Gelombang::all()->where("closed", 0)->first();
+
+        // return $request->all();
+        try {
+            Gelombang::create($request->all());
+            if ($gelombang_aktif) {
+                $gelombang_aktif->update(['closed' => 1]);
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back();
+        }
+        return back();
     }
 
     /**
@@ -44,9 +60,10 @@ class GelombangController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Gelombang $gelombang)
+    public function close(Gelombang $gelombang)
     {
-        //
+        $gelombang->update(['closed' => 1]);
+        return redirect()->back();
     }
 
     /**
@@ -54,6 +71,6 @@ class GelombangController extends Controller
      */
     public function destroy(Gelombang $gelombang)
     {
-        //
+        $gelombang->delete();
     }
 }

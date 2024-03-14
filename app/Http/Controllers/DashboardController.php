@@ -2,14 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gelombang;
+use App\Models\Pengumuman;
+use App\Models\Santri;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+        $pengumumans = Pengumuman::all();
+
+        $gelombang = Gelombang::all()->where('closed', 0)->first();
+        if ($gelombang) {
+            $nama_gelombang = $gelombang->nama_gelombang;
+            $id_gelombang = $gelombang->id;
+            $santri = Santri::all()->where('gelombang', $nama_gelombang);
+            $jumlah_santri = $santri->count();
+        }
+
         return view("pages.admin.dashboard.dashboard")->with([
-            'pageTitle' => 'Dashboard '
+            'pageTitle' => 'Dashboard',
+            'pengumumans' => $pengumumans,
+            'nama_gelombang' => $nama_gelombang ?? 'Tidak ada gelombang terbuka',
+            'id_gelombang' => $id_gelombang ?? false,
+            'jumlah_terdaftar' => $jumlah_santri ?? 0,
+            'santri' => $santri ?? null,
         ]);
     }
 }

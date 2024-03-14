@@ -9,7 +9,7 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-header">
-                    <form action="{{ route('') }}">
+                    <form action="{{ route('admin.data-santri') }}">
                         <div class="form-group">
                             <label for="" class="mb-2">Pilih Angkatan</label>
                             <div class="input-group mb-3">

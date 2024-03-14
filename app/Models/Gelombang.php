@@ -9,9 +9,10 @@ class Gelombang extends Model
 {
     use HasFactory;
 
+    protected $table = 'gelombangs';
     protected $fillable = [
         "nama_gelombang",
         'angkatan',
-        'deleted'
+        'closed'
     ];
 }

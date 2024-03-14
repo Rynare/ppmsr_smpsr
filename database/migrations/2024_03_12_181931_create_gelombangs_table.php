@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_gelombang');
             $table->year('angkatan');
-            $table->boolean('deleted')->default(false);
+            $table->boolean('closed')->default(false);
             $table->timestamps();
         });
     }

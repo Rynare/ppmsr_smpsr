@@ -71,6 +71,12 @@
                                 'icon' => 'bi bi-person-lines-fill',
                                 'route' => route('admin.data-santri'),
                             ],
+                            [
+                                'name' => 'Riwayat Gelombang',
+                                'request' => 'riwayat-gelombang*',
+                                'icon' => 'bi bi-hourglass-bottom',
+                                'route' => route('admin.riwayat-gelombang'),
+                            ],
                         ];
                     @endphp
                     @foreach ($navs as $nav)

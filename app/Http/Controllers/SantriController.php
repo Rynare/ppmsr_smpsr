@@ -190,6 +190,7 @@ class SantriController extends Controller
 
         $angkatan = Gelombang::all()->where('deleted', 0)->first();
         $tahun_angkatan = $angkatan->angkatan;
+        $nama_gelombang = $angkatan->nama_gelombang;
 
         $datas['kartu_keluarga'] = $kartu_keluarga_name;
         $datas['ktp'] = $ktp_name;
@@ -201,6 +202,7 @@ class SantriController extends Controller
         $datas['no_hp_wali'] = 62 . $request->no_hp_wali;
         $datas['no_hp_imam'] = 62 . $request->no_hp_imam;
         $datas['angkatan'] = $tahun_angkatan;
+        $datas['gelombang'] = $tahun_angkatan;
 
         $santri = Santri::create($datas);
 
