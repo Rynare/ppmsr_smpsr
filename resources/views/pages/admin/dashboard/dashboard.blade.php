@@ -84,10 +84,10 @@
                                                     onclick="setupSantriModal(this)"><i
                                                         class="bi bi-person-vcard"></i></button>
                                                 <a class="btn btn-sm btn-success "
-                                                    href="{{ route('admin.terima-santri', ['id' => $santri->id]) }}"><i
+                                                    href="{{ route('admin.terima-santri', ['santri' => $santri->id]) }}"><i
                                                         class="bi bi-check-square"></i></a>
                                                 <a class="btn btn-sm btn-danger "
-                                                    href="{{ route('admin.tolak-santri', ['id' => $santri->id]) }}"><i
+                                                    href="{{ route('admin.tolak-santri', ['santri' => $santri->id]) }}"><i
                                                         class="bi bi-x-square"></i></a>
                                             </div>
                                         </td>

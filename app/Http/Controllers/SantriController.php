@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gelombang;
+use App\Models\Role;
 use App\Models\Santri;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Barryvdh\DomPDF\Facade\Pdf;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 class SantriController extends Controller
 {
@@ -206,6 +210,15 @@ class SantriController extends Controller
 
         $santri = Santri::create($datas);
 
+        $role = Role::all()->where('role', 'santri')->first();
+
+        User::create([
+            'name' => $santri->nama_santri,
+            'email' => $santri->email_santri,
+            'password' => bcrypt(env('SALT') . $santri->email_santri . env('SALT')),
+            'role' => $role->id,
+        ]);
+
         $santri_id = $santri->id;
 
         // menit x jam x hari = 1 minggu
@@ -223,5 +236,43 @@ class SantriController extends Controller
         $filename = pathinfo($originalName, PATHINFO_FILENAME);
         $filename = Str::slug($filename) . '_' . uniqid() . '.' . $extension;
         return $filename;
+    }
+
+    public function acceptSantri(Santri $santri)
+    {
+        $santri->update(['status_registrasi' => 'diterima']);
+        return redirect()->back();
+    }
+
+    public function rejectSantri(Santri $santri)
+    {
+        $santri->update([
+            'status_registrasi' => 'ditolak'
+        ]);
+        return redirect()->back();
+    }
+
+    public function generatePDF()
+    {
+        $santri_id = Santri::all()->where('email_santri', auth()->user()->email)->first()->id;
+        $santri = Santri::find($santri_id);
+
+        // return view('pages.users.profile.pdf')->with(['santri' => $santri]);
+
+        $pdf = PDF::loadView('pages.users.profile.pdf', ['santri' => $santri, 'pageTitle' => 'PDF'])->setPaper('a4', 'portrait');
+
+        return $pdf->download($santri->nama_santri . '.pdf');
+        // return $pdf->stream();
+    }
+
+
+    public function myProfile()
+    {
+        $email = auth()->user()->email;
+        $santri = Santri::all()->where('email_santri', $email)->first();
+        return view('pages.users.profile.profile', [
+            'pageTitle' => 'My Profile',
+            "santri" => $santri,
+        ]);
     }
 }

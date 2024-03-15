@@ -45,8 +45,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
         Route::post('/dashboard/buka-gelombang', [GelombangController::class, 'store'])->name('admin.buka-gelombang');
         Route::get('/dashboard/tutup-gelombang/{gelombang}', [GelombangController::class, 'close'])->name('admin.tutup-gelombang');
-        Route::get('/dashboard/terima-santri/{id}', [GelombangController::class, 'close'])->name('admin.terima-santri');
-        Route::get('/dashboard/tolak-santri/{id}', [GelombangController::class, 'close'])->name('admin.tolak-santri');
+        Route::get('/dashboard/terima-santri/{santri}', [SantriController::class, 'acceptSantri'])->name('admin.terima-santri');
+        Route::get('/dashboard/tolak-santri/{santri}', [SantriController::class, 'rejectSantri'])->name('admin.tolak-santri');
 
         Route::post('/dashboard/buat-pengumuman', [PengumumanController::class, 'store'])->name('admin.buat-pengumuman');
         Route::post('/dashboard/ubah-pengumuman', [PengumumanController::class, 'update'])->name('admin.ubah-pengumuman');
@@ -56,5 +56,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/data-santri', [DataSantriController::class, 'index'])->name('admin.data-santri');
         Route::get('/riwayat-gelombang', [GelombangController::class, 'index'])->name('admin.riwayat-gelombang');
         Route::get('/riwayat-gelombang/delete', [GelombangController::class, 'destroy'])->name('admin.hapus.riwayat-gelombang');
+    });
+
+    Route::middleware('role:santri')->group(function () {
+        Route::get('/myProfile', [SantriController::class, 'myProfile'])->name('santri.profile');
+        Route::get('/myProfile/download', [SantriController::class, 'generatePDF'])->name('santri.profile.PDF');
     });
 });
