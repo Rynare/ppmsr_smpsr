@@ -64,19 +64,21 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($santris as $santri)
-                                <tr>
-                                    <td>{{ $santri->nama_santri }}</td>
-                                    <td>{{ $santri->email_santri }}</td>
-                                    <td>{{ $santri->no_hp_santri }}</td>
-                                    <td>{{ $santri->no_hp_ayah }}</td>
-                                    <td>{{ $santri->no_hp_ibu }}</td>
-                                    <td>{{ $santri->nama_wali }}</td>
-                                    <td>
+                            @if (isset($santris))
+                                @foreach ($santris as $santri)
+                                    <tr>
+                                        <td>{{ $santri->nama_santri }}</td>
+                                        <td>{{ $santri->email_santri }}</td>
+                                        <td>{{ $santri->no_hp_santri }}</td>
+                                        <td>{{ $santri->no_hp_ayah }}</td>
+                                        <td>{{ $santri->no_hp_ibu }}</td>
+                                        <td>{{ $santri->nama_wali }}</td>
+                                        <td>
 
-                                    </td>
-                                </tr>
-                            @endforeach
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>

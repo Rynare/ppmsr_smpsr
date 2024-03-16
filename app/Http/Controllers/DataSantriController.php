@@ -16,7 +16,7 @@ class DataSantriController extends Controller
         $santri = Santri::all()->where('angkatan', $angkatan[0]);
         return view("pages.admin.data-santri.data-santri")->with([
             'pageTitle' => 'Data Santri',
-            'santri' => $santri,
+            'santris' => $santri,
             'list_angkatan' => $angkatan,
             'selected_angkatan' => $angkatan[0],
         ]);
