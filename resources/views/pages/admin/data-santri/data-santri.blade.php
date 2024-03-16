@@ -16,11 +16,26 @@
                                 <label class="input-group-text" for="inputGroupSelect01">
                                     <i class="bi bi-folder2-open"></i>
                                 </label>
-                                <select class="form-select" id="inputGroupSelect01">
-                                    <option value=""><a href="https://youtube.com">Youtube</a></option>
+                                <a href="" id="angkatan-selector"></a>
+                                <select class="form-select" id="inputGroupSelect01" onchange="angkatanSelector(this)">
+                                    @foreach ($list_angkatan as $angkatan)
+                                        <option value="{{ route('admin.data-santri.angkatan', ['angkatan' => $angkatan]) }}"
+                                            {{ $angkatan == $selected_angkatan ? 'selected' : '' }}>{{ $angkatan }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
+                            <script>
+                                function angkatanSelector(element) {
+                                    const anchor = document.querySelector('a#angkatan-selector')
+                                    anchor.href = element.value
+                                    anchor.click();
+                                }
+                            </script>
+                            <a class="btn btn-success"
+                                href="{{ route('admin.data-santri.download.angkatan', ['angkatan' => $selected_angkatan]) }}"
+                                target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i>&nbsp;Save
+                                ({{ $selected_angkatan }})</a>
                         </div>
                     </form>
                 </div>
@@ -48,7 +63,21 @@
                                 <th>Action</th>
                             </tr>
                         </tfoot>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($santris as $santri)
+                                <tr>
+                                    <td>{{ $santri->nama_santri }}</td>
+                                    <td>{{ $santri->email_santri }}</td>
+                                    <td>{{ $santri->no_hp_santri }}</td>
+                                    <td>{{ $santri->no_hp_ayah }}</td>
+                                    <td>{{ $santri->no_hp_ibu }}</td>
+                                    <td>{{ $santri->nama_wali }}</td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>

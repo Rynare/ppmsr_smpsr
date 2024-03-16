@@ -27,7 +27,7 @@
                                     <td>{{ $gelombang->angkatan }}</td>
                                     <td>{{ $gelombang->nama_gelombang }}</td>
                                     <td>{{ $gelombang->created_at }}</td>
-                                    <td>{{ $gelombang->closed_at }}</td>
+                                    <td>{{ $gelombang->closed_at ?? 'Belum ditutup' }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

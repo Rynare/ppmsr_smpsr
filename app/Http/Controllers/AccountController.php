@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AccountController extends Controller
 {
@@ -63,12 +64,33 @@ class AccountController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'old-email' => 'required',
+            'email' => 'required'
+        ], [
+            'required' => ':attribute tidak boleh kosong'
+        ]);
         $old_email = $request->get('old-email');
         $user = User::all()->where('email', $old_email)->first();
-        $user->update([
-            'email' => $request->email,
-            'password' => bcrypt(env('SALT') . $request->email . env('SALT'))
-        ]);
+        if ($user->id != 1) {
+            $user->update(
+                ['email' => random_int(88888888, 9999999999) . now() . '@gmail.com']
+            );
+
+            $validator = Validator::make($request->all(), ['email' => 'unique:users,email'], ['unique' => ':attribute sudah terdaftar/tidak tersedia']);
+
+            // Check jika validasi gagal
+            if ($validator->fails()) {
+                $user->update(
+                    ['email' => $request->get('old-email')]
+                );
+                return redirect()->back();
+            }
+            $user->update([
+                'email' => $request->email,
+                'password' => bcrypt(env('SALT') . $request->email . env('SALT'))
+            ]);
+        }
 
         return redirect()->back();
     }
@@ -78,7 +100,9 @@ class AccountController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
+        if ($user->id != 1) {
+            $user->delete();
+        }
         return redirect()->back();
     }
 }

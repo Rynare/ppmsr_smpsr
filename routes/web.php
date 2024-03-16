@@ -70,6 +70,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/account/hapus-akun/{user}', [AccountController::class, 'destroy'])->name('admin.hapus-akun');
 
         Route::get('/data-santri', [DataSantriController::class, 'index'])->name('admin.data-santri');
+        Route::get('/data-santri/angkatan/{angkatan}', [DataSantriController::class, 'indexAngkatan'])->name('admin.data-santri.angkatan');
+        Route::get('/data-santri/download/{angkatan}', [DataSantriController::class, 'downloadExcelAngkatan'])->name('admin.data-santri.download.angkatan');
         Route::get('/riwayat-gelombang', [GelombangController::class, 'index'])->name('admin.riwayat-gelombang');
         Route::get('/riwayat-gelombang/delete', [GelombangController::class, 'destroy'])->name('admin.hapus.riwayat-gelombang');
     });
