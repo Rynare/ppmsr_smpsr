@@ -65,6 +65,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/delete-pengumuman/{pengumuman}', [PengumumanController::class, 'destroy'])->name('admin.hapus-pengumuman');
 
         Route::get('/account', [AccountController::class, 'index'])->name('admin.account');
+        Route::post('/account/buat-akun-admin', [AccountController::class, 'createNewAdmin'])->name('admin.buat-akun-admin');
+        Route::post('/account/akun-santri-change-email', [AccountController::class, 'update'])->name('admin.akun-santri.change-email');
+        Route::get('/account/hapus-akun/{user}', [AccountController::class, 'destroy'])->name('admin.hapus-akun');
+
         Route::get('/data-santri', [DataSantriController::class, 'index'])->name('admin.data-santri');
         Route::get('/riwayat-gelombang', [GelombangController::class, 'index'])->name('admin.riwayat-gelombang');
         Route::get('/riwayat-gelombang/delete', [GelombangController::class, 'destroy'])->name('admin.hapus.riwayat-gelombang');

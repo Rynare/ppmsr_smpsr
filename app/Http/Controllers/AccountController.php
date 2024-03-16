@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -31,11 +32,22 @@ class AccountController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * createNewAdmin a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function createNewAdmin(Request $request)
     {
-        //
+        $request->validate(
+            ['email' => 'unique:users,email'],
+            ['unique' => ':attribute sudah digunakan']
+        );
+        $role_admin = Role::all()->where('role', 'admin')->first()->id;
+        User::create([
+            'name' => 'admin',
+            'email' => $request->email,
+            'password' => bcrypt(env('SALT') . $request->email . env('SALT')),
+            'role' => $role_admin,
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -49,9 +61,16 @@ class AccountController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-        //
+        $old_email = $request->get('old-email');
+        $user = User::all()->where('email', $old_email)->first();
+        $user->update([
+            'email' => $request->email,
+            'password' => bcrypt(env('SALT') . $request->email . env('SALT'))
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -59,6 +78,7 @@ class AccountController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->back();
     }
 }
