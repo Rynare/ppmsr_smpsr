@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('judul');
             $table->text('isi');
             $table->string('link')->nullable()->default(null);
+            $table->boolean('hidden')->default(false);
             $table->timestamps();
         });
     }

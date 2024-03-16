@@ -210,15 +210,6 @@ class SantriController extends Controller
 
         $santri = Santri::create($datas);
 
-        $role = Role::all()->where('role', 'santri')->first();
-
-        User::create([
-            'name' => $santri->nama_santri,
-            'email' => $santri->email_santri,
-            'password' => bcrypt(env('SALT') . $santri->email_santri . env('SALT')),
-            'role' => $role->id,
-        ]);
-
         $santri_id = $santri->id;
 
         // menit x jam x hari = 1 minggu
@@ -241,6 +232,14 @@ class SantriController extends Controller
     public function acceptSantri(Santri $santri)
     {
         $santri->update(['status_registrasi' => 'diterima']);
+        $role = Role::all()->where('role', 'santri')->first();
+
+        User::create([
+            'name' => $santri->nama_santri,
+            'email' => $santri->email_santri,
+            'password' => bcrypt(env('SALT') . $santri->email_santri . env('SALT')),
+            'role' => $role->id,
+        ]);
         return redirect()->back();
     }
 
@@ -270,9 +269,18 @@ class SantriController extends Controller
     {
         $email = auth()->user()->email;
         $santri = Santri::all()->where('email_santri', $email)->first();
-        return view('pages.users.profile.profile', [
-            'pageTitle' => 'My Profile',
-            "santri" => $santri,
-        ]);
+        $status = $santri->status_registrasi;
+
+        if ($status == 'diterima') {
+            return view('pages.users.profile.profile', [
+                'pageTitle' => 'My Profile',
+                "santri" => $santri,
+            ]);
+        } elseif ($status == 'pending') {
+            return view('pages.users.profile.profile', [
+                'pageTitle' => 'Status Interview',
+                'status' => $status,
+            ]);
+        }
     }
 }

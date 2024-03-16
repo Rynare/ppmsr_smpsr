@@ -19,7 +19,24 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Belum Interview</strong></td>
-                                    <td class="ps-3 ">: {{ $jumlah_pending }}</td>
+                                    <td class="ps-3 ">: {{ $jumlah_interview }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Status pengumuman <br>santri diterima</p>
+                                    </td>
+                                    <td class="ps-3 ">:
+                                        <a class="btn btn-success  btn-sm me-0"
+                                            href="{{ route('admin.publikasi-santri-diterima') }}"
+                                            style="width: fit-content; height: fit-content;">
+                                            Publikasi
+                                        </a>
+                                        <a class="btn btn-danger  btn-sm me-0"
+                                            href="{{ route('admin.unpublikasi-santri-diterima') }}"
+                                            style="width: fit-content; height: fit-content;">
+                                            Sembunyikan
+                                        </a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

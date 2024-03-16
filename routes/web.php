@@ -7,6 +7,7 @@ use App\Http\Controllers\DataSantriController;
 use App\Http\Controllers\GelombangController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SantriController;
+use App\Models\Pengumuman;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/daftar', [SantriController::class, 'create'])->name('santri-daftar');
 Route::post('/daftar', [SantriController::class, 'store'])->name('santri-daftar.store');
+Route::get('/santri-diterima', [SantriController::class, 'listSantriDiterima'])->name('santri.list-diterima');
 
 Route::get('/', function () {
     if ((auth()->user()->role ?? false) == 'admin' || (auth()->user()->isRoot ?? false) == true || (auth()->user()->isRoot ?? false) == 1) {
@@ -47,6 +49,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/tutup-gelombang/{gelombang}', [GelombangController::class, 'close'])->name('admin.tutup-gelombang');
         Route::get('/dashboard/terima-santri/{santri}', [SantriController::class, 'acceptSantri'])->name('admin.terima-santri');
         Route::get('/dashboard/tolak-santri/{santri}', [SantriController::class, 'rejectSantri'])->name('admin.tolak-santri');
+        Route::get('/dashboard/publikasi-santri-siterima', function () {
+            $pengumuman = Pengumuman::find(1);
+            $pengumuman->update(['hidden' => false]);
+            return redirect()->back();
+        })->name('admin.publikasi-santri-diterima');
+        Route::get('/dashboard/unpublikasi-santri-siterima', function () {
+            $pengumuman = Pengumuman::find(1);
+            $pengumuman->update(['hidden' => true]);
+            return redirect()->back();
+        })->name('admin.unpublikasi-santri-diterima');
 
         Route::post('/dashboard/buat-pengumuman', [PengumumanController::class, 'store'])->name('admin.buat-pengumuman');
         Route::post('/dashboard/ubah-pengumuman', [PengumumanController::class, 'update'])->name('admin.ubah-pengumuman');
@@ -60,6 +72,6 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('role:santri')->group(function () {
         Route::get('/myProfile', [SantriController::class, 'myProfile'])->name('santri.profile');
-        Route::get('/myProfile/download', [SantriController::class, 'generatePDF'])->name('santri.profile.PDF');
+        Route::get('/biodata/download', [SantriController::class, 'generatePDF'])->name('santri.biodata.PDF');
     });
 });

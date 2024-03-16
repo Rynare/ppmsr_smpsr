@@ -21,8 +21,22 @@
                 <p style="font-size:20px;color:#5C5C5C;">Halo, {{ $nama_santri }}</p>
                 <p>Kami telah menerima pendaftaran Anda dan kami akan segera memprosesnya. Silakan menunggu kabar
                     selanjutnya melalui email yang telah Anda berikan "<strong>{{ $email_santri }}</strong>".</p>
+
+
+                <p>Untuk persiapan interview, anda diharuskan membawa hardfile/print dari data berikut:</p>
+                <div class="d-flex w-100">
+                    <ol style="width: fit-content;margin: auto; margin-bottom: 10px;">
+                        <li style="text-align: start">Biodata pendaftar</li>
+                        <li style="text-align: start">Surat Sambung</li>
+                        <li style="text-align: start">Kartu keluarga</li>
+                    </ol>
+                </div>
+                <strong>
+                    Data diatas bisa kamu dapatkan dari email yang kamu daftarkan pada form pendaftaran.
+                </strong>
                 <p>Jika ada pertanyaan lebih lanjut atau informasi tambahan, jangan ragu untuk menghubungi kami.
                     Terima kasih lagi atas partisipasi Anda.</p>
+
                 <a href="{{ route('signin') }}" class="btn btn-success"> OK </a>
                 <br><br>
             </div>

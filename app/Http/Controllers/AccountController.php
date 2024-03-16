@@ -12,15 +12,21 @@ class AccountController extends Controller
      */
     public function index()
     {
-        $accs = User::all()->load('roles');
-        $accs_admin = User::all()->where('role', 'admin');
-        $accs_santri = User::all()->where('role', 'santri');
+        $accs_admin = User::whereHas('roles', function ($query) {
+            $query->where('role', 'admin');
+        })->where('isRoot', '!=', true)->get();
+
+        $accs_santri = User::whereHas('roles', function ($query) {
+            $query->where('role', 'santri');
+        })->get();
+
 
         return view('pages.admin.data-admin.data-admin')->with([
             'pageTitle' => 'Daftar Akun',
-            'accs' => $accs,
+            'accs_admin' => $accs_admin,
+            'accs_santri' => $accs_santri,
             'jumlah_admin' => $accs_admin->count(),
-            'jumlah_Santri' => $accs_santri->count(),
+            'jumlah_santri' => $accs_santri->count(),
         ]);
     }
 

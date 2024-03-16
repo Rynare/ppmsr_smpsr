@@ -26,8 +26,12 @@
                                     <p class="card-text">{{ $pengumuman->isi }}</p>
                                     @if ($pengumuman->link)
                                         <div class="w-100 d-flex justify-content-end "><a target="_blank"
-                                                href="{{ $pengumuman->link }}" class="btn btn-outline-success btn-sm">Unduh
-                                                Dokumen</a></div>
+                                                href="{{ $pengumuman->link }}"
+                                                class="btn {{ $pengumuman->id == 1 ? 'btn-primary' : ' btn-outline-success' }} btn-sm">{{ $pengumuman->id == 1
+                                                    ? 'Lihat'
+                                                    : 'Unduh
+                                                                                                Dokumen' }}</a>
+                                        </div>
                                     @endif
                                 </div>
                             </div>

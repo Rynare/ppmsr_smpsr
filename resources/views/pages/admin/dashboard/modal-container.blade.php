@@ -55,7 +55,8 @@
                     <div class="mb-3">
                         <label for="link" class="form-label">Link:</label>
                         <input type="link" class="form-control" id="link" placeholder="" name="link">
-                        <div class="form-text text-danger " id="basic-addon4">https://......</div>
+                        <div class="form-text text-danger " id="basic-addon4">Link bisa berisi tautan dokumen untuk
+                            pengumuman lebih lanjut.</div>
                     </div>
                 </div>
                 <div class="modal-footer">

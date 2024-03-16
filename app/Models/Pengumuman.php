@@ -13,5 +13,6 @@ class Pengumuman extends Model
         'judul',
         'isi',
         'link',
+        'hidden',
     ];
 }

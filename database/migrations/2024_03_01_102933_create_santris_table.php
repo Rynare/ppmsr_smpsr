@@ -88,7 +88,7 @@ return new class extends Migration
             $table->string('pas_foto');
             $table->string('angkatan');
             $table->string('gelombang');
-            $table->enum('status_registrasi', ['pending', 'diterima', 'ditolak'])->default('pending');
+            $table->enum('status_registrasi', ['interview', 'pending', 'diterima', 'ditolak'])->default('interview');
 
             $table->timestamps();
         });

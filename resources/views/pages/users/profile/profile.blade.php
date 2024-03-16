@@ -14,7 +14,7 @@
                                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                                     alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
                                 <h5>{{ $santri->nama_santri }}</h5>
-                                <p>{{ $santri->gelombang }} - {{ $santri->angkatan }}</p>
+                                <p><strong>Angkatan</strong> - {{ $santri->angkatan }}</p>
                                 <i class="far fa-edit mb-5"></i>
                             </div>
                             <div class="col-md-8">
