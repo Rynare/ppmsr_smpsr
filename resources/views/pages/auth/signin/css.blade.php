@@ -5,7 +5,7 @@
 
     aside {
         top: 40px;
-        right: calc(100% - 50px);
+        right: calc(100% - 42px);
         bottom: 40px;
         width: 90%;
         max-width: 340px;
@@ -14,7 +14,7 @@
     }
 
     aside.active {
-        transform: translateX(calc(100% - 50px));
+        transform: translateX(calc(100% - 42px));
     }
 
     aside #aside-content-container {
