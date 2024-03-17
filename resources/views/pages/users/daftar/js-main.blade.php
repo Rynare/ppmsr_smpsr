@@ -1,15 +1,14 @@
 <!-- Run Script disini bro -->
 <script>
-    const form = document.querySelector('form')
-    const submit_btn = form.querySelector('[type=submit]')
-
     document.addEventListener('DOMContentLoaded', () => {
-        runFormKeyEvent()
-        runFormEvent()
+        const form = document.querySelector('form')
+        const submit_btn = form.querySelector('[type=submit]')
+        runFormKeyEvent(form)
+        runFormEvent(form)
         loadFormData()
 
         setInterval(() => {
-            saveFormData()
+            saveFormData(form, submit_btn)
         }, 1000);
     })
 </script>
@@ -21,7 +20,7 @@
         inputFileElements.push(element.name.toLowerCase())
     });
 
-    function saveFormData() {
+    function saveFormData(form, submit_btn) {
         const formData = new FormData(form);
         const result = {};
 
@@ -48,65 +47,69 @@
 
     function loadFormData() {
         const formData = JSON.parse(localStorage.getItem('savedFormData'))
-        for (const key in formData) {
-            const formInput = document.querySelector(`[name=${key}]`);
-            const formInputTagName = formInput.tagName.toLowerCase();
-            const formInputType = formInput.getAttribute('type')
-            const formInputDataInputType = formInput.getAttribute('data-input')
+        if (formData !== null) {
+            for (const key in formData) {
+                const formInput = document.querySelector(`[name=${key}]`);
+                if (formInput) {
+                    const formInputTagName = formInput.tagName.toLowerCase();
+                    const formInputType = formInput.getAttribute('type')
+                    const formInputDataInputType = formInput.getAttribute('data-input')
 
-            switch (formInputTagName) {
-                case 'input':
-                    if (key == '_token') {
-                        continue;
+                    switch (formInputTagName) {
+                        case 'input':
+                            if (key == '_token') {
+                                continue;
+                            }
+                            if (formInput.getAttribute('type') == 'file') {
+                                continue;
+                            }
+                            if (formInput.getAttribute('type') == 'radio') {
+                                const radioBtn = document.querySelector(`form #${formData[key]}`);
+                                if (radioBtn) {
+                                    radioBtn.checked = 1
+                                }
+                            }
+                        case 'select':
+                            formInput.value = formData[key];
+                            break;
+                        default:
+                            break;
                     }
-                    if (formInput.getAttribute('type') == 'file') {
-                        continue;
-                    }
-                    if (formInput.getAttribute('type') == 'radio') {
-                        const radioBtn = document.querySelector(`form #${formData[key]}`);
-                        if (radioBtn) {
-                            radioBtn.checked = 1
+                    if (key.includes('penghasilan')) {
+                        const elementCurrency = document.querySelector(formInput.getAttribute('data-input-fake-ref'))
+
+                        const {
+                            status,
+                            msg,
+                            result
+                        } = currencyFormatterAndChecker(`${formData[key]}`)
+                        if (status) {
+                            elementCurrency.value = result
+                            elementCurrency.setCustomValidity('')
+                            bsValidityToogle(elementCurrency, 'is-valid')
+                        } else {
+                            elementCurrency.setCustomValidity(msg)
+                            bsValidityToogle(elementCurrency, 'is-invalid')
                         }
                     }
-                case 'select':
-                    formInput.value = formData[key];
-                    break;
-                default:
-                    break;
-            }
-            if (key.includes('penghasilan')) {
-                const elementCurrency = document.querySelector(formInput.getAttribute('data-input-fake-ref'))
+                    validateInput(formInput)
+                    if (formInputType == 'number') {
+                        validateInputNumber(formInput)
+                    }
+                    if (formInputType == 'date') {
+                        validateDateInput(formInput)
+                    }
 
-                const {
-                    status,
-                    msg,
-                    result
-                } = currencyFormatterAndChecker(`${formData[key]}`)
-                if (status) {
-                    elementCurrency.value = result
-                    elementCurrency.setCustomValidity('')
-                    bsValidityToogle(elementCurrency, 'is-valid')
-                } else {
-                    elementCurrency.setCustomValidity(msg)
-                    bsValidityToogle(elementCurrency, 'is-invalid')
+                    if (formInputDataInputType == 'phone-number') {
+                        validatePhoneNumber(formInput)
+                    }
+                    if (isEmpty(formInput.value) && formInput.getAttribute('type')?.toLowerCase() !== 'file') {
+                        formInput.classList.remove('is-invalid')
+                        formInput.classList.remove('is-valid')
+                    }
                 }
-            }
 
-            // memberikan validasi ke element yang sudah diisi
-            validateInput(formInput)
-            if (formInputType == 'number') {
-                validateInputNumber(formInput)
-            }
-            if (formInputType == 'date') {
-                validateDateInput(formInput)
-            }
-
-            if (formInputDataInputType == 'phone-number') {
-                validatePhoneNumber(formInput)
-            }
-            if (isEmpty(formInput.value) && formInput.getAttribute('type')?.toLowerCase() !== 'file') {
-                formInput.classList.remove('is-invalid')
-                formInput.classList.remove('is-valid')
+                // memberikan validasi ke element yang sudah diisi
             }
         }
     }
@@ -114,7 +117,7 @@
 
 <!-- Form event -->
 <script>
-    function runFormKeyEvent() {
+    function runFormKeyEvent(form) {
         ['keyup', 'keydown', 'keypress'].forEach(eventType => {
             form.addEventListener(eventType, (event) => {
                 if (['input', 'textarea'].includes(event.target.tagName.toLowerCase())) {
@@ -135,7 +138,7 @@
         });
     }
 
-    function runFormEvent() {
+    function runFormEvent(form) {
         ['change', 'input', 'formdata'].forEach(eventType => {
             form.addEventListener(eventType, (event) => {
                 const element = event.target

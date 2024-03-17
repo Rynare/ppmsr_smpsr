@@ -6,6 +6,8 @@ use App\Models\Santri;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\SantriByAngkatanExport;
+use App\Mail\prepareInterview;
+use Illuminate\Support\Facades\Mail;
 
 class DataSantriController extends Controller
 {

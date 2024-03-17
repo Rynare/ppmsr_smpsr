@@ -66,14 +66,13 @@ class AccountController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'old-email' => 'required',
-            'email' => 'required'
+            'old-email' => 'required|email',
+            'email' => 'required|email|unique:users,email'
         ], [
             'required' => ':attribute tidak boleh kosong'
         ]);
-        $old_email = $request->get('old-email');
-        $user = User::all()->where('email', $old_email)->first();
-        $santri = Santri::all()->where('email_santri', $old_email)->first();
+        $user = User::all()->where('email', $request->get('old-email'))->first();
+        $santri = Santri::all()->where('email_santri', $request->get('old-email'))->first();
         if ($user->id != 1) {
             $user->update(
                 ['email' => random_int(88888888, 9999999999) . now() . '@gmail.com']

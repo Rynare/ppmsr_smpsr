@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\prepareInterview;
 use App\Models\Gelombang;
 use App\Models\Role;
 use App\Models\Santri;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 use PhpOffice\PhpWord\TemplateProcessor;
 
 class SantriController extends Controller
@@ -146,12 +148,21 @@ class SantriController extends Controller
             'file' => ':attribute harus berupa file.',
         ];
 
+
         // Gunakan validator
         $validator = Validator::make($request->all(), $rules, $customMessages);
 
         // Check jika validasi gagal
         if ($validator->fails()) {
-            return redirect()->back();
+            $errors = $validator->errors()->first();
+            $errors = [
+                'swal' => [
+                    'icon' => 'error',
+                    'title' => 'Error',
+                    'text' => $errors,
+                ]
+            ];
+            return redirect()->back()->withErrors($errors);
         }
 
         // Upload Kartu Keluarga
@@ -217,6 +228,8 @@ class SantriController extends Controller
 
         $cookie = Cookie::make('id_santri', $santri_id, $time);
 
+        Mail::to($santri->email_santri)->send(new prepareInterview($santri_id));
+
         // Redirect dengan pesan sukses
         return redirect()->back()->withCookie($cookie);
     }
@@ -251,11 +264,12 @@ class SantriController extends Controller
         return redirect()->back();
     }
 
-    public function generatePDF()
+    public function generatePDF($id, $email)
     {
-        $santri_id = Santri::all()->where('email_santri', auth()->user()->email)->first()->id;
-        $santri = Santri::find($santri_id);
-
+        $santri = Santri::find($id);
+        if ($santri->email_santri != $email) {
+            return redirect('/');
+        }
         // return view('pages.users.profile.pdf')->with(['santri' => $santri]);
 
         $pdf = PDF::loadView('pages.users.profile.pdf', ['santri' => $santri, 'pageTitle' => 'PDF'])->setPaper('a4', 'portrait');

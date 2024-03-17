@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/daftar', [SantriController::class, 'create'])->name('santri-daftar');
 Route::post('/daftar', [SantriController::class, 'store'])->name('santri-daftar.store');
 Route::get('/santri-diterima', [SantriController::class, 'listSantriDiterima'])->name('santri.list-diterima');
+Route::get('/biodata/download/{id}/{email}', [SantriController::class, 'generatePDF'])->name('santri.biodata.PDF');
 
 Route::get('/', function () {
     if ((auth()->user()->role ?? false) == 'admin' || (auth()->user()->isRoot ?? false) == true || (auth()->user()->isRoot ?? false) == 1) {
@@ -80,6 +81,5 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('role:santri')->group(function () {
         Route::get('/myProfile', [SantriController::class, 'myProfile'])->name('santri.profile');
-        Route::get('/biodata/download', [SantriController::class, 'generatePDF'])->name('santri.biodata.PDF');
     });
 });

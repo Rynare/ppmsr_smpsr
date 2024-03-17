@@ -28,6 +28,7 @@
             @stack('DOM_Loaded')
         })
     </script>
+
 </body>
 
 </html>

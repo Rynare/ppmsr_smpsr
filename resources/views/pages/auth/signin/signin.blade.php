@@ -25,13 +25,16 @@
                                     <h5 class="card-title">{{ $pengumuman->judul }}</h5>
                                     <p class="card-text">{{ $pengumuman->isi }}</p>
                                     @if ($pengumuman->link)
-                                        <div class="w-100 d-flex justify-content-end "><a target="_blank"
-                                                href="{{ $pengumuman->link }}"
-                                                class="btn {{ $pengumuman->id == 1 ? 'btn-primary' : ' btn-outline-success' }} btn-sm">{{ $pengumuman->id == 1
-                                                    ? 'Lihat'
-                                                    : 'Unduh
-                                                                                                Dokumen' }}</a>
-                                        </div>
+                                        @if ($pengumuman->hidden == 1)
+                                            <div class="w-100 d-flex justify-content-end "><a href="#"
+                                                    class="btn btn-secondary btn-sm">Belum dibuka</a>
+                                            </div>
+                                        @else
+                                            <div class="w-100 d-flex justify-content-end "><a target="_blank"
+                                                    href="{{ $pengumuman->link }}"
+                                                    class="btn {{ $pengumuman->id == 1 ? 'btn-primary' : ' btn-outline-success' }} btn-sm">{{ $pengumuman->id == 1 ? 'Lihat' : 'Unduh Dokumen' }}</a>
+                                            </div>
+                                        @endif
                                     @endif
                                 </div>
                             </div>

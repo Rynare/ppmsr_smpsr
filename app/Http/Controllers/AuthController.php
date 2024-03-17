@@ -20,7 +20,7 @@ class AuthController extends Controller
     }
     public function signin()
     {
-        $pengumumans = Pengumuman::all()->where('hidden', false);
+        $pengumumans = Pengumuman::all();
         return view('pages.auth.signin.signin')->with([
             'pageTitle' => 'Masuk',
             'pengumumans' => $pengumumans,
