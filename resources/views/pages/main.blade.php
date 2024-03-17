@@ -17,11 +17,17 @@
 </head>
 
 <body>
+    @stack('modal-container')
     @yield('custom')
     @yield('header')
     @yield('content')
     @yield('footer')
     @yield('html-end')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            @stack('DOM_Loaded')
+        })
+    </script>
 </body>
 
 </html>

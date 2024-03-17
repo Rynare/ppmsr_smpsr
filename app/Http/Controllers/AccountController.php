@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\Santri;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -72,6 +73,7 @@ class AccountController extends Controller
         ]);
         $old_email = $request->get('old-email');
         $user = User::all()->where('email', $old_email)->first();
+        $santri = Santri::all()->where('email_santri', $old_email)->first();
         if ($user->id != 1) {
             $user->update(
                 ['email' => random_int(88888888, 9999999999) . now() . '@gmail.com']
@@ -86,9 +88,13 @@ class AccountController extends Controller
                 );
                 return redirect()->back();
             }
+
             $user->update([
                 'email' => $request->email,
                 'password' => bcrypt(env('SALT') . $request->email . env('SALT'))
+            ]);
+            $santri->update([
+                'email_santri' => $request->email,
             ]);
         }
 

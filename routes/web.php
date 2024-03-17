@@ -42,6 +42,8 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/signout', [AuthController::class, 'signout'])->name('signout');
+    Route::post('/user/change-email', [AuthController::class, 'changeEmail'])->name('user.change-email');
+    Route::post('/user/change-password', [AuthController::class, 'changePassword'])->name('user.change-password');
 
     Route::middleware('role:admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');

@@ -9,9 +9,9 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-header">
-                    <form action="{{ route('admin.data-santri') }}">
-                        <div class="form-group">
-                            <label for="" class="mb-2">Pilih Angkatan</label>
+                    <div class="row gx-0 row-cols-2 ">
+                        <label for="" class="mb-2 col-12 ">Pilih Angkatan</label>
+                        <div class="col-5">
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupSelect01">
                                     <i class="bi bi-folder2-open"></i>
@@ -25,19 +25,19 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <script>
-                                function angkatanSelector(element) {
-                                    const anchor = document.querySelector('a#angkatan-selector')
-                                    anchor.href = element.value
-                                    anchor.click();
-                                }
-                            </script>
-                            <a class="btn btn-success"
-                                href="{{ route('admin.data-santri.download.angkatan', ['angkatan' => $selected_angkatan]) }}"
-                                target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i>&nbsp;Save
-                                ({{ $selected_angkatan }})</a>
                         </div>
-                    </form>
+                        <a class="btn btn-success w-auto ms-auto " style="height: fit-content;"
+                            href="{{ route('admin.data-santri.download.angkatan', ['angkatan' => $selected_angkatan]) }}"
+                            target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i>&nbsp;Save
+                            ({{ $selected_angkatan }})</a>
+                        <script>
+                            function angkatanSelector(element) {
+                                const anchor = document.querySelector('a#angkatan-selector')
+                                anchor.href = element.value
+                                anchor.click();
+                            }
+                        </script>
+                    </div>
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">

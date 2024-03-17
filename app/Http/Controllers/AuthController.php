@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengumuman;
+use App\Models\Santri;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -70,9 +72,50 @@ class AuthController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function changeEmail(Request $request)
     {
-        //
+        $request->validate(['new_email' => 'required|unique:users,email'], ['required' => ':attribute tidak boleh kosong', 'unique' => ':attribute sudah digunakan/tidak tersedia']);
+        $user = User::find(auth()->user()->id);
+
+        if ($user->email != $request->old_email) {
+            return redirect()->back();
+        }
+
+        if ($user->roles->role == 'santri') {
+            $santri = Santri::all()->where('email', $request->old_email)->first();
+
+            $user->update(
+                ['email' => random_int(88888888, 9999999999) . now() . '@gmail.com']
+            );
+
+            $validator = Validator::make($request->all(), ['new_email' => 'unique:santris,email_santri'], ['unique' => ':attribute sudah terdaftar/tidak tersedia']);
+
+            // Check jika validasi gagal
+            if ($validator->fails()) {
+                $user->update(
+                    ['email' => $request->get('old_email')]
+                );
+                return redirect()->back();
+            }
+
+            $santri->update([
+                'email_santri' => $request->new_email,
+            ]);
+        }
+
+        $user->update([
+            'email' => $request->new_email
+        ]);
+
+        return redirect()->back();
+    }
+    public function changePassword(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        $user->update([
+            'password' => bcrypt(env('SALT') . $request->password . env('SALT'))
+        ]);
+        return redirect()->back();
     }
 
     /**
