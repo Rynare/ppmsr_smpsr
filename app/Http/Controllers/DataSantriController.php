@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Santri;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SantriByAngkatanExport;
 
 class DataSantriController extends Controller
 {
@@ -34,14 +36,7 @@ class DataSantriController extends Controller
     }
     public function downloadExcelAngkatan($angkatan)
     {
-        $angkatans = Santri::select('angkatan')->groupBy('angkatan')->orderBy('angkatan', 'desc')->pluck('angkatan');
-        $santri = Santri::all()->where('angkatan', $angkatan);
-        return view("pages.admin.data-santri.data-santri")->with([
-            'pageTitle' => 'Data Santri',
-            'santris' => $santri,
-            'list_angkatan' => $angkatans,
-            'selected_angkatan' => $angkatan,
-        ]);
+        return Excel::download(new SantriByAngkatanExport($angkatan), 'santri_angkatan_' . $angkatan . '.xlsx');
     }
 
     /**
