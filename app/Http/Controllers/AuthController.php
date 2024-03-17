@@ -112,10 +112,12 @@ class AuthController extends Controller
     public function changePassword(Request $request)
     {
         $user = User::find(auth()->user()->id);
+
         $user->update([
-            'password' => bcrypt(env('SALT') . $request->password . env('SALT'))
+            'password' => bcrypt(env('SALT') . $request->new_password . env('SALT'))
         ]);
-        return redirect()->back();
+        auth()->logout();
+        return redirect()->intended('/');
     }
 
     /**

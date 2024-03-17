@@ -161,10 +161,8 @@
 
             const datatablesSimple = document.getElementById('datatablesSimple');
             const datatablesSantri = document.getElementById('datatablesSimple-santri');
-            if (datatablesSimple) {
-                new simpleDatatables.DataTable(datatablesSimple);
-                new simpleDatatables.DataTable(datatablesSantri);
-            }
+            datatablesSimple ? new simpleDatatables.DataTable(datatablesSimple) : '';
+            datatablesSantri ? new simpleDatatables.DataTable(datatablesSantri) : '';
         });
     </script>
 @endsection
