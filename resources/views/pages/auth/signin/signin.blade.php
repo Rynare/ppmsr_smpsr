@@ -83,11 +83,40 @@
                     </div>
 
                     <div class="form-check mt-2 mb-3">
-                        <input class="form-check-input" type="checkbox" name="remember" id="flexCheckRemember">
-                        <label class="form-check-label" for="flexCheckRemember">
-                            Ingatkan Saya di Perangkat ini
-                        </label>
+                        <a class="btn m-0 btn-link text-end w-100 px-0" data-bs-toggle="modal"
+                            data-bs-target="#forgot-password">
+                            Lupa kata sandi
+                        </a>
                     </div>
+                    @push('modal-container')
+                        <div class="modal fade" id="forgot-password" tabindex="-1" aria-labelledby="forgot-passwordLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="forgot-passwordLabel">Lupa kata sandi</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form action="{{ route('forgot-password.send-otp') }}" method="POST">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <div class="form-floating mb-3">
+                                                <input type="email" class="form-control" id="floatingInput"
+                                                    placeholder="name@example.com" name="email">
+                                                <label for="floatingInput">Email address</label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="reset" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Kirim</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    @endpush
                     <button class="w-100 btn " style="background: #760712; color: white" type="submit"
                         id="login-form-button">Masuk</button>
                     <div class="mt-3 mb-4 d-flex gap-2 flex-column flex-md-row align-items-center justify-content-center">

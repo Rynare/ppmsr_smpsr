@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\forgotPasswordSendOtp;
+use App\Models\PasswordResetToken;
 use App\Models\Pengumuman;
 use App\Models\Santri;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -148,5 +152,111 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect('/');
+    }
+
+    public function forgotPasswordSendOtp(Request $request)
+    {
+        $request->validate([
+            'email' => 'email|required'
+        ], [
+            'required' => ':attribute tidak boleh kosong',
+            'email' => ':attribute harus berupa email address'
+        ]);
+
+        $email = $request->email;
+        $user = User::where('email', $email)->first();
+        $santri = Santri::where('email_santri', $email)->first();
+
+        if ($user && $santri) {
+            $otp = Str::random(6);
+            PasswordResetToken::create([
+                'email' => $email,
+                'token' => $otp,
+            ]);
+
+            Mail::to($email)->send(new forgotPasswordSendOtp($email, $otp));
+        } else {
+            return redirect()->back()->withErrors([
+                'swal' => [
+                    'title' => 'Error!',
+                    'icon' => "error",
+                    'text' => 'Email tidak terdaftar'
+                ]
+            ]);
+        }
+
+        return redirect()->back()->withErrors([
+            'swal' => [
+                'title' => 'Terkirim',
+                'icon' => "success",
+                'text' => 'Silahkan cek email anda dan ganti kata sandi'
+            ]
+        ]);
+    }
+    public function forgotPassword($email, $otp)
+    {
+        $token = PasswordResetToken::where('email', $email)
+            ->where('token', $otp)
+            ->first();
+
+        // Lakukan sesuatu jika token ditemukan
+        if ($token) {
+            return view('pages.auth.forgot-pass.forgot-pass', [
+                'email' => $token->email,
+                'otp' => $token->token,
+            ]);
+        } else {
+            return redirect()->route('signin')->withErrors([
+                'swal' => [
+                    'title' => 'Error',
+                    'icon' => 'error',
+                    'text' => 'Kode OTP tidak ditemukan',
+                ]
+            ]);
+        }
+    }
+    public function submitForgotPassword(Request $request)
+    {
+        $rules = [
+            'otp' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ];
+        $customMessages = [
+            'required' => ':attribute tidak boleh kosong',
+            'email' => ':attribute harus berupa email'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $customMessages);
+
+        // Check jika validasi gagal
+        if ($validator->fails()) {
+            return redirect()->route('signin')->withErrors([
+                'swal' => [
+                    'title' => 'Error',
+                    'icon' => 'error',
+                    'text' => 'Akses dilarang',
+                ]
+            ]);
+        }
+
+        $resetPw = PasswordResetToken::where('email', $request->email)
+            ->where('token', $request->otp)
+            ->first();
+
+
+        $user = User::all()->where('email', $resetPw->email)->first();
+        $user->update([
+            'password' => bcrypt(env('SALT') . $request->password . env('SALT'))
+        ]);
+        $resetPw->delete();
+
+        return redirect()->route('signin')->withErrors([
+            'swal' => [
+                'title' => 'Sukses',
+                'icon' => 'success',
+                'text' => 'Password berhasil diubah',
+            ]
+        ]);
     }
 }

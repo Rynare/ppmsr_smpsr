@@ -253,6 +253,7 @@ class SantriController extends Controller
             'password' => bcrypt(env('SALT') . $santri->email_santri . env('SALT')),
             'role' => $role->id,
         ]);
+
         return redirect()->back();
     }
 
@@ -296,5 +297,10 @@ class SantriController extends Controller
                 'status' => $status,
             ]);
         }
+    }
+
+    public function listSantriDiterima()
+    {
+        return view('pages.list-santri-diterima', $santri);
     }
 }

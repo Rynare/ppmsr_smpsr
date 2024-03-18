@@ -39,6 +39,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/signin', [AuthController::class, 'signinValidation'])->name('signin.submit');
     Route::get('/signup', [AuthController::class, 'signup'])->name('signup');
     Route::post('/signup', [AuthController::class, 'create'])->name('signup.create');
+    Route::post('/forgot-password-send-otp', [AuthController::class, 'forgotPasswordSendOtp'])->name('forgot-password.send-otp');
+    Route::get('/forgot-password/{email}/{otp}', [AuthController::class, 'forgotPassword'])->name('forgot-password');
+    Route::post('/forgot-password/{email}/{otp}', [AuthController::class, 'submitForgotPassword'])->name('forgot-password.submit');
 });
 
 Route::middleware('auth')->group(function () {

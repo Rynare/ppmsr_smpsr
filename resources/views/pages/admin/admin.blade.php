@@ -105,7 +105,7 @@
                                                     aria-describedby="passwordConfirmFeedback">
                                                 <label for="user.newPasswordConfirm">Konfirmasi password baru</label>
                                                 <div id="passwordConfirmFeedback" class="invalid-feedback">
-                                                    Please choose a username.
+                                                    Pastikan password sama!
                                                 </div>
                                             </div>
                                         </div>
@@ -129,9 +129,11 @@
                                     if (newPassConfirm.value !== newPass.value) {
                                         newPassConfirm.classList.remove('is-valid');
                                         newPassConfirm.classList.add('is-invalid');
+                                        newPassConfirm.setCustomValidity('Password tidak cocok')
                                     } else {
                                         newPassConfirm.classList.remove('is-invalid');
                                         newPassConfirm.classList.add('is-valid');
+                                        newPassConfirm.setCustomValidity('')
                                     }
                                 });
 
@@ -139,9 +141,11 @@
                                     if (newPassConfirm.value !== newPass.value) {
                                         newPassConfirm.classList.remove('is-valid');
                                         newPassConfirm.classList.add('is-invalid');
+                                        newPassConfirm.setCustomValidity('Password tidak cocok')
                                     } else {
                                         newPassConfirm.classList.remove('is-invalid');
                                         newPassConfirm.classList.add('is-valid');
+                                        newPassConfirm.setCustomValidity('')
                                     }
                                 });
                             });
