@@ -40,6 +40,14 @@
             <p class="text-muted text-uppercase ">{{ $santri->golongan_darah }}</p>
         </div>
         <div class="col-12  mb-3">
+            <h6>Riwayat penyakit</h6>
+            <p class="text-muted text-uppercase ">{{ $santri->riwayat_penyakit }}</p>
+        </div>
+        <div class="col-12  mb-3">
+            <h6>Status mubaligh</h6>
+            <p class="text-muted">{{ $santri->status_mubaligh }} Mubaligh</p>
+        </div>
+        <div class="col-12  mb-3">
             <h6>Hafalan</h6>
             <p class="text-muted">{{ $santri->jumlah_hafalan }} JUZ</p>
         </div>

@@ -86,7 +86,7 @@ class AuthController extends Controller
         }
 
         if ($user->roles->role == 'santri') {
-            $santri = Santri::all()->where('email', $request->old_email)->first();
+            $santri = Santri::all()->where('email_santri', $request->old_email)->first();
 
             $user->update(
                 ['email' => random_int(88888888, 9999999999) . now() . '@gmail.com']
