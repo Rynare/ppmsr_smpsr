@@ -11,10 +11,12 @@
                         <div class="row g-0">
                             <div class="col-md-4 gradient-custom text-center"
                                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                                    alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                                <h5>{{ $santri->nama_santri }}</h5>
+                                <img src="{{ asset('storage/santri/' . $santri->pas_foto) }}" alt="Avatar"
+                                    class="img-fluid my-5" width="155" height="230" />
+                                <h5 class="text-capitalize ">{{ $santri->nama_santri }}&nbsp;({{ $santri->jenis_kelamin }})
+                                </h5>
                                 <p><strong>Angkatan</strong> - {{ $santri->angkatan }}</p>
+                                <p><strong>Tahun Masuk PPM</strong> - {{ $santri->tahun_masuk_ppm }}</p>
                                 <i class="far fa-edit mb-5"></i>
                             </div>
                             <div class="col-md-8">

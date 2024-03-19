@@ -31,7 +31,7 @@
                                             </div>
                                         @else
                                             <div class="w-100 d-flex justify-content-end "><a target="_blank"
-                                                    href="{{ $pengumuman->link }}"
+                                                    href="{{ $pengumuman->id == 1 ? route('santri.list-diterima') : $pengumuman->link }}"
                                                     class="btn {{ $pengumuman->id == 1 ? 'btn-primary' : ' btn-outline-success' }} btn-sm">{{ $pengumuman->id == 1 ? 'Lihat' : 'Unduh Dokumen' }}</a>
                                             </div>
                                         @endif

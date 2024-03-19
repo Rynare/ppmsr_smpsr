@@ -16,7 +16,7 @@ class PengumumanSeeder extends Seeder
         DB::table('pengumumans')->insert([
             'judul' => 'Daftar diterima',
             'isi' => 'Berikut adalah daftar santri yang diterima.',
-            'link' => route('santri.list-diterima'),
+            'link' => 'route:santri.list-diterima',
             'hidden' => true,
         ]);
     }

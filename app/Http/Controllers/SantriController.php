@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\prepareInterview;
+use App\Mail\SantriDiterima;
 use App\Models\Gelombang;
 use App\Models\Role;
 use App\Models\Santri;
@@ -247,13 +248,15 @@ class SantriController extends Controller
         $santri->update(['status_registrasi' => 'diterima']);
         $role = Role::all()->where('role', 'santri')->first();
 
-        User::create([
+
+        $user = User::create([
             'name' => $santri->nama_santri,
             'email' => $santri->email_santri,
             'password' => bcrypt(env('SALT') . $santri->email_santri . env('SALT')),
             'role' => $role->id,
         ]);
 
+        Mail::to($user->email)->send(new SantriDiterima($user->name, $user->email, $user->email));
         return redirect()->back();
     }
 
@@ -301,6 +304,8 @@ class SantriController extends Controller
 
     public function listSantriDiterima()
     {
-        return view('pages.list-santri-diterima', $santri);
+        $gelombang = Gelombang::all()->where('closed', 0)->first();
+        $santri = Santri::all()->where('angkatan', $gelombang->angkatan)->where('status_registrasi', 'diterima');
+        return view('pages.list-santri-diterima', ['santris' => $santri, 'pageTitle' => 'Daftar santri diterima']);
     }
 }
