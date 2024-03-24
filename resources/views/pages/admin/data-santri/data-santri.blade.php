@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <a class="btn btn-success w-auto ms-auto " style="height: fit-content;"
-                            href="{{ route('admin.data-santri.download.angkatan', ['angkatan' => $selected_angkatan]) }}"
+                            href="{{ $selected_angkatan ? route('admin.data-santri.download.angkatan', ['angkatan' => $selected_angkatan]) : '#' }}"
                             target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i>&nbsp;Export
                             ({{ $selected_angkatan }})</a>
                         <script>

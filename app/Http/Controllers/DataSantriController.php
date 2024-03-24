@@ -17,12 +17,12 @@ class DataSantriController extends Controller
     public function index()
     {
         $angkatan = Santri::select('angkatan')->groupBy('angkatan')->orderBy('angkatan', 'desc')->pluck('angkatan');
-        $santri = Santri::all()->where('angkatan', $angkatan[0]);
+        $santri = Santri::all()->where('angkatan', $angkatan[0] ?? null);
         return view("pages.admin.data-santri.data-santri")->with([
             'pageTitle' => 'Data Santri',
             'santris' => $santri,
             'list_angkatan' => $angkatan,
-            'selected_angkatan' => $angkatan[0],
+            'selected_angkatan' => $angkatan[0] ?? null,
         ]);
     }
     public function indexAngkatan($angkatan)
