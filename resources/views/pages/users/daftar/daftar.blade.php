@@ -11,11 +11,11 @@
 @endsection
 @section('custom')
     <div id="content" class="mx-auto">
+        <h1 class="text-center">Pendaftaran Santri</h1>
         <header class="px-4 py-2 position-sticky top-0 bg-white z-3 shadow-sm " style="z-index: 10000;" id="navbar-scrollspy">
-            <h1 class="text-center ">Pendaftaran Santri</h1>
-            <ul class="nav nav-underline">
+            <ul class="nav nav-underline row-gap-0 align-items-center justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link text-danger active" aria-current="page" data-section-target="datadiri"
+                    <a class="nav-link text-danger" aria-current="page" data-section-target="datadiri"
                         href="#form-datadiri">Data Diri</a>
                 </li>
                 <li class="nav-item">
@@ -43,7 +43,8 @@
         <main class="row row-cols-lg-1 gx-0 px-4 my-3 ">
             <form action="{{ route('santri-daftar.store') }}" method="post" class="row gx-0" data-bs-spy="scroll"
                 data-bs-target="#navbar-scrollspy" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
-                tabindex="0">
+                tabindex="0" enctype="multipart/form-data">
+                @csrf
                 @include('pages.users.daftar.datadiri')
                 @include('pages.users.daftar.data-orangtua')
                 @include('pages.users.daftar.data-khusus')
