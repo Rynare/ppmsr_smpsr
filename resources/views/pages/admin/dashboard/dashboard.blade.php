@@ -27,7 +27,7 @@
                                         <p>Status Pengumuman <br>Santri Diterima</p>
                                     </td>
                                     <td class="ps-3 ">:
-                                        <a class="btn btn-success  btn-sm me-0 mb-3"
+                                        <a class="btn btn-info  btn-sm me-0 mb-3"
                                             href="{{ route('admin.publikasi-santri-diterima') }}"
                                             style="width: fit-content; height: fit-content;">
                                             <i class="bi bi-cloud-upload"></i> Publikasi
@@ -37,6 +37,9 @@
                                             style="width: fit-content; height: fit-content;">
                                             <i class="bi bi-cloud-download"></i> Sembunyikan
                                         </a>
+                                        <a href="" class="btn btn-success btn-sm me-0 mb-3"><i
+                                                class="bi bi-file-earmark-spreadsheet"
+                                                style="text-decoration: none"></i>Unduh</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -55,6 +58,7 @@
                                     Tutup Gelombang
                                 </a>
                             @endif
+
                         </div>
                     </div>
                 </div>
@@ -64,7 +68,8 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>No.HP Santri</th>
-                                <th>No.HP Wali</th>
+                                <th>Perguruan Tinggi</th>
+                                <th>Program Studi</th>
                                 <th>Nama Imam</th>
                                 <th>No.HP Imam</th>
                                 <th>Angkatan</th>
@@ -77,7 +82,8 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>No.HP Santri</th>
-                                <th>No.HP Wali</th>
+                                <th>Perguruan Tinggi</th>
+                                <th>Program Studi</th>
                                 <th>Nama Imam</th>
                                 <th>No.HP Imam</th>
                                 <th>Angkatan</th>
@@ -92,7 +98,8 @@
                                     <tr>
                                         <td>{{ $santri->nama_santri }}</td>
                                         <td>{{ $santri->no_hp_santri }}</td>
-                                        <td>{{ $santri->no_hp_wali }}</td>
+                                        <td>{{ $santri->universitas }}</td>
+                                        <td></td>
                                         <td>{{ $santri->nama_imam_kelompok }}</td>
                                         <td>{{ $santri->no_hp_imam }}</td>
                                         <td>{{ $santri->angkatan }}</td>

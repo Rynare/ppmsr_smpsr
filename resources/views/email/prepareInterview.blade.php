@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendaftaran Email</title>
+    <title>[Pendaftaran] Email SMPSR PPM Syafi’ur Rohman</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -67,8 +67,8 @@
 
 <body>
     <div class="container">
-        <h2>Assalamualaikum Wr.Wb, <br>
-            {{ $name }},</h2>
+        <h4>Assalamualaikum Wr.Wb, <br>
+            {{ $name }},</h4>
         <p>Terima kasih telah mendaftar di PPM Syafi`ur Rohman.</p>
         <p>Untuk persiapan Wawancara kamu wajib menyiapkan hardfile/print dari file berikut:</p>
         <ol>
@@ -80,8 +80,8 @@
             </li>
         </ol>
         <br>
-        <h2>Alhamdulilahijazakumulohukhoiro, <br>
-            Wassalamualaikum Wr. Wb</h2>
+        <h4>Alhamdulilahijazakumulohukhoiro, <br>
+            Wassalamualaikum Wr. Wb</h4>
     </div>
 </body>
 
