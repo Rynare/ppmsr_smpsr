@@ -70,7 +70,7 @@
         <h4>Assalamualaikum Wr.Wb, <br>
             {{ $name }},</h4>
         <p>Terima kasih telah mendaftar di PPM Syafi`ur Rohman.</p>
-        <p>Untuk persiapan Wawancara kamu wajib menyiapkan hardfile/print dari file berikut:</p>
+        <p>Untuk persiapan Wawancara anda wajib menyiapkan hardfile/print dari file berikut:</p>
         <ol>
             <li>Kartu Keluarga</li>
             <li>Surat Sambung</li>
@@ -80,6 +80,8 @@
             </li>
         </ol>
         <br>
+        <p>Untuk tanggal tes akan dihubungi panitia lebih lanjut via WhatsApp</p> <br>
+        <p>Jika ada yang ditanyakan silahkan hubungi Contact Person yang tertera di halaman Informasi.</p>
         <h4>Alhamdulilahijazakumulohukhoiro, <br>
             Wassalamualaikum Wr. Wb</h4>
     </div>
