@@ -56,7 +56,7 @@
 
         .cta-button {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 5px 5px;
             background-color: #007BFF;
             color: #fff;
             text-decoration: none;
@@ -67,15 +67,15 @@
 
 <body>
     <div class="container">
-        <h2 style="text-decoration: none">Assalamualaikum Wr.Wb, <br>
+        <h2>Assalamualaikum Wr.Wb, <br>
             {{ $name }},</h2>
-        <p>Terima kasih telah mendaftar di PPM Syafi`ur rahman.</p>
+        <p>Terima kasih telah mendaftar di PPM Syafi`ur Rohman.</p>
         <p>Untuk persiapan Wawancara kamu wajib menyiapkan hardfile/print dari file berikut:</p>
         <ol>
             <li>Kartu Keluarga</li>
             <li>Surat Sambung</li>
             <li>Biodata Calon Mahasantri
-                <a class="cta-button"
+                <a style="color:white;" class="cta-button"
                     href="{{ route('santri.biodata.PDF', ['id' => $santri_id, 'email' => $santri_email]) }}">Download</a>
             </li>
         </ol>
