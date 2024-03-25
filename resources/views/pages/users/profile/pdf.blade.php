@@ -135,7 +135,7 @@
                         style="margin-left:6.3pt; -aw-left-pos:6.3pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:none; position:absolute" /></span><span
                     style="width:61.95pt; font-family:Rockwell; display:inline-block; -aw-tabstop-align:left; -aw-tabstop-pos:61.95pt">&#xa0;</span><span
                     style="width:45.47pt; font-family:Rockwell; display:inline-block; -aw-tabstop-align:center; -aw-tabstop-pos:263.45pt">&#xa0;</span><span
-                    style="font-family:Rockwell">PONDOK PESANTREN MAHASISWA</span></p>
+                    style="font-family:Rockwell; font-weight: bold">PONDOK PESANTREN MAHASISWA</span></p>
             <p style="text-align:center; font-size:20pt"><span style="font-family:Rockwell">SYAFI`UR ROHMAN
                     JEMBER</span></p>
             <p style="text-align:center"><span style="font-family:Rockwell">Jl. Brantas XXV no. 258 Kec. Sumbersari

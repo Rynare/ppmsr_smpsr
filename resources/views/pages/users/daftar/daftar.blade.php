@@ -12,38 +12,38 @@
 @section('custom')
     <style>
         :root {
-            ---gform-bg-color: #760712;
+            ---gform-bg-color: #3c3c3b;
         }
     </style>
     <div id="content" class="mx-auto m-3" style="border-radius: 5px">
-        <h1 class="text-center p-3" style="color: #760712">Pendaftaran Santri</h1>
+        <h1 class="text-center p-3" style="color: #3c3c3b">Pendaftaran Santri</h1>
         <header class="px-4 py-2 position-sticky top-0 bg-white z-3 shadow-sm " style="z-index: 10000;" id="navbar-scrollspy">
             <ul class="nav nav-underline row-gap-0 align-items-center justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" data-section-target="datadiri" style="color: #760712"
+                    <a class="nav-link " aria-current="page" data-section-target="datadiri" style="color: #3c3c3b"
                         href="#form-datadiri">Data Diri</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " data-section-target="data-orangtua" href="#form-data-orangtua"
-                        style="color: #760712">Data
+                        style="color: #3c3c3b">Data
                         Orang Tua</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " data-section-target="data-khusus" href="#form-data-khusus"
-                        style="color: #760712">Data
+                        style="color: #3c3c3b">Data
                         Khusus</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  " aria-disabled="true" data-section-target="data-wali" href="#form-data-wali"
-                        style="color: #760712">Data Wali</a>
+                        style="color: #3c3c3b">Data Wali</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  " aria-disabled="true" data-section-target="data-imam" href="#form-data-imam"
-                        style="color: #760712">Data Imam</a>
+                        style="color: #3c3c3b">Data Imam</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  " aria-disabled="true" data-section-target="dokumen" href="#form-dokumen"
-                        style="color: #760712">Dokumen</a>
+                        style="color: #3c3c3b">Dokumen</a>
                 </li>
             </ul>
         </header>
@@ -60,7 +60,7 @@
                     @include('pages.users.daftar.data-imam')
                     @include('pages.users.daftar.dokumen')
                     <button type="submit" class="btn mb-4 mt-2"
-                        style="background-color:#760712; color: white">Daftar</button>
+                        style="background-color:#3c3c3b; color: white">Daftar</button>
                 </form>
             </div>
         </main>

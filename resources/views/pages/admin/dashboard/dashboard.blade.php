@@ -11,7 +11,8 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Gelombang</strong></td>
-                                    <td class="ps-3 ">: {{ Str::upper($nama_gelombang) }}</td>
+                                    {{-- <td class="ps-3 ">: {{ Str::upper($nama_gelombang) }}</td> --}}
+                                    <td class="ps-3 ">: {{ $nama_gelombang }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Jumlah Terdaftar</strong></td>
@@ -26,30 +27,31 @@
                                         <p>Status Pengumuman <br>Santri Diterima</p>
                                     </td>
                                     <td class="ps-3 ">:
-                                        <a class="btn btn-success  btn-sm me-0"
+                                        <a class="btn btn-success  btn-sm me-0 mb-3"
                                             href="{{ route('admin.publikasi-santri-diterima') }}"
                                             style="width: fit-content; height: fit-content;">
-                                            Publikasi
+                                            <i class="bi bi-cloud-upload"></i> Publikasi
                                         </a>
                                         <a class="btn btn-danger  btn-sm me-0"
                                             href="{{ route('admin.unpublikasi-santri-diterima') }}"
                                             style="width: fit-content; height: fit-content;">
-                                            Sembunyikan
+                                            <i class="bi bi-cloud-download"></i> Sembunyikan
                                         </a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                         <div class="mt-3 ms-auto mb-2">
-                            <button type="button" class="btn btn-primary btn-sm me-3" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-primary btn-sm me-3 mb-3" data-bs-toggle="modal"
                                 data-bs-target="#new-gelombang" style="width: fit-content; height: fit-content;">
-                                Buka Gelombang
+                                <i class="bi bi-door-open"></i> Buka Gelombang
                             </button>
                             @if ($id_gelombang)
                                 <a class="btn btn-danger  btn-sm me-0"
                                     href="{{ route('admin.tutup-gelombang', ['gelombang' => $id_gelombang]) }}"
                                     style="width: fit-content; height: fit-content;"
-                                    onclick="return confirm('Ingin menutup gelombang saat ini?')">
+                                    onclick="return confirm('Ingin menutup gelombang saat ini?')"> <i
+                                        class="bi bi-door-closed"></i>
                                     Tutup Gelombang
                                 </a>
                             @endif

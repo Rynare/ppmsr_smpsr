@@ -37,7 +37,7 @@ class prepareInterview extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '[Pendaftaran] PPM Syafi`ur Rahman',
+            subject: 'Pendaftaran PPM Syafi`ur Rohman',
         );
     }
 

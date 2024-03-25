@@ -19,7 +19,7 @@ class DataSantriController extends Controller
         $angkatan = Santri::select('angkatan')->groupBy('angkatan')->orderBy('angkatan', 'desc')->pluck('angkatan');
         $santri = Santri::all()->where('angkatan', $angkatan[0] ?? null);
         return view("pages.admin.data-santri.data-santri")->with([
-            'pageTitle' => 'Data Santri',
+            'pageTitle' => 'Data Santri - SMPSR PPM Syafiur Rohman',
             'santris' => $santri,
             'list_angkatan' => $angkatan,
             'selected_angkatan' => $angkatan[0] ?? null,
@@ -30,7 +30,7 @@ class DataSantriController extends Controller
         $angkatans = Santri::select('angkatan')->groupBy('angkatan')->orderBy('angkatan', 'desc')->pluck('angkatan');
         $santri = Santri::all()->where('angkatan', $angkatan);
         return view("pages.admin.data-santri.data-santri")->with([
-            'pageTitle' => 'Data Santri',
+            'pageTitle' => 'Data Santri - SMPSR PPM Syafiur Rohman',
             'santris' => $santri,
             'list_angkatan' => $angkatans,
             'selected_angkatan' => $angkatan,

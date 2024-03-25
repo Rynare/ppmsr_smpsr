@@ -16,7 +16,7 @@ class GelombangController extends Controller
         return view(
             'pages.admin.riwayat-gelombang.riwayat-gelombang',
             [
-                'pageTitle' => "Riwayat gelombang",
+                'pageTitle' => "Riwayat Gelombang - SMPSR PPM Syafiur Rohman",
                 "gelombangs" => Gelombang::all(),
             ]
         );

@@ -41,7 +41,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="rounded-end-3 bg-primary text-white d-flex align-items-center justify-content-center d-md-none "
+                <div class="rounded-end-3 bg-dark text-white d-flex align-items-center justify-content-center d-md-none "
                     style="width: 50px;height: 36px" onclick="document.querySelector('aside').classList.toggle('active')">
                     <i class="bi bi-info-lg"></i>
                 </div>
@@ -52,7 +52,7 @@
                 <form method="POST" action="{{ route('signin.submit') }}" id="login-form"
                     class="mx-auto ms-md-auto me-md-0">
                     @csrf
-                    <div class="text-center mb-4 w-100 "
+                    <div class="text-center mb-3 w-100 "
                         style="height: 60px;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -61,6 +61,11 @@
                     background-image: url({{ asset('assets/smpsr-logo.svg') }});
                     ">
                     </div>
+                    <p style="font-size: 13px; font-weight: bold; text-align: center; color: #3c3c3b">Seleksi Masuk Pondok
+                        Pesantren
+                        Mahasiswa Syafi'ur Rohman
+                    </p>
+
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control {{ $errors->first('email') ? 'is-invalid' : '' }}"
                             id="floatingInputEmail" name="email" placeholder="name@example.com"
@@ -83,7 +88,7 @@
 
                     <div class="form-check mt-2 mb-3">
                         <a class="btn m-0 btn-link text-end w-100 px-0" data-bs-toggle="modal"
-                            style="text-decoration: none; color: #760712" data-bs-target="#forgot-password">
+                            style="text-decoration: none; color: #3c3c3b" data-bs-target="#forgot-password">
                             Lupa kata Sandi ?
                         </a>
                     </div>
@@ -116,12 +121,12 @@
                             </div>
                         </div>
                     @endpush
-                    <button class="w-100 btn " style="background: #760712; color: white" type="submit"
+                    <button class="w-100 btn " style="background: #3c3c3b; color: white" type="submit"
                         id="login-form-button">Masuk</button>
                     <div class="mt-3 mb-4 d-flex gap-2 flex-column flex-md-row align-items-center justify-content-center">
                         <span class="">Belum punya akun ?</span>
                         <a href="{{ route('santri-daftar') }}"
-                            style="text-decoration: none; color: #760712; font-weight: bold">Daftar</a>
+                            style="text-decoration: none; color: #3c3c3b; font-weight: bold">Daftar</a>
                     </div>
                 </form>
             </div>

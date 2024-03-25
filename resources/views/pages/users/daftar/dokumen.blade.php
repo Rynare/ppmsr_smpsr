@@ -21,7 +21,7 @@
         </div>
         <small id="ktp-help" class="text-muted"><strong>Format:</strong> .jpg .jpeg
             .png</small>
-        <small id="ktp-help" class="text-muted"><strong>MAX:</strong> 2MB</small>
+        <small id="ktp-help" class="text-muted"><strong>Max:</strong> 2MB</small>
     </div>
 
     <!-- Pas Foto -->
@@ -32,9 +32,12 @@
                 aria-describedby="pas_foto-help" data-max-file-size="2">
             <i class="input-group-text bi bi-paperclip" for="pas_foto" data-allowed-extension="jpg,jpeg,png"></i>
         </div>
+        <small id="pas_foto-help" class="text-muted"><strong>Ketentuan:</strong>
+            Foto wajib dengan rasio 3x4</small>
         <small id="pas_foto-help" class="text-muted"><strong>Format:</strong>
             .jpg .jpeg .png</small>
-        <small id="pas_foto-help" class="text-muted"><strong>MAX:</strong> 2MB</small>
+
+        <small id="pas_foto-help" class="text-muted"><strong>Max:</strong> 2MB</small>
     </div>
 
     <!-- Surat Sambung -->
@@ -47,6 +50,6 @@
         </div>
         <small id="surat_sambung-help" class="text-muted"><strong>Format:</strong>
             .pdf</small>
-        <small id="pas_foto-help" class="text-muted"><strong>MAX:</strong> 5MB</small>
+        <small id="pas_foto-help" class="text-muted"><strong>Max:</strong> 5MB</small>
     </div>
 </div>
