@@ -12,8 +12,8 @@
     <p>Terima kasih telah mendaftar di PPM Syafi`ur rahman.</p>
     <p>Untuk persiapan interview kamu wajib menyiapkan hardfile/print dari file berikut:</p>
     <ol>
-        <li>Kartu keluarga</li>
-        <li>Surat sambung</li>
+        <li>Kartu Keluarga</li>
+        <li>Surat Sambung</li>
         <li>Biodata calon santri (
             <a href="{{ route('santri.biodata.PDF', ['id' => $santri_id, 'email' => $santri_email]) }}">Download</a>)
         </li>

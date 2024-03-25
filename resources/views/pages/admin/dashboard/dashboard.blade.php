@@ -23,7 +23,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p>Status pengumuman <br>santri diterima</p>
+                                        <p>Status Pengumuman <br>Santri Diterima</p>
                                     </td>
                                     <td class="ps-3 ">:
                                         <a class="btn btn-success  btn-sm me-0"
@@ -43,14 +43,14 @@
                         <div class="mt-3 ms-auto mb-2">
                             <button type="button" class="btn btn-primary btn-sm me-3" data-bs-toggle="modal"
                                 data-bs-target="#new-gelombang" style="width: fit-content; height: fit-content;">
-                                Buka gelombang
+                                Buka Gelombang
                             </button>
                             @if ($id_gelombang)
                                 <a class="btn btn-danger  btn-sm me-0"
                                     href="{{ route('admin.tutup-gelombang', ['gelombang' => $id_gelombang]) }}"
                                     style="width: fit-content; height: fit-content;"
                                     onclick="return confirm('Ingin menutup gelombang saat ini?')">
-                                    Tutup gelombang
+                                    Tutup Gelombang
                                 </a>
                             @endif
                         </div>
@@ -67,7 +67,7 @@
                                 <th>No.HP Imam</th>
                                 <th>Angkatan</th>
                                 <th>
-                                    <div class="text-center">Action</div>
+                                    <div class="text-center">Aksi</div>
                                 </th>
                             </tr>
                         </thead>
@@ -80,7 +80,7 @@
                                 <th>No.HP Imam</th>
                                 <th>Angkatan</th>
                                 <th>
-                                    <div class="text-center">Action</div>
+                                    <div class="text-center">Aksi</div>
                                 </th>
                             </tr>
                         </tfoot>

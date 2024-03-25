@@ -23,7 +23,7 @@
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="asal_kelompok_imam" name="asal_kelompok_imam" required>
-        <small id="asal_kelompok_imam-help" class="text-muted px-0 col-12 ">Masukkan nama sesuai dengan ktp</small>
+        <small id="asal_kelompok_imam-help" class="text-muted px-0 col-12 ">Masukkan nama sesuai dengan KTP</small>
     </div>
     <div class="form-group mb-3 ">
         <label for="alamat_imam" class="required">Alamat imam:</label>

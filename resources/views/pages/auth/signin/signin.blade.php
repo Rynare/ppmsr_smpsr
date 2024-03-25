@@ -52,7 +52,6 @@
                 <form method="POST" action="{{ route('signin.submit') }}" id="login-form"
                     class="mx-auto ms-md-auto me-md-0">
                     @csrf
-                    {{-- <p class="h6 mb-2 fw-bold text-center" style="color: #760712">Selamat Datang!</p> --}}
                     <div class="text-center mb-4 w-100 "
                         style="height: 60px;
                     background-position: center;
@@ -85,7 +84,7 @@
                     <div class="form-check mt-2 mb-3">
                         <a class="btn m-0 btn-link text-end w-100 px-0" data-bs-toggle="modal"
                             style="text-decoration: none; color: #760712" data-bs-target="#forgot-password">
-                            Lupa kata sandi
+                            Lupa kata Sandi ?
                         </a>
                     </div>
                     @push('modal-container')
@@ -121,9 +120,9 @@
                         id="login-form-button">Masuk</button>
                     <div class="mt-3 mb-4 d-flex gap-2 flex-column flex-md-row align-items-center justify-content-center">
                         <span class="">Belum punya akun ?</span>
-                        <a href="{{ route('santri-daftar') }}" style="">Daftar</a>
+                        <a href="{{ route('santri-daftar') }}"
+                            style="text-decoration: none; color: #760712; font-weight: bold">Daftar</a>
                     </div>
-                    <p class="mb-3 text-muted">2024 © ICT PPM Syafiur Rohman</p>
                 </form>
             </div>
         </div>

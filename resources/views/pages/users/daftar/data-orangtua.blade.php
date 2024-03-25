@@ -4,7 +4,7 @@
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="nama_ayah" name="nama_ayah" required regex="^[a-zA-Z.`\s]+$" maxlength="100">
-        <small id="nama_ayah-help" class="text-muted px-0 col-12 ">Masukkan nama sesuai dengan ktp</small>
+        <small id="nama_ayah-help" class="text-muted px-0 col-12 ">Masukkan nama sesuai dengan KTP</small>
     </div>
     <div class="form-group mb-3 col-auto row gx-0 row-cols-1">
         <label for="tempat_lahir_ayah" class="required px-0 col-12 ">Tempat/Tanggal Lahir ayah:</label>
@@ -16,7 +16,7 @@
                 class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none w-75"
                 id="tanggal_lahir_ayah" name="tanggal_lahir_ayah" required>
         </div>
-        <small id="nama-help" class="text-muted px-0 col-12 ">Masukkan tempat dan tanggal sesuai dengan ktp</small>
+        <small id="nama-help" class="text-muted px-0 col-12 ">Masukkan tempat dan tanggal sesuai dengan KTP</small>
     </div>
     <div class="form-group col-md-6 mb-3 me-3">
         <label for="status_ayah" class="required">Status Ayah:</label>
@@ -77,7 +77,7 @@
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="nama_ibu" name="nama_ibu" required regex="^[a-zA-Z.`\s]+$" maxlength="100">
-        <small id="nama_ibu-help" class="text-muted px-0 col-12 ">Masukkan nama sesuai dengan ktp</small>
+        <small id="nama_ibu-help" class="text-muted px-0 col-12 ">Masukkan nama sesuai dengan KTP</small>
     </div>
     <div class="form-group col-md-6  mb-3">
         <label for="status_ibu" class="required">Status Ibu:</label>
@@ -97,7 +97,7 @@
                 class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none w-75"
                 id="tanggal_lahir_ibu" name="tanggal_lahir_ibu" required>
         </div>
-        <small id="nama-help" class="text-muted px-0 col-12 ">Masukkan tempat dan tanggal sesuai dengan ktp</small>
+        <small id="nama-help" class="text-muted px-0 col-12 ">Masukkan tempat dan tanggal sesuai dengan KTP</small>
     </div>
     <div class="form-group mb-3 col-7 me-lg-5 ">
         <label for="no_hp_ibu" class="required">No HP Ibu:</label>
@@ -146,7 +146,7 @@
         </div>
     </div>
     <div class="form-group mb-3 ">
-        <label for="alamat_orang_tua" class="required">Alamat orang tua:</label>
+        <label for="alamat_orang_tua" class="required">Alamat Orang Tua:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="alamat_orang_tua" name="alamat_orang_tua" rows="3" required

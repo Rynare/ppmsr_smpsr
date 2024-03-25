@@ -15,7 +15,7 @@
         <div class="row text-center">
             <div class="col-sm-6 col-sm-offset-3">
                 <br><br>
-                <h2 style="color:#0fad00">Success</h2>
+                <h2 style="color:#0fad00">Sukses</h2>
                 <h3>Terima kasih telah mendaftar di Pondok Pesantren Mahasiswa Syafi’ur
                     Rohman Jember!</h3>
                 <p style="font-size:20px;color:#5C5C5C;">Halo, {{ $nama_santri }}</p>
@@ -26,7 +26,7 @@
                 <p>Untuk persiapan interview, anda diharuskan membawa hardfile/print dari data berikut:</p>
                 <div class="d-flex w-100">
                     <ol style="width: fit-content;margin: auto; margin-bottom: 10px;">
-                        <li style="text-align: start">Biodata pendaftar</li>
+                        <li style="text-align: start">Biodata Pendaftar</li>
                         <li style="text-align: start">Surat Sambung</li>
                         <li style="text-align: start">Kartu keluarga</li>
                     </ol>
