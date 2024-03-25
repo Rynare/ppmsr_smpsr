@@ -12,11 +12,11 @@
 @endsection
 @section('custom')
     <div class="container-fluid" style="height:100%">
-        <div class="m-3" style="margin: 20px; border: 1px solid #ccc; border-radius: 10px; padding: 20px;">
+        <div class="m-3" style="margin:20px; border: 1px solid #ccc; border-radius: 10px; padding: 20px;">
             <div class="row text-center">
                 <div class="col-sm-6 col-sm-offset-3">
                     <br><br>
-                    <h2 style="color:#0fad00; font-weight: bold"> Sukses Daftar !</h2>
+                    <h2 style="color:#0fad00; font-weight: bold; margin-top: 5px"> Sukses Daftar !</h2>
                     <h3>Terima Kasih, telah mendaftar di Pondok Pesantren Mahasiswa Syafi’ur Rohman Jember!</h3>
                     <p style="font-size:20px;color:#5C5C5C;">Halo, {{ $nama_santri }}</p>
                     <p>Kami telah menerima pendaftaran Anda dan kami akan segera memprosesnya. Silakan menunggu kabar

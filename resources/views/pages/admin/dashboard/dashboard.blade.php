@@ -32,7 +32,7 @@
                                             style="width: fit-content; height: fit-content;">
                                             <i class="bi bi-cloud-upload"></i> Publikasi
                                         </a>
-                                        <a class="btn btn-danger  btn-sm me-0"
+                                        <a class="btn btn-danger  btn-sm me-0 mb-3"
                                             href="{{ route('admin.unpublikasi-santri-diterima') }}"
                                             style="width: fit-content; height: fit-content;">
                                             <i class="bi bi-cloud-download"></i> Sembunyikan
@@ -47,7 +47,7 @@
                                 <i class="bi bi-door-open"></i> Buka Gelombang
                             </button>
                             @if ($id_gelombang)
-                                <a class="btn btn-danger  btn-sm me-0"
+                                <a class="btn btn-danger  btn-sm me-0 mb-3"
                                     href="{{ route('admin.tutup-gelombang', ['gelombang' => $id_gelombang]) }}"
                                     style="width: fit-content; height: fit-content;"
                                     onclick="return confirm('Ingin menutup gelombang saat ini?')"> <i

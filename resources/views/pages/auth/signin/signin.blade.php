@@ -121,12 +121,12 @@
                             </div>
                         </div>
                     @endpush
-                    <button class="w-100 btn " style="background: #3c3c3b; color: white" type="submit"
+                    <button class="w-100 btn btn-dark " style="background: #3c3c3b; color: white" type="submit"
                         id="login-form-button">Masuk</button>
                     <div class="mt-3 mb-4 d-flex gap-2 flex-column flex-md-row align-items-center justify-content-center">
-                        <span class="">Belum punya akun ?</span>
-                        <a href="{{ route('santri-daftar') }}"
-                            style="text-decoration: none; color: #3c3c3b; font-weight: bold">Daftar</a>
+                        <span class="">Belum punya akun ? <a href="{{ route('santri-daftar') }}"
+                                style="text-decoration: none; color: #3c3c3b; font-weight: bold">Daftar</a>
+                        </span>
                     </div>
                 </form>
             </div>
