@@ -1,5 +1,6 @@
 <div data-section="data-wali" class="row gx-0" id="form-data-wali">
-    <p class="text-center bg-info py-2">Data Wali (Opsional)</p>
+    <p class="text-center  py-2" style="border-radius: 5px; color:white; background-color: #3c3c3b">Data Wali (Opsional)
+    </p>
     <div class="form-group mb-3 col-8 ">
         <label for="nama_wali" class="required">Nama wali:</label>
         <input type="text"

@@ -71,18 +71,18 @@
             id="fakultas" name="fakultas" required maxlength="100">
     </div>
     <div class="form-group mb-3 col-8 me-3 ">
-        <label for="prodi" class="required">Prodi:</label>
+        <label for="prodi" class="required">Program Studi:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="prodi" name="prodi" required maxlength="100">
     </div>
     <div class="form-group mb-3 col-3">
-        <label for="tahun_masuk_kuliah" class="required">Tahun masuk kuliah:</label>
+        <label for="tahun_masuk_kuliah" class="required">Tahun Masuk Kuliah:</label>
         <input type="number"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="tahun_masuk_kuliah" name="tahun_masuk_kuliah" rows="3" min="2000" max="2300">
     </div>
-    <div class="form-group mb-3 col-3">
+    <div class="form-group mb-3 col-8">
         <label for="gelar_saat_lulus" class="required">Gelar ketika lulus:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
@@ -182,7 +182,8 @@
             <select class="mt-2 form-select z-1" id="penanggung_biaya" name="penanggung_biaya" required>
                 <option value="" hidden disabled selected>Pilih</option>
                 <option value="orang_tua">Orang tua</option>
-                <option value="wali">wali</option>
+                <option value="wali">Wali</option>
+                <option value="beasiswa">Beasiswa</option>
             </select>
         </div>
     </div>

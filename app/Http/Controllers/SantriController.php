@@ -83,7 +83,7 @@ class SantriController extends Controller
             'cita-cita' => 'nullable|string',
             'prodi' => 'required|string|max:100',
             'tahun_masuk_kuliah' => 'required|integer|min:2000|max:2300',
-            'penanggung_biaya' => 'required|in:orang tua,wali',
+            'penanggung_biaya' => 'required|in:orang tua,wali,beasiswa',
             'riwayat_penyakit' => 'nullable|string',
             'status_mubaligh' => 'required|in:sudah,belum',
             'universitas' => 'required|nullable|string',
