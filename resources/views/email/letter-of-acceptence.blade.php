@@ -18,7 +18,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             color: white;
-            background-color: #3c3c3b;
+            background-color: #525252;
         }
 
         h1 {
@@ -30,7 +30,7 @@
         }
 
         .email-info {
-            background-color: #f9f9f9;
+            background-color: #E7E7E7;
             padding: 15px;
             border-radius: 5px;
             border: 1px solid #ccc;
@@ -50,23 +50,23 @@
 <body>
     <div class="container">
         <h1 style="color: #18ED8A">Surat Penerimaan</h1>
-        <p>Assalamualaikum Wr.Wb, {{ $nama }}</p>
-        <p>Selamat! Anda telah diterima menjadi Mahasantri di PPM Syafi`ur Rohman.</p>
+        <p style="color: #fff;">Assalamualaikum Wr.Wb, {{ $nama }}</p>
+        <p style="color: #fff;">Selamat! Anda telah diterima menjadi Mahasantri di PPM Syafi`ur Rohman.</p>
 
-        <div class="email-info">
+        <div class="email-info" style="color: #333">
             <p>Berikut adalah informasi login Anda:</p>
             <p class="bold">Email: {{ $email }}</p>
             <p class="bold">Password: {{ $password }}</p>
         </div>
 
-        <p>Harap jaga informasi ini secara rahasia dan jangan bagikan kepada siapapun.</p>
-        <p>Jika Anda memiliki pertanyaan atau kebutuhan bantuan, jangan ragu untuk menghubungi kami.</p>
+        <p style="color: #fff;">Harap jaga informasi ini secara rahasia dan jangan bagikan kepada siapapun.</p>
+        <p style="color: #fff;">Jika Anda memiliki pertanyaan atau kebutuhan bantuan, jangan ragu untuk menghubungi
+            kami.</p>
 
-        <p>Terima kasih dan selamat bergabung!</p>
-
-        <p>Hormat kami,</p>
-        <p>PPM Syafi`ur Rohman</p>
-        <p>Wassalamualaikum Wr. Wb</p>
+        <p style="color: #fff;">Alhamdulilahijazakumulohukhoiro dan selamat bergabung!</p>
+        <p style="color: #fff;">Hormat kami,</p>
+        <p style="color: #fff;">PPM Syafi`ur Rohman</p>
+        <p style="color: #fff;">Wassalamualaikum Wr. Wb</p>
     </div>
 </body>
 
