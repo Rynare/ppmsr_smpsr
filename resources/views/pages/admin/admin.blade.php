@@ -218,9 +218,16 @@
                 </div>
 
                 <div class="sb-sidenav-footer">
-                    <div class="small"><i class="bi bi-person"></i>
+                    <div class="small mb-3"><i class="bi bi-person"></i>
                         Masuk Sebagai :</div>
-                    {{ auth()->user()->name }}
+                    <div class="card bg-dark">
+                        <div class="card-body p-0 ps-2 pe-2 pt-1 pb-1">
+                            <strong style="color: #bcbcbc"> <i
+                                    class="bi bi-file-earmark-person-fill"></i>{{ auth()->user()->name }}</strong><br>
+                            <small style="color: #bcbcbc"><i class="bi bi-envelope-at-fill"></i>
+                                {{ auth()->user()->email }}</small>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </div>
