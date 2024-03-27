@@ -107,6 +107,7 @@
         <div class="input-group d-flex column-gap-4 align-items-center">
             <select class="mt-2 form-select z-1" id="golongan_darah" name="golongan_darah" required>
                 <option value="" hidden disabled selected>Pilih</option>
+                <option value="">Tidak Tahu</option>
                 <option value="a">A</option>
                 <option value="b">B</option>
                 <option value="ab">AB</option>
@@ -118,7 +119,7 @@
         <label for="riwayat_penyakit" class="required">Riwayat Penyakit:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="riwayat_penyakit" name="riwayat_penyakit">
+            id="riwayat_penyakit" name="riwayat_penyakit" required>
         <small id="riwayat_penyakit-help" class="text-muted px-0 col-12 ">Jika tidak punya isi dengan "-"</small>
     </div>
     <div class="form-group mb-3 col-7 me-2">

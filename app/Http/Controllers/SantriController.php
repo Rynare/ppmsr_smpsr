@@ -72,7 +72,7 @@ class SantriController extends Controller
             'bahasa_asing' => 'required|string',
             'fakultas' => 'required|nullable|string|max:100',
             'gelar_saat_lulus' => 'nullable|string|max:20',
-            'golongan_darah' => 'required|in:a,b,ab,o',
+            'golongan_darah' => 'nullable|in:a,b,ab,o',
             'facebook' => 'nullable|string',
             'instagram' => 'nullable|string',
             'jenis_kelamin' => 'required|in:laki-laki,perempuan',

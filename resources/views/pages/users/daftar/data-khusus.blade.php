@@ -22,7 +22,7 @@
         <div class="input-group">
             <input type="number"
                 class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none z-1"
-                id="jumlah_hafalan" name="jumlah_hafalan" required min="0" max="30">
+                id="jumlah_hafalan" name="jumlah_hafalan" required min="0" value="0" max="30">
             <span class="input-group-text border-0 rounded-0 bg-transparent border-bottom border-2 ">Juz</span>
         </div>
     </div>
