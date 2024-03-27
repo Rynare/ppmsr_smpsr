@@ -183,7 +183,6 @@
                 <option value="" hidden disabled selected>Pilih</option>
                 <option value="orang_tua">Orang tua</option>
                 <option value="wali">Wali</option>
-                <option value="beasiswa">Beasiswa</option>
             </select>
         </div>
     </div>

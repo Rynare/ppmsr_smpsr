@@ -109,7 +109,7 @@ class SantriController extends Controller
             'penghasilan_ibu' => 'nullable|integer|min:100000',
             'no_hp_ibu' => 'nullable|digits_between:10,12',
 
-            // Validasi Data Wali/Pembiaya Sekolah
+            // Validasi Data Wali
             'nama_wali' => 'string|max:100|regex:/^[a-zA-Z.`\s]+$/',
             'alamat_wali' => 'string',
             'no_hp_wali' => 'digits_between:10,12',
