@@ -40,9 +40,16 @@
                                                 style="width: fit-content; height: fit-content;">
                                                 <i class="bi bi-cloud-download"></i> Sembunyikan
                                             </a>
-                                            <a href="" class="btn btn-success btn-sm me-0"><i
-                                                    class="bi bi-file-earmark-spreadsheet"
-                                                    style="text-decoration: none"></i>Unduh</a>
+                                            @if ($jumlah_santri_diterima >= 1)
+                                                <a href="{{ route('admin.download-santri-diterima.excel') }}"
+                                                    target="_blank" class="btn btn-success btn-sm me-0"><i
+                                                        class="bi bi-file-earmark-spreadsheet"
+                                                        style="text-decoration: none"></i>Unduh</a>
+                                            @else
+                                                <a href="#"class="btn btn-secondary btn-sm me-0"><i
+                                                        class="bi bi-file-earmark-spreadsheet" style="text-decoration: none"
+                                                        onclick="alert('Belum ada santri diterima.')"></i>Unduh</a>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>
