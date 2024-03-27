@@ -48,7 +48,7 @@
                                 <th>No.HP Santri</th>
                                 <th>No.HP Ayah</th>
                                 <th>No.HP Ibu</th>
-                                {{-- <th>Penanggung biaya</th> --}}
+                                {{-- <th>Wali</th> --}}
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -59,7 +59,7 @@
                                 <th>No.HP Santri</th>
                                 <th>No.HP Ayah</th>
                                 <th>No.HP Ibu</th>
-                                <th>Wali</th>
+                                {{-- <th>Wali</th> --}}
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
@@ -74,9 +74,10 @@
                                         <td>{{ $santri->no_hp_ibu }}</td>
                                         {{-- <td>{{ $santri->nama_wali }}</td> --}}
                                         <td>
-                                            <div class="btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i> Edit
-                                            </div>
-                                            <div class="btn btn-sm btn-danger"><i class="bi bi-trash3"></i> Hapus</div>
+                                            <a href="{{ route('admin.data-santri.hapus', ['santri' => $santri->id]) }}"
+                                                class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Yakin ingin menghapus santri {{ $santri->nama_santri }}')"><i
+                                                    class="bi bi-trash3"></i>Hapus</a>
                                         </td>
                                     </tr>
                                 @endforeach

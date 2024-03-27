@@ -70,7 +70,8 @@ class DataSantriController extends Controller
      */
     public function destroy(Santri $santri)
     {
-        //
+        $santri->delete();
+        return redirect()->back();
     }
 
     public function search($angkatan)
