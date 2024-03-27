@@ -181,7 +181,7 @@
         <div class="input-group d-flex column-gap-4 align-items-center">
             <select class="mt-2 form-select z-1" id="penanggung_biaya" name="penanggung_biaya" required>
                 <option value="" hidden disabled selected>Pilih</option>
-                <option value="orang_tua">Orang tua</option>
+                <option value="orang tua">Orang tua</option>
                 <option value="wali">wali</option>
             </select>
         </div>
