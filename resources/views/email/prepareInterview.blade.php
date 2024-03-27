@@ -67,8 +67,9 @@
 
 <body>
     <div class="container">
-        <h1>Assalamualaikum Wr.Wb, <br>
-            {{ $name }}</h1>
+        <h1>Konfirmasi Pendaftaran</h1>
+        <p>Assalamualaikum Wr.Wb, <br>
+            {{ $name }}</p>
         <p>Terima kasih telah mendaftar di PPM Syafi`ur Rohman.</p>
         <p>Setelah ini anda akan melakukan Tes Wawancara di PPM Syafi’ur Rohman</p>
         <p>Sambil menunggu, anda dapat menyiapkan dokumen Tes Wawancara yang wajib dibawa berupa hardfile/print dari
@@ -85,8 +86,8 @@
         <br>
         <p>Untuk tanggal tes akan dihubungi panitia lebih lanjut via WhatsApp</p> <br>
         <p>Jika ada yang ditanyakan silahkan hubungi Contact Person yang tertera di halaman Informasi.</p>
-        <h1>Alhamdulilahijazakumulohukhoiro, <br>
-            Wassalamualaikum Wr. Wb</h1>
+        <p>Alhamdulilahijazakumulohukhoiro, <br>
+            Wassalamualaikum Wr. Wb</p>
     </div>
 </body>
 
