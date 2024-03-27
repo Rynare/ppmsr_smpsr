@@ -258,7 +258,7 @@
 
         if (!cleanInput.startsWith('8')) {
             element.setCustomValidity("Input harus diawali dengan angka 8!")
-        } else if (cleanInput.length <= 9) {
+        } else if (cleanInput.length <= 9 && element.hasAttribute('required')) {
             element.setCustomValidity('Input minimal 10 karakter!')
         } else if (cleanInput.length > 12) {
             element.setCustomValidity("Input maksimal 12 karakter!")
