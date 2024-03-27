@@ -38,6 +38,10 @@ return new class extends Migration
             $table->string('riwayat_penyakit')->nullable();
             $table->enum('status_mubaligh', ['sudah', 'belum']);
             $table->string('universitas');
+            $table->string('cita-cita')->nullable();
+            $table->string('prodi');
+            $table->integer('tahun_masuk_kuliah');
+            $table->enum('penanggung_biaya', ['orang tua, wali']);
             $table->enum('status_rumah', ['milik sendiri', 'milik orangtua', 'sewa/kontrak', 'lainnya']);
 
             // data ayah
