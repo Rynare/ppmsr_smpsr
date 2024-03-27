@@ -61,12 +61,12 @@ return new class extends Migration
             $table->bigInteger('no_hp_ibu')->length(14)->nullable();
 
             // data wali / pembiaya sekolah
-            $table->string('nama_wali')->length(100);
-            $table->text('alamat_wali');
-            $table->bigInteger('no_hp_wali')->length(14);
-            $table->string('pekerjaan_wali');
-            $table->date('tanggal_lahir_wali');
-            $table->string('tempat_lahir_wali')->length(100);
+            $table->string('nama_wali')->nullable()->length(100);
+            $table->text('alamat_wali')->nullable();
+            $table->bigInteger('no_hp_wali')->nullable()->length(14);
+            $table->string('pekerjaan_wali')->nullable();
+            $table->date('tanggal_lahir_wali')->nullable();
+            $table->string('tempat_lahir_wali')->nullable()->length(100);
             $table->string('alamat_orang_tua');
 
             // data imam
