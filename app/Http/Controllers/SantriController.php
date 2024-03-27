@@ -70,19 +70,19 @@ class SantriController extends Controller
             'tanggal_lahir_santri' => 'required|date',
             'kode_pos' => 'required|integer|digits:5',
             'bahasa_asing' => 'required|string',
-            'facebook' => 'nullable|string',
-            'fakultas' => 'nullable|string|max:100',
+            'fakultas' => 'required|nullable|string|max:100',
             'gelar_saat_lulus' => 'nullable|string|max:20',
             'golongan_darah' => 'required|in:a,b,ab,o',
+            'facebook' => 'nullable|string',
             'instagram' => 'nullable|string',
             'jenis_kelamin' => 'required|in:laki-laki,perempuan',
-            'jumlah_hafalan' => 'nullable|integer|min:1|max:30',
+            'jumlah_hafalan' => 'required|nullable|integer|min:0|max:30',
             'keahlian' => 'nullable|string|max:255',
             'pendidikan' => 'required|in:d3,d4,s1',
             'prestasi' => 'nullable|string',
             'riwayat_penyakit' => 'nullable|string',
             'status_mubaligh' => 'required|in:sudah,belum',
-            'universitas' => 'nullable|string',
+            'universitas' => 'required|nullable|string',
             'status_rumah' => 'required|in:milik sendiri,milik orangtua,sewa/kontrak,lainnya',
 
             // Validasi Data Ayah
@@ -92,7 +92,7 @@ class SantriController extends Controller
             'tanggal_lahir_ayah' => 'required|date',
             'pendidikan_ayah' => 'required|in:sd,sltp,slta/sederajat,d1,d2,d3,sarjana/d4,s2,s3',
             'pekerjaan_ayah' => 'nullable|string',
-            'penghasilan_ayah' => 'nullable|integer|min:100000',
+            'penghasilan_ayah' => 'nullable|integer|min:0',
             'no_hp_ayah' => 'nullable|digits_between:10,12',
 
             // Validasi Data Ibu
