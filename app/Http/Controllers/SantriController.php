@@ -110,12 +110,12 @@ class SantriController extends Controller
             'no_hp_ibu' => 'nullable|digits_between:10,12',
 
             // Validasi Data Wali/Pembiaya Sekolah
-            'nama_wali' => 'string|max:100|regex:/^[a-zA-Z.`\s]+$/',
-            'alamat_wali' => 'string',
-            'no_hp_wali' => 'digits_between:10,12',
-            'pekerjaan_wali' => 'string',
-            'tanggal_lahir_wali' => 'date',
-            'tempat_lahir_wali' => 'string|max:100',
+            'nama_wali' => 'sometimes|string|max:100|regex:/^[a-zA-Z.`\s]+$/',
+            'alamat_wali' => 'sometimes|string',
+            'no_hp_wali' => 'sometimes|digits_between:10,12',
+            'pekerjaan_wali' => 'sometimes|string',
+            'tanggal_lahir_wali' => 'sometimes|date',
+            'tempat_lahir_wali' => 'sometimes|string|max:100',
             'alamat_orang_tua' => 'required|string',
 
             // Validasi Data Imam
