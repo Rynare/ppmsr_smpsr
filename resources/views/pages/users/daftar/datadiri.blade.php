@@ -118,7 +118,7 @@
         <label for="riwayat_penyakit" class="required">Riwayat Penyakit:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="riwayat_penyakit" name="riwayat_penyakit" required>
+            id="riwayat_penyakit" name="riwayat_penyakit">
         <small id="riwayat_penyakit-help" class="text-muted px-0 col-12 ">Jika tidak punya isi dengan "-"</small>
     </div>
     <div class="form-group mb-3 col-7 me-2">
