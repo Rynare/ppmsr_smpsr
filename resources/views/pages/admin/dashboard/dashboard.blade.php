@@ -24,22 +24,33 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p>Status Pengumuman <br>Santri Diterima</p>
+                                        <p class="mb-0">Status Pengumuman <br>Santri Diterima</p>
                                     </td>
-                                    <td class="ps-3 ">:
-                                        <a class="btn btn-info  btn-sm me-0 mb-3"
-                                            href="{{ route('admin.publikasi-santri-diterima') }}"
-                                            style="width: fit-content; height: fit-content;">
-                                            <i class="bi bi-cloud-upload"></i> Publikasi
-                                        </a>
-                                        <a class="btn btn-danger  btn-sm me-0 mb-3"
-                                            href="{{ route('admin.unpublikasi-santri-diterima') }}"
-                                            style="width: fit-content; height: fit-content;">
-                                            <i class="bi bi-cloud-download"></i> Sembunyikan
-                                        </a>
-                                        <a href="" class="btn btn-success btn-sm me-0 mb-3"><i
-                                                class="bi bi-file-earmark-spreadsheet"
-                                                style="text-decoration: none"></i>Unduh</a>
+                                    <td class="ps-3">
+                                        <div
+                                            class=" d-flex justify-content-center column-gap-2 align-items-center my-auto ">
+                                            <span>:</span>
+                                            <a class="btn btn-info  btn-sm me-0"
+                                                href="{{ route('admin.publikasi-santri-diterima') }}"
+                                                style="width: fit-content; height: fit-content;">
+                                                <i class="bi bi-cloud-upload"></i> Publikasi
+                                            </a>
+                                            <a class="btn btn-danger  btn-sm me-0"
+                                                href="{{ route('admin.unpublikasi-santri-diterima') }}"
+                                                style="width: fit-content; height: fit-content;">
+                                                <i class="bi bi-cloud-download"></i> Sembunyikan
+                                            </a>
+                                            @if ($jumlah_santri_diterima >= 1)
+                                                <a href="{{ route('admin.download-santri-diterima.excel') }}"
+                                                    target="_blank" class="btn btn-success btn-sm me-0"><i
+                                                        class="bi bi-file-earmark-spreadsheet"
+                                                        style="text-decoration: none"></i>Unduh</a>
+                                            @else
+                                                <a href="#"class="btn btn-secondary btn-sm me-0"><i
+                                                        class="bi bi-file-earmark-spreadsheet" style="text-decoration: none"
+                                                        onclick="alert('Belum ada santri diterima.')"></i>Unduh</a>
+                                            @endif
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

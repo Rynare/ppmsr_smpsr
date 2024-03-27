@@ -8,7 +8,6 @@ use Maatwebsite\Excel\Concerns\FromView;
 
 class SantriByAngkatanExport implements FromView
 {
-
     protected $angkatan;
 
     public function __construct($angkatan)

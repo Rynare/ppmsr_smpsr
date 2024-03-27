@@ -19,7 +19,7 @@
     <script src="{{ asset('assets2/js/datatables-simple-demo.js') }}"></script>
 @endsection
 @section('custom')
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark position-sticky top-0 ">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3 h-75 py-2" href="{{ route('admin.dashboard') }}"
             style="
@@ -170,7 +170,8 @@
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark position-sticky top-0 d-flex flex-column "
+                id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     @php
                         $navs = [
@@ -231,17 +232,12 @@
                 </div>
             </nav>
         </div>
-        <div id="layoutSidenav_content">
+        <div id="layoutSidenav_content" style="max-height: calc(100vh - 56px); overflow-y: scroll;">
             @yield('admin-content')
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; ICT PPM Syafi'ur Rohman 2023</div>
-                        {{-- <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div> --}}
                     </div>
                 </div>
             </footer>

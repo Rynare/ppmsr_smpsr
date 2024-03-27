@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SantriDiterimaExport;
 use App\Mail\prepareInterview;
 use App\Mail\SantriDiterima;
 use App\Models\Gelombang;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpWord\TemplateProcessor;
 
 class SantriController extends Controller
@@ -307,5 +309,20 @@ class SantriController extends Controller
         $gelombang = Gelombang::all()->where('closed', 0)->first();
         $santri = Santri::all()->where('angkatan', $gelombang->angkatan)->where('status_registrasi', 'diterima');
         return view('pages.list-santri-diterima', ['santris' => $santri, 'pageTitle' => 'Daftar santri diterima']);
+    }
+
+    public function downloadSantri()
+    {
+        $gelombang = Gelombang::all()->where('closed', 0)->first();
+        if (!$gelombang) {
+            return redirect()->back();
+        }
+        $santri_diterima = Santri::all()->where('status_registrasi', 'diterima')->where('gelombang', $gelombang->nama_gelombang)->count();
+        if ($santri_diterima >= 1) {
+            $uniq_gelombang = 'angkatan_' . $gelombang->angkatan . '_' . $gelombang->nama_gelombang;
+            return Excel::download(new SantriDiterimaExport(), 'santri_diterima_' . $uniq_gelombang . '.xlsx');
+        } else {
+            return redirect()->back();
+        }
     }
 }
