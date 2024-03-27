@@ -30,11 +30,6 @@
                                                     class="btn btn-secondary btn-sm">Belum dibuka</a>
                                             </div>
                                         @else
-                                            <style>
-                                                .l {
-                                                    margin-le
-                                                }
-                                            </style>
                                             <div class="w-100 d-flex justify-content-end "><a target="_blank"
                                                     href="{{ $pengumuman->id == 1 ? route('santri.list-diterima') : $pengumuman->link }}"
                                                     class="btn {{ $pengumuman->id == 1 ? 'btn-primary' : ' btn-outline-success' }} btn-sm">{{ $pengumuman->id == 1 ? 'Lihat' : 'Buka' }}</a>

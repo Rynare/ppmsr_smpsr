@@ -67,23 +67,26 @@
 
 <body>
     <div class="container">
-        <h4>Assalamualaikum Wr.Wb, <br>
-            {{ $name }},</h4>
+        <h1>Assalamualaikum Wr.Wb, <br>
+            {{ $name }}</h1>
         <p>Terima kasih telah mendaftar di PPM Syafi`ur Rohman.</p>
-        <p>Untuk persiapan Wawancara anda wajib menyiapkan hardfile/print dari file berikut:</p>
+        <p>Setelah ini anda akan melakukan Tes Wawancara di PPM Syafi’ur Rohman</p>
+        <p>Sambil menunggu, anda dapat menyiapkan dokumen Tes Wawancara yang wajib dibawa berupa hardfile/print dari
+            file berikut:</p>
         <ol>
             <li>Kartu Keluarga</li>
             <li>Surat Sambung</li>
             <li>Biodata Calon Mahasantri
                 <a style="color:white;" class="cta-button"
-                    href="{{ route('santri.biodata.PDF', ['id' => $santri_id, 'email' => $santri_email]) }}">Download</a>
+                    href="{{ route('santri.biodata.PDF', ['id' => $santri_id, 'email' => $santri_email]) }}">
+                    Download</a>
             </li>
         </ol>
         <br>
         <p>Untuk tanggal tes akan dihubungi panitia lebih lanjut via WhatsApp</p> <br>
         <p>Jika ada yang ditanyakan silahkan hubungi Contact Person yang tertera di halaman Informasi.</p>
-        <h4>Alhamdulilahijazakumulohukhoiro, <br>
-            Wassalamualaikum Wr. Wb</h4>
+        <h1>Alhamdulilahijazakumulohukhoiro, <br>
+            Wassalamualaikum Wr. Wb</h1>
     </div>
 </body>
 

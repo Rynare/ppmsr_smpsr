@@ -90,9 +90,11 @@
                                                     <button class="flex-grow-1 btn-sm btn-warning btn"
                                                         data-bs-toggle="modal" data-bs-target="#update-pengumuman"
                                                         data-json="{{ json_encode($pengumuman) }}"
-                                                        onclick="setupModalFormInput(this)">Ubah</button>
+                                                        onclick="setupModalFormInput(this)"><i
+                                                            class="bi bi-pencil-square"></i> Ubah</button>
                                                     <a href="{{ route('admin.hapus-pengumuman', ['pengumuman' => $pengumuman->id]) }}"
-                                                        class="btn flex-grow-1 btn-sm btn-danger">Hapus</a>
+                                                        class="btn flex-grow-1 btn-sm btn-danger"><i
+                                                            class="bi bi-trash3-fill"></i> Hapus</a>
                                                 </div>
                                             </td>
                                         </tr>

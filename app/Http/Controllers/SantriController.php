@@ -23,7 +23,7 @@ class SantriController extends Controller
         $gelombang = Gelombang::all()->where('deleted', 0)->first();
         if (!$gelombang) {
             return redirect()->back()->withErrors([
-                'swal' => ['title' => 'Pendaftaran ditutup!', 'icon' => 'error']
+                'swal' => ['title' => 'Pendaftaran sedang ditutup!', 'icon' => 'error']
             ]);
         }
 

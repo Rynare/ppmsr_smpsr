@@ -32,7 +32,7 @@ class SantriDiterima extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '[Pengumuman] Selamat kamu diterima',
+            subject: '[Pengumuman Penerimaan] Selamat Kamu Diterima di PPM Syafiur Rohman!',
         );
     }
 

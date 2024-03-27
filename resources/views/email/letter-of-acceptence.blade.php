@@ -17,7 +17,8 @@
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #f9f9f9;
+            color: white;
+            background-color: #3c3c3b;
         }
 
         h1 {
@@ -29,7 +30,7 @@
         }
 
         .email-info {
-            background-color: #fff;
+            background-color: #f9f9f9;
             padding: 15px;
             border-radius: 5px;
             border: 1px solid #ccc;
@@ -48,9 +49,9 @@
 
 <body>
     <div class="container">
-        <h1>Surat Penerimaan</h1>
+        <h1 style="color: #18ED8A">Surat Penerimaan</h1>
         <p>Assalamualaikum Wr.Wb, {{ $nama }}</p>
-        <p>Selamat! Anda telah diterima di PPM Syafi`ur Rohman.</p>
+        <p>Selamat! Anda telah diterima menjadi Mahasantri di PPM Syafi`ur Rohman.</p>
 
         <div class="email-info">
             <p>Berikut adalah informasi login Anda:</p>
@@ -65,6 +66,7 @@
 
         <p>Hormat kami,</p>
         <p>PPM Syafi`ur Rohman</p>
+        <p>Wassalamualaikum Wr. Wb</p>
     </div>
 </body>
 
