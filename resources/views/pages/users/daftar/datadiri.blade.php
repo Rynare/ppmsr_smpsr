@@ -119,7 +119,6 @@
         <div class="input-group d-flex column-gap-4 align-items-center">
             <select class="mt-2 form-select z-1" id="golongan_darah" name="golongan_darah" required>
                 <option value="" hidden disabled selected>Pilih</option>
-                <option value="">Tidak Tahu</option>
                 <option value="a">A</option>
                 <option value="b">B</option>
                 <option value="ab">AB</option>

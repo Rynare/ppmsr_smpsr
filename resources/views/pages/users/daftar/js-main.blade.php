@@ -256,19 +256,36 @@
         const userInput = element.value
         var cleanInput = userInput.replace(/\D/g, '');
 
-        if (!cleanInput.startsWith('8')) {
-            element.setCustomValidity("Input harus diawali dengan angka 8!")
-        } else if (cleanInput.length <= 9 && element.hasAttribute('required')) {
-            element.setCustomValidity('Input minimal 10 karakter!')
-        } else if (cleanInput.length > 12) {
-            element.setCustomValidity("Input maksimal 12 karakter!")
-        } else {
-            element.setCustomValidity('')
-            bsValidityToogle(element, 'is-valid')
+        if (element.hasAttribute('required')) {
+            if (!cleanInput.startsWith('8')) {
+                element.setCustomValidity("Input harus diawali dengan angka 8!")
+            } else if (cleanInput.length <= 9) {
+                element.setCustomValidity('Input minimal 10 karakter!')
+            } else if (cleanInput.length > 12) {
+                element.setCustomValidity("Input maksimal 12 karakter!")
+            } else {
+                element.setCustomValidity("")
+                bsValidityToogle(element, 'is-valid')
+                return
+            }
+            bsValidityToogle(element, 'is-invalid')
             return
         }
 
-        bsValidityToogle(element, 'is-invalid')
+        if (cleanInput.length >= 1) {
+            if (!cleanInput.startsWith('8')) {
+                element.setCustomValidity("Input harus diawali dengan angka 8!")
+            } else if (cleanInput.length <= 9) {
+                element.setCustomValidity('Input minimal 10 karakter!')
+            } else if (cleanInput.length > 12) {
+                element.setCustomValidity("Input maksimal 12 karakter!")
+            } else {
+                element.setCustomValidity("")
+                return
+            }
+            bsValidityToogle(element, 'is-invalid')
+            return
+        }
     }
 
     function currencyFormatterAndChecker(currencyNumber) {
