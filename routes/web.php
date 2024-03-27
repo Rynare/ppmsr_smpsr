@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web 
+| Web
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/tutup-gelombang/{gelombang}', [GelombangController::class, 'close'])->name('admin.tutup-gelombang');
         Route::get('/dashboard/terima-santri/{santri}', [SantriController::class, 'acceptSantri'])->name('admin.terima-santri');
         Route::get('/dashboard/tolak-santri/{santri}', [SantriController::class, 'rejectSantri'])->name('admin.tolak-santri');
+        Route::get('/dashboard/download-santri', [SantriController::class, 'downloadSantri'])->name('admin.download-santri-diterima.excel');
         Route::get('/dashboard/publikasi-santri-siterima', function () {
             $pengumuman = Pengumuman::find(1);
             $pengumuman->update(['hidden' => false]);
