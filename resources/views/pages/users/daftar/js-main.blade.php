@@ -168,6 +168,10 @@
                     if (elementDataInputType == 'currency') {
                         const realValueContainer = document.querySelector(element.getAttribute(
                             'data-input-real-target'))
+                        if (element.value == '') {
+                            element.value = 0
+                            realValueContainer.value = 0
+                        }
                         var regex = /\d+/g; //regexp untuk hanya number
                         var angka = element.value.match(regex);
                         if (angka) {
@@ -275,13 +279,6 @@
                 status: false,
                 msg: "Masukkan nominal yang valid!",
                 result: ''
-            }
-        }
-        if (currencyNumber.length < 7) {
-            return {
-                status: false,
-                msg: "Masukkan minimal Rp.100.000",
-                result: currencyNumber
             }
         }
         return {

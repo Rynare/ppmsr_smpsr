@@ -24,20 +24,24 @@ return new class extends Migration
             $table->string('tempat_lahir_santri')->length(100);
             $table->date('tanggal_lahir_santri');
             $table->integer('kode_pos')->length(5);
-            $table->string('bahasa_asing');
-            $table->string('facebook');
+            $table->string('bahasa_asing')->nullable();
+            $table->string('facebook')->nullable();
             $table->string('fakultas')->length(100);
-            $table->string('gelar_saat_lulus')->length(20);
-            $table->enum('golongan_darah', ['a', 'b', 'ab', 'o']);
-            $table->string('instagram');
+            $table->string('gelar_saat_lulus')->nullable()->length(20);
+            $table->enum('golongan_darah', ['a', 'b', 'ab', 'o'])->nullable();
+            $table->string('instagram')->nullable();
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
-            $table->integer('jumlah_hafalan')->length(2);
-            $table->string('keahlian')->length(255);
+            $table->integer('jumlah_hafalan')->default(0)->length(2);
+            $table->string('keahlian')->nullable()->length(255);
             $table->enum('pendidikan', ['d3', 'd4', 's1']);
-            $table->string('prestasi');
-            $table->string('riwayat_penyakit');
+            $table->string('prestasi')->nullable();
+            $table->string('riwayat_penyakit')->nullable();
             $table->enum('status_mubaligh', ['sudah', 'belum']);
             $table->string('universitas');
+            $table->string('cita-cita')->nullable();
+            $table->string('prodi');
+            $table->integer('tahun_masuk_kuliah');
+            $table->enum('penanggung_biaya', ['orang tua, wali']);
             $table->enum('status_rumah', ['milik sendiri', 'milik orangtua', 'sewa/kontrak', 'lainnya']);
 
             // data ayah
@@ -61,12 +65,12 @@ return new class extends Migration
             $table->bigInteger('no_hp_ibu')->length(14)->nullable();
 
             // data wali / pembiaya sekolah
-            $table->string('nama_wali')->length(100);
-            $table->text('alamat_wali');
-            $table->bigInteger('no_hp_wali')->length(14);
-            $table->string('pekerjaan_wali');
-            $table->date('tanggal_lahir_wali');
-            $table->string('tempat_lahir_wali')->length(100);
+            $table->string('nama_wali')->nullable()->length(100);
+            $table->text('alamat_wali')->nullable();
+            $table->bigInteger('no_hp_wali')->nullable()->length(14);
+            $table->string('pekerjaan_wali')->nullable();
+            $table->date('tanggal_lahir_wali')->nullable();
+            $table->string('tempat_lahir_wali')->nullable()->length(100);
             $table->string('alamat_orang_tua');
 
             // data imam
