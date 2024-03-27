@@ -4,7 +4,7 @@
     @include('components.bootstrap.bs-icon')
 @endsection
 @section('custom')
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="height: 60px">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3 h-75 py-2" href="{{ route('admin.dashboard') }}"
             style="
@@ -12,7 +12,7 @@
         filter: invert();
         background-repeat: no-repeat;
         background-position: center;
-        background-image: url({{ asset('assets/smpsr-logo.svg') }});
+        background-image: url({{ asset('assets/smpsr-logo-dashboard.svg') }});
         "></a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
@@ -24,7 +24,8 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li>
                         <button type="button" class="dropdown-item" data-bs-toggle="modal"
-                            data-bs-target="#user.change-emailModal">Ganti email</button>
+                            data-bs-target="#user.change-emailModal"> <i class="bi bi-envelope-open-fill"></i> Ganti
+                            Email</button>
                     </li>
                     @push('modal-container')
                         <div class="modal fade" id="user.change-emailModal" tabindex="-1"
@@ -43,18 +44,18 @@
                                             <div class="form-floating mb-3">
                                                 <input required type="email" name='old_email' class="form-control"
                                                     id="user.old-email" placeholder="name@example.com">
-                                                <label for="user.old-email">Email lama</label>
+                                                <label for="user.old-email">Email Lama</label>
                                             </div>
                                             <div class="form-floating">
                                                 <input required type="email" name="new_email" class="form-control"
                                                     id="user.new_email" placeholder="Password">
-                                                <label for="user.new_email">Email baru</label>
+                                                <label for="user.new_email">Email Baru</label>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="reset" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                                data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                         </div>
                                     </form>
                                 </div>
@@ -63,7 +64,8 @@
                     @endpush
                     <li>
                         <button type="button" class="dropdown-item" data-bs-toggle="modal"
-                            data-bs-target="#user.change-passwordModal">Ganti password</button>
+                            data-bs-target="#user.change-passwordModal"><i class="bi bi-shield-lock-fill"></i> Ganti
+                            Password</button>
                     </li>
                     @push('modal-container')
                         <div class="modal fade" id="user.change-passwordModal" tabindex="-1"
@@ -73,7 +75,7 @@
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="user.change-passwordModalLabel">Ganti Password</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                            aria-label="Tutup"></button>
                                     </div>
 
                                     <form action="{{ route('user.change-password') }}" method="post">
@@ -82,13 +84,13 @@
                                             <div class="form-floating mb-3">
                                                 <input required type="text" class="form-control" id="user.newPassword"
                                                     placeholder="name@example.com">
-                                                <label for="user.newPassword">Password baru</label>
+                                                <label for="user.newPassword">Password Baru</label>
                                             </div>
                                             <div class="form-floating">
                                                 <input required type="text" name='new_password' class="form-control"
                                                     id="user.newPasswordConfirm" placeholder="Password"
                                                     aria-describedby="passwordConfirmFeedback">
-                                                <label for="user.newPasswordConfirm">Konfirmasi password baru</label>
+                                                <label for="user.newPasswordConfirm">Konfirmasi Password Baru</label>
                                                 <div id="passwordConfirmFeedback" class="invalid-feedback">
                                                     Pastikan password sama!
                                                 </div>
@@ -96,8 +98,8 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="reset" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                                data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                         </div>
                                     </form>
                                 </div>
@@ -144,15 +146,16 @@
                         <hr class="dropdown-divider" />
                     </li>
                     <li><a class="dropdown-item" href="{{ route('signout') }}"
-                            onclick="return confirm('Yakin ingin keluar?')">Logout</a></li>
+                            onclick="return confirm('Yakin ingin keluar?')"> <i class="bi bi-box-arrow-right"></i>
+                            Keluar</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
-    <section class="vh-100" style="background-color: #f4f5f7;">
-        <div class="container py-5 h-100">
+    <section class="vh-100" style="background-color: #ffff;">
+        <div class="container py-3 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-lg-6 mb-4 mb-lg-0">
+                <div class="col col-lg-12 mb-4 mb-lg-0">
                     <div class="card mb-3" style="border-radius: .5rem;">
                         <div class="row g-0">
                             <div class="col-md-4 gradient-custom text-center"

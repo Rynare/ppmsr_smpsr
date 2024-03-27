@@ -4,14 +4,14 @@
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="nama_santri" name="nama_santri" required maxlength="100" regex='^[a-zA-Z.`\s]+$'>
-        <small id="nama_santri-help" class="text-muted">Masukkan nama sesuai dengan ktp</small>
+        <small id="nama_santri-help" class="text-muted">Masukkan nama sesuai dengan KTP</small>
     </div>
     <div class="form-group mb-3 col-4">
         <label class="required d-block mb-2 ">Jenis Kelamin:</label>
         <div class="input-group d-flex column-gap-3 align-items-center">
             <select class="form-select z-1" id="jenis_kelamin" name="jenis_kelamin" required>
                 <option value="" hidden disabled selected>Pilih</option>
-                <option value="laki-laki">Laki-laki</option>
+                <option value="laki-laki">Laki-Laki</option>
                 <option value="perempuan">Perempuan</option>
             </select>
         </div>
@@ -26,7 +26,7 @@
                 class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none w-75"
                 id="tanggal_lahir_santri" name="tanggal_lahir_santri" required>
         </div>
-        <small id="nama-help" class="text-muted px-0 col-12 ">Masukkan tempat dan tanggal sesuai dengan ktp</small>
+        <small id="nama-help" class="text-muted px-0 col-12 ">Masukkan tempat dan tanggal sesuai dengan KTP</small>
     </div>
     <div class="row gx-0 row-cols-2 mb-3 ">
         <!-- Jumlah Saudara -->
@@ -119,6 +119,7 @@
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="riwayat_penyakit" name="riwayat_penyakit" required>
+        <small id="riwayat_penyakit-help" class="text-muted px-0 col-12 ">Jika tidak punya isi dengan "-"</small>
     </div>
     <div class="form-group mb-3 col-7 me-2">
         <label for="no_hp_santri" class="required">No HP Santri:</label>

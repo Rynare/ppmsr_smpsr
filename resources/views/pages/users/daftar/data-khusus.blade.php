@@ -1,24 +1,24 @@
 <div data-section="data-khusus" class="row gx-0" id="form-data-khusus">
     <div class="form-group mb-3 col-8 ">
-        <label for="asal_kelompok_sambung" class="required">Asal kelompok sambung:</label>
+        <label for="asal_kelompok_sambung" class="required">Asal Kelompok Sambung:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="asal_kelompok_sambung" name="asal_kelompok_sambung" required maxlength="100">
     </div>
     <div class="form-group mb-3 col-8 ">
-        <label for="asal_desa_sambung" class="required">Asal desa sambung:</label>
+        <label for="asal_desa_sambung" class="required">Asal Desa Sambung:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="asal_desa_sambung" name="asal_desa_sambung" required maxlength="50">
     </div>
     <div class="form-group mb-3 col-8 ">
-        <label for="asal_daerah_sambung" class="required">Asal daerah sambung:</label>
+        <label for="asal_daerah_sambung" class="required">Asal Daerah Sambung:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="asal_daerah_sambung" name="asal_daerah_sambung" required maxlength="50">
     </div>
     <div class="form-group mb-3 col-4 me-3 ">
-        <label for="jumlah_hafalan" class="required">Jumlah hafalan:</label>
+        <label for="jumlah_hafalan" class="required">Jumlah Hafalan:</label>
         <div class="input-group">
             <input type="number"
                 class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none z-1"
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="form-group mb-3">
-        <label class="required d-block mb-2 ">Status mubaligh:</label>
+        <label class="required d-block mb-2 ">Status Mubaligh:</label>
         <div class="input-group d-flex column-gap-4 align-items-center">
             <select class="mt-2 form-select z-1" id="status_mubaligh" name="status_mubaligh" required>
                 <option value="" hidden disabled selected>Pilih</option>
@@ -53,6 +53,8 @@
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="bahasa_asing" name="bahasa_asing" required>
+        <small id="bahasa_asing-help" class="text-muted px-0 col-12 "> Jika tidak ada maka isi dengan "Tidak
+            Ada"</small>
     </div>
     <div class="form-group mb-3 col-8 ">
         <label for="facebook" class="required">Facebook:</label>

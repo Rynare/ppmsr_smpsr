@@ -3,9 +3,9 @@
 @section('admin-content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Dashboard</h1>
+            <h1 class="mt-4">Data Santri</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item active">Data Santri</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-header">
@@ -48,8 +48,8 @@
                                 <th>No.HP Santri</th>
                                 <th>No.HP Ayah</th>
                                 <th>No.HP Ibu</th>
-                                <th>Penanggung biaya</th>
-                                <th>Action</th>
+                                {{-- <th>Penanggung biaya</th> --}}
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -60,7 +60,7 @@
                                 <th>No.HP Ayah</th>
                                 <th>No.HP Ibu</th>
                                 <th>Wali</th>
-                                <th>Action</th>
+                                <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -72,9 +72,11 @@
                                         <td>{{ $santri->no_hp_santri }}</td>
                                         <td>{{ $santri->no_hp_ayah }}</td>
                                         <td>{{ $santri->no_hp_ibu }}</td>
-                                        <td>{{ $santri->nama_wali }}</td>
+                                        {{-- <td>{{ $santri->nama_wali }}</td> --}}
                                         <td>
-
+                                            <div class="btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i> Edit
+                                            </div>
+                                            <div class="btn btn-sm btn-danger"><i class="bi bi-trash3"></i> Hapus</div>
                                         </td>
                                     </tr>
                                 @endforeach

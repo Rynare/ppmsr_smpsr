@@ -26,7 +26,7 @@ class AuthController extends Controller
     {
         $pengumumans = Pengumuman::all();
         return view('pages.auth.signin.signin')->with([
-            'pageTitle' => 'Masuk',
+            'pageTitle' => 'Masuk - SMPSR PPM Syafiur Rohman',
             'pengumumans' => $pengumumans,
         ]);
     }

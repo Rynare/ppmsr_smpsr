@@ -21,21 +21,21 @@
                             <div class="accordion-body">
                                 <div class="w-100 d-flex justify-content-end ">
                                     <button class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal"
-                                        data-bs-target="#tambah-admin">Tambah Admin</button>
+                                        data-bs-target="#tambah-admin"> <i class="bi bi-plus"></i> Tambah Admin</button>
                                 </div>
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Email/username</th>
+                                            <th>Email</th>
                                             <th>Role</th>
-                                            <th>Action</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Email/username</th>
+                                            <th>Email</th>
                                             <th>Role</th>
-                                            <th>Action</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -44,7 +44,7 @@
                                                 <td>{{ $acc->email }}</td>
                                                 <td>{{ $acc->roles->role }}</td>
                                                 <td>
-                                                    <a href={{ route('admin.hapus-akun', ['user' => $acc->id]) }}"
+                                                    <a href="{{ route('admin.hapus-akun', ['user' => $acc->id]) }}"
                                                         class="btn btn-danger btn-sm"
                                                         onclick="return confirm('Yakin ingin menghapus akun ini sebagai admin?')">Hapus</a>
                                                 </td>
@@ -67,17 +67,17 @@
                         <thead>
                             <tr>
                                 <th>Nama</th>
-                                <th>Email/username</th>
+                                <th>Email</th>
                                 <th>Role</th>
-                                <th>Action</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Nama</th>
-                                <th>Email/username</th>
+                                <th>Email</th>
                                 <th>Role</th>
-                                <th>Action</th>
+                                <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -88,10 +88,11 @@
                                     <td>{{ $acc->roles->role }}</td>
                                     <td>
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                        <button type="button" class="btn btn-dark    pt-0 pb-0" data-bs-toggle="modal"
                                             data-bs-target="#changeEmailModal" value="{{ $acc->email }}"
                                             onclick="document.querySelector('#changeEmailModal [name=old-email]').value = this.value">
-                                            Change Email
+                                            <i class="bi bi-pencil"></i>
+                                            Ubah Email
                                         </button>
                                     </td>
                                 </tr>
@@ -116,12 +117,12 @@
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="email" placeholder="name@example.com"
                                 name="email">
-                            <label for="email">Email address</label>
+                            <label for="email">Email</label>
                         </div>
                         <span class="text-danger ">Password akan sama dengan email.</span>
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Ubah</button>
                     </div>
                 </form>
@@ -133,7 +134,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="changeEmailModalLabel">Change Email</h1>
+                    <h1 class="modal-title fs-5" id="changeEmailModalLabel">Ganti Email</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('admin.akun-santri.change-email') }}" method="POST">
@@ -142,12 +143,12 @@
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="email" placeholder="name@example.com"
                                 name="email">
-                            <label for="email">Email address</label>
+                            <label for="email">Email </label>
                         </div>
                         <span class="text-danger ">Password akan direset juga dan nilainya akan sama dengan email.</span>
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary" name="old-email" value="">Ubah</button>
                     </div>
                 </form>

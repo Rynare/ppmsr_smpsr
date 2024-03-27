@@ -11,7 +11,8 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Gelombang</strong></td>
-                                    <td class="ps-3 ">: {{ Str::upper($nama_gelombang) }}</td>
+                                    {{-- <td class="ps-3 ">: {{ Str::upper($nama_gelombang) }}</td> --}}
+                                    <td class="ps-3 ">: {{ $nama_gelombang }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Jumlah Terdaftar</strong></td>
@@ -23,36 +24,41 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p>Status pengumuman <br>santri diterima</p>
+                                        <p>Status Pengumuman <br>Santri Diterima</p>
                                     </td>
                                     <td class="ps-3 ">:
-                                        <a class="btn btn-success  btn-sm me-0"
+                                        <a class="btn btn-info  btn-sm me-0 mb-3"
                                             href="{{ route('admin.publikasi-santri-diterima') }}"
                                             style="width: fit-content; height: fit-content;">
-                                            Publikasi
+                                            <i class="bi bi-cloud-upload"></i> Publikasi
                                         </a>
-                                        <a class="btn btn-danger  btn-sm me-0"
+                                        <a class="btn btn-danger  btn-sm me-0 mb-3"
                                             href="{{ route('admin.unpublikasi-santri-diterima') }}"
                                             style="width: fit-content; height: fit-content;">
-                                            Sembunyikan
+                                            <i class="bi bi-cloud-download"></i> Sembunyikan
                                         </a>
+                                        <a href="" class="btn btn-success btn-sm me-0 mb-3"><i
+                                                class="bi bi-file-earmark-spreadsheet"
+                                                style="text-decoration: none"></i>Unduh</a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                         <div class="mt-3 ms-auto mb-2">
-                            <button type="button" class="btn btn-primary btn-sm me-3" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-primary btn-sm me-3 mb-3" data-bs-toggle="modal"
                                 data-bs-target="#new-gelombang" style="width: fit-content; height: fit-content;">
-                                Buka gelombang
+                                <i class="bi bi-door-open"></i> Buka Gelombang
                             </button>
                             @if ($id_gelombang)
-                                <a class="btn btn-danger  btn-sm me-0"
+                                <a class="btn btn-danger  btn-sm me-0 mb-3"
                                     href="{{ route('admin.tutup-gelombang', ['gelombang' => $id_gelombang]) }}"
                                     style="width: fit-content; height: fit-content;"
-                                    onclick="return confirm('Ingin menutup gelombang saat ini?')">
-                                    Tutup gelombang
+                                    onclick="return confirm('Ingin menutup gelombang saat ini?')"> <i
+                                        class="bi bi-door-closed"></i>
+                                    Tutup Gelombang
                                 </a>
                             @endif
+
                         </div>
                     </div>
                 </div>
@@ -62,12 +68,13 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>No.HP Santri</th>
-                                <th>No.HP Wali</th>
+                                <th>Perguruan Tinggi</th>
+                                <th>Program Studi</th>
                                 <th>Nama Imam</th>
                                 <th>No.HP Imam</th>
                                 <th>Angkatan</th>
                                 <th>
-                                    <div class="text-center">Action</div>
+                                    <div class="text-center">Aksi</div>
                                 </th>
                             </tr>
                         </thead>
@@ -75,12 +82,13 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>No.HP Santri</th>
-                                <th>No.HP Wali</th>
+                                <th>Perguruan Tinggi</th>
+                                <th>Program Studi</th>
                                 <th>Nama Imam</th>
                                 <th>No.HP Imam</th>
                                 <th>Angkatan</th>
                                 <th>
-                                    <div class="text-center">Action</div>
+                                    <div class="text-center">Aksi</div>
                                 </th>
                             </tr>
                         </tfoot>
@@ -90,7 +98,8 @@
                                     <tr>
                                         <td>{{ $santri->nama_santri }}</td>
                                         <td>{{ $santri->no_hp_santri }}</td>
-                                        <td>{{ $santri->no_hp_wali }}</td>
+                                        <td>{{ $santri->universitas }}</td>
+                                        <td></td>
                                         <td>{{ $santri->nama_imam_kelompok }}</td>
                                         <td>{{ $santri->no_hp_imam }}</td>
                                         <td>{{ $santri->angkatan }}</td>

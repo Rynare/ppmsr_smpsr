@@ -9,11 +9,11 @@
             <form action="{{ route('admin.buka-gelombang') }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <p class="text-danger text-center ">Membuat gelombang baru akan menutup gelombang yang lama.</p>
+                    <p class="text-danger text-center ">Membuat Gelombang baru akan menutup Gelombang yang lama.</p>
                     <div class="mb-3">
-                        <label for="nama_gelombang" class="form-label">Nama gelombang:</label>
+                        <label for="nama_gelombang" class="form-label">Nama Gelombang:</label>
                         <input required type="text" class="form-control" id="nama_gelombang"
-                            placeholder="ex: Gelombang 1 tahun 2024 " name="nama_gelombang" required>
+                            placeholder="ex: Gelombang Pertama 2024" name="nama_gelombang" required>
                     </div>
                     <div class="mb-3">
                         <label for="angkatan" class="form-label">Tahun Angkatan:</label>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="modal-footer">
                     <button id="gelombang-reset-btn" class="btn btn-secondary" data-bs-dismiss="modal"
-                        type="reset">Close</button>
+                        type="reset">Tutup</button>
                     <button class="btn btn-primary" type="submit"
                         onclick="return confirm('Yakin, ingin membuka gelombang?')">Buka</button>
                 </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="modal-footer">
                     <button id="gelombang-reset-btn" class="btn btn-secondary" data-bs-dismiss="modal"
-                        type="reset">Close</button>
+                        type="reset">Tutup</button>
                     <button class="btn btn-primary" type="submit"
                         onclick="return confirm('Simpan pengumuman?')">Simpan</button>
                 </div>
@@ -95,8 +95,8 @@
                     <div class="mb-3">
                         <label for="link" class="form-label">Link:</label>
                         <input type="link" class="form-control" id="link" placeholder="" name="link">
-                        <div class="form-text text-danger " id="basic-addon4">Isikan dengan link dokumen yang bisa di
-                            download.</div>
+                        <div class="form-text text-danger " id="basic-addon4">Isikan dengan Link Dokumen yang bisa di
+                            Download / Drive.</div>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -50,7 +50,7 @@
     <div class="container">
         <h1>Surat Penerimaan</h1>
         <p>Assalamualaikum Wr.Wb, {{ $nama }}</p>
-        <p>Selamat! Anda telah diterima di PPM Syafi`ur Rahman.</p>
+        <p>Selamat! Anda telah diterima di PPM Syafi`ur Rohman.</p>
 
         <div class="email-info">
             <p>Berikut adalah informasi login Anda:</p>
@@ -64,7 +64,7 @@
         <p>Terima kasih dan selamat bergabung!</p>
 
         <p>Hormat kami,</p>
-        <p>PPM Syafi`ur Rahman</p>
+        <p>PPM Syafi`ur Rohman</p>
     </div>
 </body>
 

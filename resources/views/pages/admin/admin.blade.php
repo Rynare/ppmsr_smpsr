@@ -27,7 +27,7 @@
         filter: invert();
         background-repeat: no-repeat;
         background-position: center;
-        background-image: url({{ asset('assets/smpsr-logo.svg') }});
+        background-image: url({{ asset('assets/smpsr-logo-dashboard.svg') }});
         "></a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
@@ -39,7 +39,8 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li>
                         <button type="button" class="dropdown-item" data-bs-toggle="modal"
-                            data-bs-target="#user.change-emailModal">Ganti email</button>
+                            data-bs-target="#user.change-emailModal"> <i class="bi bi-envelope-open-fill"></i>
+                            Ganti Email</button>
                     </li>
                     @push('modal-container')
                         <div class="modal fade" id="user.change-emailModal" tabindex="-1"
@@ -58,18 +59,18 @@
                                             <div class="form-floating mb-3">
                                                 <input required type="email" name='old_email' class="form-control"
                                                     id="user.old-email" placeholder="name@example.com">
-                                                <label for="user.old-email">Email lama</label>
+                                                <label for="user.old-email">Email Lama</label>
                                             </div>
                                             <div class="form-floating">
                                                 <input required type="email" name="new_email" class="form-control"
                                                     id="user.new_email" placeholder="Password">
-                                                <label for="user.new_email">Email baru</label>
+                                                <label for="user.new_email">Email Baru</label>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="reset" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                                data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                         </div>
                                     </form>
                                 </div>
@@ -78,7 +79,8 @@
                     @endpush
                     <li>
                         <button type="button" class="dropdown-item" data-bs-toggle="modal"
-                            data-bs-target="#user.change-passwordModal">Ganti password</button>
+                            data-bs-target="#user.change-passwordModal"><i class="bi bi-shield-lock-fill"></i>
+                            Ganti password</button>
                     </li>
                     @push('modal-container')
                         <div class="modal fade" id="user.change-passwordModal" tabindex="-1"
@@ -88,7 +90,7 @@
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="user.change-passwordModalLabel">Ganti Password</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                            aria-label="Tutup"></button>
                                     </div>
 
                                     <form action="{{ route('user.change-password') }}" method="post">
@@ -97,22 +99,22 @@
                                             <div class="form-floating mb-3">
                                                 <input required type="text" class="form-control" id="user.newPassword"
                                                     placeholder="name@example.com">
-                                                <label for="user.newPassword">Password baru</label>
+                                                <label for="user.newPassword">Password Baru</label>
                                             </div>
                                             <div class="form-floating">
                                                 <input required type="text" name='new_password' class="form-control"
                                                     id="user.newPasswordConfirm" placeholder="Password"
                                                     aria-describedby="passwordConfirmFeedback">
-                                                <label for="user.newPasswordConfirm">Konfirmasi password baru</label>
+                                                <label for="user.newPasswordConfirm">Konfirmasi Password Baru</label>
                                                 <div id="passwordConfirmFeedback" class="invalid-feedback">
-                                                    Pastikan password sama!
+                                                    Pastikan Password sama!
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="reset" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                                data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                         </div>
                                     </form>
                                 </div>
@@ -159,7 +161,9 @@
                         <hr class="dropdown-divider" />
                     </li>
                     <li><a class="dropdown-item" href="{{ route('signout') }}"
-                            onclick="return confirm('Yakin ingin keluar?')">Logout</a></li>
+                            onclick="return confirm('Yakin ingin keluar?')"> <i class="bi bi-box-arrow-right"></i>
+                            Keluar</a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -214,8 +218,9 @@
                 </div>
 
                 <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    {{ auth()->user()->email }}
+                    <div class="small"><i class="bi bi-person"></i>
+                        Masuk Sebagai :</div>
+                    {{ auth()->user()->name }}
                 </div>
             </nav>
         </div>
@@ -224,12 +229,12 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                        <div>
+                        <div class="text-muted">Copyright &copy; ICT PPM Syafi'ur Rohman 2023</div>
+                        {{-- <div>
                             <a href="#">Privacy Policy</a>
                             &middot;
                             <a href="#">Terms &amp; Conditions</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </footer>

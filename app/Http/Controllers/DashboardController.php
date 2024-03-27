@@ -24,7 +24,7 @@ class DashboardController extends Controller
         }
 
         return view("pages.admin.dashboard.dashboard")->with([
-            'pageTitle' => 'Dashboard',
+            'pageTitle' => 'Dashboard - SMPSR PPM Syafiur Rohman',
             'pengumumans' => $pengumumans,
             'nama_gelombang' => $nama_gelombang ?? 'Tidak ada gelombang terbuka',
             'id_gelombang' => $id_gelombang ?? false,

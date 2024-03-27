@@ -25,7 +25,7 @@ class AccountController extends Controller
 
 
         return view('pages.admin.data-admin.data-admin')->with([
-            'pageTitle' => 'Daftar Akun',
+            'pageTitle' => 'Daftar Akun - SMPSR PPM Syafiur Rohman',
             'accs_admin' => $accs_admin,
             'accs_santri' => $accs_santri,
             'jumlah_admin' => $accs_admin->count(),

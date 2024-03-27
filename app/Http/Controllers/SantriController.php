@@ -34,17 +34,17 @@ class SantriController extends Controller
             if (!$santri) {
                 $cookie = Cookie::forget('id_santri');
                 return response()->view('pages.users.daftar.daftar', [
-                    'pageTitle' => 'Form Pendaftaran'
+                    'pageTitle' => 'Pendaftaran - SMPSR PPM Syafiur Rohman'
                 ])->withCookie($cookie);;
             }
             return view('pages.users.daftar.done')->with([
-                'pageTitle' => 'Selesai',
+                'pageTitle' => 'Sukses Daftar - SMPSR PPM Syafiur Rohman',
                 'nama_santri' => $santri->nama_santri,
                 'email_santri' => $santri->email_santri,
             ]);
         } else {
             return view('pages.users.daftar.daftar')->with([
-                'pageTitle' => 'Form Pendaftaran'
+                'pageTitle' => 'Pendaftaran - SMPSR PPM Syafiur Rohman'
             ]);
         }
     }
@@ -291,12 +291,12 @@ class SantriController extends Controller
 
         if ($status == 'diterima') {
             return view('pages.users.profile.profile', [
-                'pageTitle' => 'My Profile',
+                'pageTitle' => 'Profil - SMPSR PPM Syafiur Rohman',
                 "santri" => $santri,
             ]);
         } elseif ($status == 'pending') {
             return view('pages.users.profile.profile', [
-                'pageTitle' => 'Status Interview',
+                'pageTitle' => 'Status Wawancara - SMPSR PPM Syafiur Rohman',
                 'status' => $status,
             ]);
         }
