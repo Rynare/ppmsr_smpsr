@@ -59,8 +59,7 @@
                     @include('pages.users.daftar.data-wali')
                     @include('pages.users.daftar.data-imam')
                     @include('pages.users.daftar.dokumen')
-                    <button type="submit" class="btn mb-4 mt-2"
-                        style="background-color:#3c3c3b; color: white">Daftar</button>
+                    <button type="submit" class="btn mb-4 mt-2 btn-primary " style=" color: white">Daftar</button>
                 </form>
             </div>
         </main>

@@ -29,8 +29,8 @@
         <label for="pas_foto" class="required">Pas Foto:</label>
         <div class="input-group">
             <input type="file" class="form-control z-1" id="pas_foto" name="pas_foto" required
-                aria-describedby="pas_foto-help" data-max-file-size="2">
-            <i class="input-group-text bi bi-paperclip" for="pas_foto" data-allowed-extension="jpg,jpeg,png"></i>
+                aria-describedby="pas_foto-help" data-max-file-size="2" data-allowed-extension="jpg,jpeg,png">
+            <i class="input-group-text bi bi-paperclip" for="pas_foto"></i>
         </div>
         <small id="pas_foto-help" class="text-muted"><strong>Ketentuan:</strong>
             Foto wajib dengan rasio 3x4</small>

@@ -108,14 +108,6 @@ class SantriController extends Controller
             'pekerjaan_ibu' => 'nullable|string',
             'penghasilan_ibu' => 'nullable|integer|min:0',
             'no_hp_ibu' => 'nullable|digits_between:10,12',
-
-            // Validasi Data Wali/Pembiaya Sekolah
-            'nama_wali' => 'sometimes|string|max:100|regex:/^[a-zA-Z.`\s]+$/',
-            'alamat_wali' => 'sometimes|string',
-            'no_hp_wali' => 'sometimes|digits_between:10,12',
-            'pekerjaan_wali' => 'sometimes|string',
-            'tanggal_lahir_wali' => 'sometimes|date',
-            'tempat_lahir_wali' => 'sometimes|string|max:100',
             'alamat_orang_tua' => 'required|string',
 
             // Validasi Data Imam
@@ -156,12 +148,25 @@ class SantriController extends Controller
         ];
 
 
+
+
         // Gunakan validator
         $validator = Validator::make($request->all(), $rules, $customMessages);
-
+        if (($request->penanggung_biaya == 'wali')) {
+            $validator = Validator::make($request->all(), [
+                // Validasi Data Wali/Pembiaya Sekolah
+                'nama_wali' => 'required|string|max:100|regex:/^[a-zA-Z.`\s]+$/',
+                'alamat_wali' => 'required|string',
+                'no_hp_wali' => 'required|digits_between:10,12',
+                'pekerjaan_wali' => 'required|string',
+                'tanggal_lahir_wali' => 'required|date',
+                'tempat_lahir_wali' => 'required|string|max:100',
+            ], $customMessages);
+        }
         // Check jika validasi gagal
         if ($validator->fails()) {
             $errors = $validator->errors()->first();
+            $errors = $request->penanggung_biaya == 'wali' ? 'Penanggung Biayamu adalah wali jadi ' . $errors : $errors;
             $errors = [
                 'swal' => [
                     'icon' => 'error',
