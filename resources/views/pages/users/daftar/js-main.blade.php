@@ -369,8 +369,8 @@
     function resetPenghasilan(element) {
         const target1 = document.querySelector(element.getAttribute('data-reset-target'))
         const target2 = document.querySelector(target1.getAttribute('data-input-real-target'))
-        target1.value = ''
-        target2.value = ''
+        target1.value = 0
+        target2.value = 0
     }
 </script>
 

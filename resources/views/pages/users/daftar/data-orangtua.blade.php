@@ -55,7 +55,7 @@
             <input type="text" class="form-control ps-1 focus-ring-none z-1" data-input='currency'
                 id="penghasilan_ayah" data-input-real-target="[name=penghasilan_ayah]">
             <input type="number" class="form-control" name="penghasilan_ayah" data-input-fake-ref="#penghasilan_ayah"
-                required hidden max="99999999999">
+                required hidden max="99999999999" value="0">
             <button class="btn btn-danger" id='reset-penghasilan-ayah' onclick="resetPenghasilan(this)" type="button"
                 data-reset-target="#penghasilan_ayah">Reset</button>
         </div>
@@ -140,7 +140,7 @@
             <input type="text" class="form-control ps-1 z-1  focus-ring-none" data-input='currency'
                 id="penghasilan_ibu" data-input-real-target="[name=penghasilan_ibu]">
             <input type="number" class="form-control" name="penghasilan_ibu" data-input-fake-ref="#penghasilan_ibu"
-                required hidden max="99999999999">
+                required hidden max="99999999999" value="0">
             <button class="btn btn-danger" onclick="resetPenghasilan(this)" type="button"
                 data-reset-target="#penghasilan_ibu" id='reset-penghasilan-ibu'>Reset</button>
         </div>

@@ -106,7 +106,7 @@ class SantriController extends Controller
             'tanggal_lahir_ibu' => 'required|date',
             'pendidikan_ibu' => 'required|in:sd,sltp,slta/sederajat,d1,d2,d3,sarjana/d4,s2,s3',
             'pekerjaan_ibu' => 'nullable|string',
-            'penghasilan_ibu' => 'nullable|integer|min:100000',
+            'penghasilan_ibu' => 'nullable|integer|min:0',
             'no_hp_ibu' => 'nullable|digits_between:10,12',
 
             // Validasi Data Wali/Pembiaya Sekolah
