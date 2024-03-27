@@ -77,6 +77,12 @@
             id="prodi" name="prodi" required maxlength="100">
     </div>
     <div class="form-group mb-3 col-3">
+        <label for="tahun_masuk_kuliah" class="required">Tahun masuk kuliah:</label>
+        <input type="number"
+            class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
+            id="tahun_masuk_kuliah" name="tahun_masuk_kuliah" rows="3" min="2000" max="2300">
+    </div>
+    <div class="form-group mb-3 col-3">
         <label for="gelar_saat_lulus" class="required">Gelar ketika lulus:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
@@ -162,12 +168,6 @@
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
             id="cita-cita" name="cita-cita" rows="3" required>
-    </div>
-    <div class="form-group mb-3 col-3">
-        <label for="tahun_masuk_kuliah" class="required">Tahun masuk kuliah:</label>
-        <input type="number"
-            class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="tahun_masuk_kuliah" name="tahun_masuk_kuliah" rows="3" min="2000" max="2300">
     </div>
     <div class="form-group mb-3 col-3">
         <label for="kode_pos" class="required">Kode POS:</label>
