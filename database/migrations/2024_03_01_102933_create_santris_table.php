@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('facebook')->nullable();
             $table->string('fakultas')->length(100);
             $table->string('gelar_saat_lulus')->nullable()->length(20);
-            $table->enum('golongan_darah', ['a', 'b', 'ab', 'o']);
+            $table->enum('golongan_darah', ['a', 'b', 'ab', 'o'])->nullable();
             $table->string('instagram')->nullable();
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->integer('jumlah_hafalan')->default(0)->length(2);
