@@ -22,7 +22,7 @@
         <div class="input-group">
             <input type="number"
                 class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none z-1"
-                id="jumlah_hafalan" name="jumlah_hafalan" required min="1" max="30">
+                id="jumlah_hafalan" name="jumlah_hafalan" required min="0" max="30">
             <span class="input-group-text border-0 rounded-0 bg-transparent border-bottom border-2 ">Juz</span>
         </div>
     </div>
@@ -40,19 +40,19 @@
         <label for="keahlian" class="required">Keahlian:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="keahlian" name="keahlian" required maxlength="255">
+            id="keahlian" name="keahlian" maxlength="255">
     </div>
     <div class="form-group mb-3 col-8 ">
         <label for="prestasi" class="required">Prestasi:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="prestasi" name="prestasi" required>
+            id="prestasi" name="prestasi">
     </div>
     <div class="form-group mb-3 col-8 ">
         <label for="bahasa_asing" class="required">Bahasa asing yang dikuasai:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="bahasa_asing" name="bahasa_asing" required>
+            id="bahasa_asing" name="bahasa_asing">
         <small id="bahasa_asing-help" class="text-muted px-0 col-12 "> Jika tidak ada maka isi dengan "Tidak
             Ada"</small>
     </div>
@@ -60,12 +60,12 @@
         <label for="facebook" class="required">Facebook:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="facebook" name="facebook" required>
+            id="facebook" name="facebook">
     </div>
     <div class="form-group mb-3 col-8 ">
         <label for="instagram" class="required">Instagram:</label>
         <input type="text"
             class="form-control ps-1 bg-transparent border-0 border-bottom border-2 rounded-0 focus-ring-none "
-            id="instagram" name="instagram" required>
+            id="instagram" name="instagram">
     </div>
 </div>
